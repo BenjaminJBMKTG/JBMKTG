@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 ManChat Templates - Curated Prospects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-text {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .form-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .form-section h2 {
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .templates-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .templates-section h2 {
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .template {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .template:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .template h3 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .template p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .template-code {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #333;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .form-section,
+            .templates-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>The Complete ManChat Automation Playbook</h1>
+            <p>5 ready-to-use automation flows that turn Instagram followers into <span class="cta-text">high-ticket clients</span></p>
+            <p style="font-size: 16px; color: #999; margin-top: 20px;">Enter your details below to access all 5 templates instantly</p>
+        </div>
+        
+        <div class="form-section">
+            <div class="success-message" id="successMsg">✓ Check your email for the templates!</div>
+            <form id="captureForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ig">Instagram Handle</label>
+                    <input type="text" id="ig" name="ig" placeholder="@yourhandle" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Get the Templates Now</button>
+            </form>
+        </div>
+        
+        <div class="templates-section">
+            <h2>Here's What You're Getting</h2>
+            
+            <div class="template">
+                <h3>1. New Follower Welcome Sequence</h3>
+                <p><strong>When:</strong> Someone follows you</p>
+                <p><strong>Goal:</strong> Build familiarity + qualify interest</p>
+                <div class="template-code">Message 1 (Immediate):
+"Hey [name]! 👋 Welcome to our community. 
+
+I help [coaches/consultants] turn Instagram into £3-5k client deals.
+
+Quick question - are you looking to do the same?"
+
+Message 2 (If Yes - 2 mins):
+"Perfect! We help with:
+✓ Content strategy (so you get the right followers)
+✓ ManChat automation (so followers become leads)
+✓ Closing (so leads become clients)
+
+Are you actively looking to scale? (yes/maybe/not right now)"
+
+Message 3 (If Yes - 5 mins):
+"Love it! Quick 15-min call to see if it makes sense?
+
+[Calendly link]
+
+No sales pitch - just exploring if we can help."</div>
+            </div>
+            
+            <div class="template">
+                <h3>2. Story Reply Lead Qualifier</h3>
+                <p><strong>When:</strong> Someone replies to your story</p>
+                <p><strong>Goal:</strong> Immediately qualify and move to DM conversation</p>
+                <div class="template-code">Trigger: Story reply containing "hi", "hey", "hello", etc.
+
+Auto-Reply (Immediate):
+"Hey! 👋 Thanks for reaching out. 
+
+Quick question to see if we're a fit:
+
+What's your main goal right now?
+A) More followers
+B) More leads from followers  
+C) More paying clients
+D) Something else"
+
+If Answer = B or C:
+"Perfect - that's exactly what we do.
+
+Are you currently:
+→ Making £2k+ per client?
+→ Serious about scaling this year?
+
+Just need to make sure we're a good fit before we chat."</div>
+            </div>
+            
+            <div class="template">
+                <h3>3. Comment Trigger Flow</h3>
+                <p><strong>When:</strong> Someone comments specific keywords on your posts</p>
+                <p><strong>Goal:</strong> Move engaged followers into sales conversation</p>
+                <div class="template-code">Trigger Keywords: "interested", "help", "how do i", "more info"
+
+Auto-Reply to Comment:
+"Hey [name]! Replied in your DMs 👇"
+
+DM Sequence:
+Message 1:
+"I saw your comment - you seem interested in [the thing].
+
+Most people don't know this, but the biggest difference between creators making £500/month vs £5k/month is ONE thing: they know how to turn followers into actual paying customers.
+
+That's literally all we teach. Sound interesting?"
+
+Message 2 (If engaged):
+"The people doing this well have 3 things:
+1) Right content (gets right people following)
+2) Automation (doesn't leave followers on read)
+3) Offer (actually ask for the sale)
+
+Most creators nail #1 but miss #2 and #3. Which are you strongest at?"</div>
+            </div>
+            
+            <div class="template">
+                <h3>4. The "Ready to Work Together?" Sequence</h3>
+                <p><strong>When:</strong> You send this manually to warm prospects</p>
+                <p><strong>Goal:</strong> Move interested followers to a call or application</p>
+                <div class="template-code">Message 1:
+"Hey [name], been impressed by your content lately.
+
+Quick thought - have you thought about what your 2026 goal is?
+
+Most [coaches/consultants] I talk to want to hit either:
+• 7-figures (requires different approach)
+• 6-figures but with less hustle (most people)
+• Keep it as side income but predictable (some people)
+
+Which sounds like you?"
+
+Message 2 (After response):
+"Got it. Here's the reality - if you want [their goal] without burning out, you can't do it alone.
+
+Most people try to:
+• Create content ✓
+• Engage followers ✓
+• Close sales ✓
+
+All at once. It kills them.
+
+What if you had a system that:
+→ Tells you WHAT to post
+→ Automates follower responses
+→ Qualifies who's actually ready to buy
+
+Then you just close calls. That's it.
+
+Sound useful?"
+
+Message 3 (If interested):
+"I think you could be a good fit.
+
+We've got 2 spots open this month for [niche].
+
+Want to jump on a 15-min call to see if it makes sense?
+
+[Calendly]"</div>
+            </div>
+            
+            <div class="template">
+                <h3>5. Application/Booking Confirmation Flow</h3>
+                <p><strong>When:</strong> Someone books a call or submits an application</p>
+                <p><strong>Goal:</strong> Build hype + confirm attendance</p>
+                <div class="template-code">Trigger: Calendly booking confirmation
+
+Auto-Reply (Immediate):
+"🎉 Booked! See you on [date] at [time]
+
+Quick things before we chat:
+→ What's your biggest struggle right now?
+→ What would make this call a WIN for you?
+
+Send them over and we'll make sure it's super valuable."
+
+24 Hours Before Call:
+"Still on for tomorrow at [time]?
+
+Quick reminder:
+📍 [Zoom link or location]
+⏰ [Time] (don't be late!)
+🎯 We're talking about [specific topic]
+
+Anything else you want me to know? Send it over."
+
+After Call (if good fit):
+"Thanks for hopping on! Really enjoyed our chat.
+
+Just to recap what we discussed:
+✓ [Key point 1]
+✓ [Key point 2]  
+✓ [Key point 3]
+
+Next steps: [Application link or proposal]
+
+Let me know if you have any questions."
+
+After Call (if not a fit):
+"Thanks for chatting! Even though we might not be a perfect fit right now, stay in touch.
+
+I'm always posting content about [your niche] on the feed. Follow if you're interested in staying updated.
+
+Rooting for you! 🙌"</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('captureForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const ig = document.getElementById('ig').value;
+            
+            // Store in localStorage for now (in production, send to your backend)
+            const leads = JSON.parse(localStorage.getItem('cpLeads') || '[]');
+            leads.push({
+                name,
+                email,
+                ig,
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('cpLeads', JSON.stringify(leads));
+            
+            // Show success message
+            document.getElementById('successMsg').style.display = 'block';
+            this.style.display = 'none';
+            
+            // In production, you'd send this to Curated Prospects email/CRM
+            console.log('Lead captured:', {name, email, ig});
+        });
+    </script>
+</body>
+</html>
