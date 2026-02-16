@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         * {
@@ -197,8 +198,14 @@
         }
         
         .problem-icon {
-            font-size: 3rem;
             margin-bottom: 15px;
+            color: var(--orange);
+        }
+        
+        .problem-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke-width: 1.5;
         }
         
         .problem-card h3 {
@@ -499,8 +506,14 @@
         }
         
         .usp-icon {
-            font-size: 3.5rem;
             margin-bottom: 15px;
+            color: var(--orange);
+        }
+        
+        .usp-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke-width: 1.5;
         }
         
         .usp-card h3 {
@@ -721,17 +734,17 @@
             <p class="section-subtitle fade-in">Winter doesn't have to mean shorter rides or frozen fingers.</p>
             <div class="problem-grid">
                 <div class="problem-card fade-in">
-                    <div class="problem-icon">🥶</div>
+                    <div class="problem-icon"><i data-lucide="thermometer-snowflake"></i></div>
                     <h3>Freezing Commutes</h3>
                     <p>Early morning rides where the cold cuts through everything, making every mile uncomfortable.</p>
                 </div>
                 <div class="problem-card fade-in">
-                    <div class="problem-icon">🧥</div>
+                    <div class="problem-icon"><i data-lucide="shirt"></i></div>
                     <h3>Bulky Layers</h3>
                     <p>Piling on thick jumpers that don't fit under your leathers, restricting movement and safety.</p>
                 </div>
                 <div class="problem-card fade-in">
-                    <div class="problem-icon">⚡</div>
+                    <div class="problem-icon"><i data-lucide="calendar-x"></i></div>
                     <h3>Short Riding Season</h3>
                     <p>Giving up on winter rides altogether because the cold is just too brutal to handle.</p>
                 </div>
@@ -933,32 +946,32 @@
             <p class="section-subtitle fade-in">Engineered specifically for riders who refuse to let winter stop them.</p>
             <div class="usps-grid">
                 <div class="usp-card fade-in">
-                    <div class="usp-icon">⚡</div>
+                    <div class="usp-icon"><i data-lucide="zap"></i></div>
                     <h3>30-Second Heat</h3>
                     <p>Instant warmth when you need it. No waiting around in the cold.</p>
                 </div>
                 <div class="usp-card fade-in">
-                    <div class="usp-icon">🔋</div>
+                    <div class="usp-icon"><i data-lucide="battery-full"></i></div>
                     <h3>10-Hour Battery</h3>
                     <p>All-day rides, no problem. Low setting lasts up to 10 hours.</p>
                 </div>
                 <div class="usp-card fade-in">
-                    <div class="usp-icon">👕</div>
+                    <div class="usp-icon"><i data-lucide="minimize-2"></i></div>
                     <h3>No Bulk</h3>
                     <p>Ultra-slim design fits under leathers without restricting movement.</p>
                 </div>
                 <div class="usp-card fade-in">
-                    <div class="usp-icon">🧼</div>
+                    <div class="usp-icon"><i data-lucide="droplets"></i></div>
                     <h3>Machine Washable</h3>
                     <p>Easy care. Remove battery and throw in the wash. Simple.</p>
                 </div>
                 <div class="usp-card fade-in">
-                    <div class="usp-icon">✓</div>
+                    <div class="usp-icon"><i data-lucide="shield-check"></i></div>
                     <h3>CE Certified</h3>
                     <p>Safety tested and certified. Built to the highest standards.</p>
                 </div>
                 <div class="usp-card fade-in">
-                    <div class="usp-icon">📦</div>
+                    <div class="usp-icon"><i data-lucide="heart-handshake"></i></div>
                     <h3>&lt;1% Returns</h3>
                     <p>Riders love their ToastyBody gear. Industry-leading satisfaction.</p>
                 </div>
@@ -1045,9 +1058,9 @@
                     <h4>ToastyBody</h4>
                     <p>Engineered warmth for riders who won't let winter stop them.</p>
                     <div class="trust-badges">
-                        <div class="badge">⭐ 4.9/5</div>
-                        <div class="badge">✓ CE Certified</div>
-                        <div class="badge">📦 Free Shipping</div>
+                        <div class="badge"><i data-lucide="star" style="width:16px;height:16px;fill:var(--orange);color:var(--orange)"></i> 4.9/5</div>
+                        <div class="badge"><i data-lucide="shield-check" style="width:16px;height:16px"></i> CE Certified</div>
+                        <div class="badge"><i data-lucide="truck" style="width:16px;height:16px"></i> Free Shipping</div>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -1088,6 +1101,9 @@
     </footer>
 
     <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
