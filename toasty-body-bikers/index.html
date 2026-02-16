@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heated Motorcycle Gear | Stay Warm on Every Ride | ToastyBody</title>
+    <meta name="description" content="Don't let the cold cut your ride short. ThermoSphere™ heated layers for bikers - slim, powerful, fits under leathers. 30-sec heat-up, 10hr battery. 4.9★ rated.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Heated Motorcycle Gear | Stay Warm on Every Ride | ToastyBody">
+    <meta property="og:description" content="Don't let the cold cut your ride short. ThermoSphere™ heated layers for bikers - slim, powerful, fits under leathers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toastybody.com">
+    <meta property="og:image" content="https://placehold.co/1200x630/E07B39/ffffff?text=ToastyBody+Heated+Gear">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --orange: #E07B39;
+            --green: #108474;
+            --cream: #F7F6F3;
+            --text: #2E2E2E;
+            --white: #ffffff;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--text) 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://placehold.co/1920x1080/2E2E2E/E07B39?text=Motorcycle+Winter+Ride') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .hero .highlight {
+            color: var(--orange);
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(224, 123, 57, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: #d16a28;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(224, 123, 57, 0.6);
+        }
+        
+        .trust-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .trust-item::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--white);
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .problem-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--cream);
+            border-radius: 12px;
+        }
+        
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .problem-card p {
+            color: #666;
+        }
+        
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(135deg, var(--green) 0%, #0d6a5f 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .solution .section-title {
+            color: var(--white);
+        }
+        
+        .solution .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .tech-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .tech-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tech-feature h4 {
+            font-size: 2rem;
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        
+        .tech-feature p {
+            font-size: 0.95rem;
+        }
+        
+        /* Products Section */
+        .products {
+            background: var(--cream);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #e5e5e5;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .product-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .price-current {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--orange);
+        }
+        
+        .price-rrp {
+            font-size: 1.1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            font-size: 0.9rem;
+            color: #666;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+        
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--text);
+            color: var(--white);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--orange);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: var(--white);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--cream);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 5rem;
+            color: var(--orange);
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .testimonial-stars {
+            color: var(--orange);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .author-info strong {
+            display: block;
+            color: var(--text);
+            font-weight: 700;
+        }
+        
+        .author-info span {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        /* Why ToastyBody */
+        .why-toastybody {
+            background: var(--white);
+        }
+        
+        .usps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .usp-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--cream);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .usp-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .usp-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .usp-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .usp-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            background: var(--cream);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--cream);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 2rem;
+            color: var(--orange);
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 25px 25px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--orange) 0%, #d16a28 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button-white {
+            display: inline-block;
+            background: var(--white);
+            color: var(--orange);
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--orange);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--orange);
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+            
+            .hero {
+                padding: 60px 20px 80px;
+            }
+            
+            .trust-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .steps {
+                gap: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Don't Let The <span class="highlight">Cold</span> Cut Your Ride Short</h1>
+            <p>ThermoSphere™ heated layers designed for bikers. Slim, powerful, fits perfectly under your leathers. Ride warm, ride longer.</p>
+            <a href="https://toastybody.com" class="cta-button">Shop Biker Essentials →</a>
+            <div class="trust-bar">
+                <div class="trust-item">4.9★ Rating</div>
+                <div class="trust-item">15,000+ Riders</div>
+                <div class="trust-item">30-Day Guarantee</div>
+                <div class="trust-item">Free Shipping</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title fade-in">Every Rider Knows The Pain</h2>
+            <p class="section-subtitle fade-in">Winter doesn't have to mean shorter rides or frozen fingers.</p>
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🥶</div>
+                    <h3>Freezing Commutes</h3>
+                    <p>Early morning rides where the cold cuts through everything, making every mile uncomfortable.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🧥</div>
+                    <h3>Bulky Layers</h3>
+                    <p>Piling on thick jumpers that don't fit under your leathers, restricting movement and safety.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">⚡</div>
+                    <h3>Short Riding Season</h3>
+                    <p>Giving up on winter rides altogether because the cold is just too brutal to handle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title fade-in">ThermoSphere™ Technology Built For Riders</h2>
+            <p class="section-subtitle fade-in">Slim, flexible heated layers that fit perfectly under your motorcycle gear. No bulk, just warmth.</p>
+            <div class="tech-features">
+                <div class="tech-feature fade-in">
+                    <h4>30 Sec</h4>
+                    <p>Heat-up time from cold to warm</p>
+                </div>
+                <div class="tech-feature fade-in">
+                    <h4>10 Hours</h4>
+                    <p>Battery runtime on low setting</p>
+                </div>
+                <div class="tech-feature fade-in">
+                    <h4>3 Settings</h4>
+                    <p>25°C / 35°C / 45°C temperature control</p>
+                </div>
+                <div class="tech-feature fade-in">
+                    <h4>USB Power</h4>
+                    <p>Works with any standard power bank</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title fade-in">Heated Gear For Every Rider</h2>
+            <p class="section-subtitle fade-in">From base layers to gloves, stay warm from helmet to boots.</p>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <img src="https://placehold.co/600x500/E07B39/ffffff?text=Heated+Base+Layer+Set" alt="Heated Base Layer Set" class="product-image">
+                    <div class="product-content">
+                        <h3>Heated Base Layer Set</h3>
+                        <p>Top + pants with 28 heat zones. Perfect under leathers.</p>
+                        <div class="product-price">
+                            <span class="price-current">£179.99</span>
+                            <span class="price-rrp">£299.98</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>28 heat zones for full coverage</li>
+                            <li>Ultra-slim fit under leathers</li>
+                            <li>10-hour battery life</li>
+                            <li>Machine washable</li>
+                        </ul>
+                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <img src="https://placehold.co/600x500/108474/ffffff?text=Heated+Gilet" alt="Heated Gilet" class="product-image">
+                    <div class="product-content">
+                        <h3>Heated Gilet</h3>
+                        <p>Core warmth without bulk. 9 heat zones targeting vital areas.</p>
+                        <div class="product-price">
+                            <span class="price-current">£79.99</span>
+                            <span class="price-rrp">£119.99</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>9 targeted heat zones</li>
+                            <li>Lightweight & flexible</li>
+                            <li>Fits under any jacket</li>
+                            <li>Men's & women's sizes</li>
+                        </ul>
+                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <img src="https://placehold.co/600x500/2E2E2E/ffffff?text=Heated+Gloves" alt="Heated Gloves" class="product-image">
+                    <div class="product-content">
+                        <h3>Heated Gloves</h3>
+                        <p>Keep your grip warm and responsive in freezing conditions.</p>
+                        <div class="product-price">
+                            <span class="price-current">£69.99</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>Full-hand heating coverage</li>
+                            <li>Touchscreen compatible</li>
+                            <li>Flexible for full grip control</li>
+                            <li>Water-resistant outer</li>
+                        </ul>
+                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in">
+                    <img src="https://placehold.co/600x500/E07B39/ffffff?text=Heated+Socks" alt="Heated Socks" class="product-image">
+                    <div class="product-content">
+                        <h3>Heated Socks</h3>
+                        <p>Warm feet = comfortable ride. Essential for winter boots.</p>
+                        <div class="product-price">
+                            <span class="price-current">£49.99</span>
+                        </div>
+                        <ul class="product-features">
+                            <li>Toe & sole heating zones</li>
+                            <li>Thin enough for riding boots</li>
+                            <li>8-hour battery life</li>
+                            <li>Moisture-wicking fabric</li>
+                        </ul>
+                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title fade-in">Simple, Powerful, Reliable</h2>
+            <p class="section-subtitle fade-in">Three steps to never cutting a ride short due to cold again.</p>
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Charge</h3>
+                    <p>Connect any USB power bank to your heated layer. Full charge takes 2-3 hours and lasts up to 10 hours on low.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Wear</h3>
+                    <p>Slip on your heated gear under your leathers. Ultra-slim design means no bulk, no restriction, just warmth.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Ride</h3>
+                    <p>Hit the road with instant heat in 30 seconds. Adjust between 3 heat settings on the go. Ride longer, ride warmer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Trusted By Riders Across The UK</h2>
+            <p class="section-subtitle fade-in">See what fellow bikers are saying about staying warm this winter.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Game changer for my morning commute. I was about to give up riding through winter but these base layers fit perfectly under my leathers. Haven't been cold once since I got them."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <strong>Marcus T.</strong>
+                            <span>Triumph Street Triple owner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Skeptical at first but absolutely worth it. The gilet heats up in seconds and I can actually feel my fingers on long rides now. No more bulky layers that don't fit under my jacket."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <strong>Sarah K.</strong>
+                            <span>BMW GS rider</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Best investment I've made for winter riding. Battery lasts my entire weekend tour and the heated gloves mean I can actually feel the controls. Proper kit that actually works."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">D</div>
+                        <div class="author-info">
+                            <strong>Dave L.</strong>
+                            <span>Harley Davidson owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why ToastyBody -->
+    <section class="why-toastybody">
+        <div class="container">
+            <h2 class="section-title fade-in">Why ToastyBody For Bikers?</h2>
+            <p class="section-subtitle fade-in">Engineered specifically for riders who refuse to let winter stop them.</p>
+            <div class="usps-grid">
+                <div class="usp-card fade-in">
+                    <div class="usp-icon">⚡</div>
+                    <h3>30-Second Heat</h3>
+                    <p>Instant warmth when you need it. No waiting around in the cold.</p>
+                </div>
+                <div class="usp-card fade-in">
+                    <div class="usp-icon">🔋</div>
+                    <h3>10-Hour Battery</h3>
+                    <p>All-day rides, no problem. Low setting lasts up to 10 hours.</p>
+                </div>
+                <div class="usp-card fade-in">
+                    <div class="usp-icon">👕</div>
+                    <h3>No Bulk</h3>
+                    <p>Ultra-slim design fits under leathers without restricting movement.</p>
+                </div>
+                <div class="usp-card fade-in">
+                    <div class="usp-icon">🧼</div>
+                    <h3>Machine Washable</h3>
+                    <p>Easy care. Remove battery and throw in the wash. Simple.</p>
+                </div>
+                <div class="usp-card fade-in">
+                    <div class="usp-icon">✓</div>
+                    <h3>CE Certified</h3>
+                    <p>Safety tested and certified. Built to the highest standards.</p>
+                </div>
+                <div class="usp-card fade-in">
+                    <div class="usp-icon">📦</div>
+                    <h3>&lt;1% Returns</h3>
+                    <p>Riders love their ToastyBody gear. Industry-leading satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Common Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Will it fit under my motorcycle leathers?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! Our heated layers are designed specifically to be ultra-slim and flexible. They're made from thin, technical fabric with low-profile heating elements that sit flat against your body. Thousands of bikers wear them under leather jackets, textile suits, and racing leathers with no issues.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">How long does the battery actually last?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            On low heat (25°C), up to 10 hours. Medium (35°C) gives you 6-7 hours, and high (45°C) runs for 3-4 hours. Most riders use low or medium for commuting and save high for really cold days. You can also connect to your bike's USB port for unlimited runtime.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Is it safe to wear while riding?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely. All ToastyBody products are CE certified for electrical safety. The heating elements are sealed and waterproof, and the system has automatic shut-off if it overheats (which it won't). It's safer than piling on bulky layers that restrict your movement and visibility.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">What if I need a different size or don't like it?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We offer a 30-day money-back guarantee, no questions asked. If it doesn't fit or you're not satisfied, just send it back for a full refund or exchange. We also have detailed sizing guides on each product page, and our customer support team can help you choose the right size.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Can I wash them?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! Remove the battery pack, and you can machine wash on a gentle cycle. Hang to dry (don't tumble dry). The heating elements are fully sealed and waterproof, so washing won't damage them at all.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">Do I need to buy a special battery?</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nope! Any standard USB power bank works (we recommend 10,000mAh or higher for all-day use). If you already have one for your phone, it'll work. You can also plug directly into your bike's USB port if you have one installed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="fade-in">Don't Let The Cold Cut Your Ride Short</h2>
+            <p class="fade-in">Join 15,000+ riders who've extended their season with ToastyBody heated gear.</p>
+            <a href="https://toastybody.com" class="cta-button-white fade-in">Start Riding Warm Today →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ToastyBody</h4>
+                    <p>Engineered warmth for riders who won't let winter stop them.</p>
+                    <div class="trust-badges">
+                        <div class="badge">⭐ 4.9/5</div>
+                        <div class="badge">✓ CE Certified</div>
+                        <div class="badge">📦 Free Shipping</div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="https://toastybody.com">Base Layers</a></li>
+                        <li><a href="https://toastybody.com">Heated Gilets</a></li>
+                        <li><a href="https://toastybody.com">Heated Gloves</a></li>
+                        <li><a href="https://toastybody.com">Heated Socks</a></li>
+                        <li><a href="https://toastybody.com">Hoodies & Jackets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="https://toastybody.com">Sizing Guide</a></li>
+                        <li><a href="https://toastybody.com">30-Day Returns</a></li>
+                        <li><a href="https://toastybody.com">How It Works</a></li>
+                        <li><a href="https://toastybody.com">FAQs</a></li>
+                        <li><a href="https://toastybody.com">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://toastybody.com">About Us</a></li>
+                        <li><a href="https://toastybody.com">Reviews</a></li>
+                        <li><a href="https://toastybody.com">Shipping Info</a></li>
+                        <li><a href="https://toastybody.com">Privacy Policy</a></li>
+                        <li><a href="https://toastybody.com">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToastyBody. All rights reserved. Stay warm, ride longer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
