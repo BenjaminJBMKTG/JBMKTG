@@ -783,88 +783,8 @@
         <div class="container">
             <h2 class="section-title fade-in">Heated Gear For Every Rider</h2>
             <p class="section-subtitle fade-in">From base layers to gloves, stay warm from helmet to boots.</p>
-            <div class="products-grid">
-                <div class="product-card fade-in">
-                    <img src="https://placehold.co/600x500/E07B39/ffffff?text=Heated+Base+Layer+Set" alt="Heated Base Layer Set" class="product-image">
-                    <div class="product-content">
-                        <h3>Heated Base Layer Set</h3>
-                        <p>Top + pants with 28 heat zones. Perfect under leathers.</p>
-                        <div class="product-price">
-                            <span class="price-current">£179.99</span>
-                            <span class="price-rrp">£299.98</span>
-                        </div>
-                        <ul class="product-features">
-                            <li>28 heat zones for full coverage</li>
-                            <li>Ultra-slim fit under leathers</li>
-                            <li>10-hour battery life</li>
-                            <li>Machine washable</li>
-                        </ul>
-                        <!-- Shopify Buy Button: Replace with embed code for Heated Base Layer Set -->
-                        <div class="shopify-embed" id="product-base-layer-set"></div>
-                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
-                    </div>
-                </div>
-
-                <div class="product-card fade-in">
-                    <img src="https://placehold.co/600x500/2E2E2E/ffffff?text=Heated+Gilet" alt="Heated Gilet" class="product-image">
-                    <div class="product-content">
-                        <h3>Heated Gilet</h3>
-                        <p>Core warmth without bulk. 9 heat zones targeting vital areas.</p>
-                        <div class="product-price">
-                            <span class="price-current">£79.99</span>
-                            <span class="price-rrp">£119.99</span>
-                        </div>
-                        <ul class="product-features">
-                            <li>9 targeted heat zones</li>
-                            <li>Lightweight & flexible</li>
-                            <li>Fits under any jacket</li>
-                            <li>Men's & women's sizes</li>
-                        </ul>
-                        <!-- Shopify Buy Button: Replace with embed code for Heated Gilet -->
-                        <div class="shopify-embed" id="product-gilet"></div>
-                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
-                    </div>
-                </div>
-
-                <div class="product-card fade-in">
-                    <img src="https://placehold.co/600x500/2E2E2E/ffffff?text=Heated+Gloves" alt="Heated Gloves" class="product-image">
-                    <div class="product-content">
-                        <h3>Heated Gloves</h3>
-                        <p>Keep your grip warm and responsive in freezing conditions.</p>
-                        <div class="product-price">
-                            <span class="price-current">£69.99</span>
-                        </div>
-                        <ul class="product-features">
-                            <li>Full-hand heating coverage</li>
-                            <li>Touchscreen compatible</li>
-                            <li>Flexible for full grip control</li>
-                            <li>Water-resistant outer</li>
-                        </ul>
-                        <!-- Shopify Buy Button: Replace with embed code for Heated Gloves -->
-                        <div class="shopify-embed" id="product-gloves"></div>
-                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
-                    </div>
-                </div>
-
-                <div class="product-card fade-in">
-                    <img src="https://placehold.co/600x500/E07B39/ffffff?text=Heated+Socks" alt="Heated Socks" class="product-image">
-                    <div class="product-content">
-                        <h3>Heated Socks</h3>
-                        <p>Warm feet = comfortable ride. Essential for winter boots.</p>
-                        <div class="product-price">
-                            <span class="price-current">£49.99</span>
-                        </div>
-                        <ul class="product-features">
-                            <li>Toe & sole heating zones</li>
-                            <li>Thin enough for riding boots</li>
-                            <li>8-hour battery life</li>
-                            <li>Moisture-wicking fabric</li>
-                        </ul>
-                        <!-- Shopify Buy Button: Replace with embed code for Heated Socks -->
-                        <div class="shopify-embed" id="product-socks"></div>
-                        <a href="https://toastybody.com" class="btn-secondary">Shop Now →</a>
-                    </div>
-                </div>
+            <div class="products-grid fade-in">
+                <div id='product-component-1771227906821'></div>
             </div>
         </div>
     </section>
@@ -1099,6 +1019,182 @@
             </div>
         </div>
     </footer>
+
+    <!-- Shopify Buy Button -->
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: '436c69-1a.myshopify.com',
+          storefrontAccessToken: '9289f2b04a6c1400494ff256d7625447',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '9454100545866',
+            node: document.getElementById('product-component-1771227906821'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+      "product": {
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0px",
+              "margin-bottom": "50px"
+            }
+          },
+          "button": {
+            "font-family": "Lato, sans-serif",
+            "font-size": "16px",
+            "padding-top": "16px",
+            "padding-bottom": "16px",
+            ":hover": {
+              "background-color": "#c96a2a"
+            },
+            "background-color": "#E07B39",
+            ":focus": {
+              "background-color": "#c96a2a"
+            },
+            "border-radius": "50px",
+            "font-weight": "700"
+          },
+          "quantityInput": {
+            "font-size": "16px",
+            "padding-top": "16px",
+            "padding-bottom": "16px"
+          }
+        },
+        "text": {
+          "button": "Add to cart"
+        },
+        "googleFonts": [
+          "Lato"
+        ]
+      },
+      "productSet": {
+        "styles": {
+          "products": {
+            "@media (min-width: 601px)": {
+              "margin-left": "-20px"
+            }
+          }
+        }
+      },
+      "modalProduct": {
+        "contents": {
+          "img": false,
+          "imgWithCarousel": true,
+          "button": false,
+          "buttonWithQuantity": true
+        },
+        "styles": {
+          "product": {
+            "@media (min-width: 601px)": {
+              "max-width": "100%",
+              "margin-left": "0px",
+              "margin-bottom": "0px"
+            }
+          },
+          "button": {
+            "font-family": "Lato, sans-serif",
+            "font-size": "16px",
+            "padding-top": "16px",
+            "padding-bottom": "16px",
+            ":hover": {
+              "background-color": "#c96a2a"
+            },
+            "background-color": "#E07B39",
+            ":focus": {
+              "background-color": "#c96a2a"
+            },
+            "border-radius": "50px",
+            "font-weight": "700"
+          },
+          "quantityInput": {
+            "font-size": "16px",
+            "padding-top": "16px",
+            "padding-bottom": "16px"
+          }
+        },
+        "googleFonts": [
+          "Lato"
+        ],
+        "text": {
+          "button": "Add to cart"
+        }
+      },
+      "option": {},
+      "cart": {
+        "styles": {
+          "button": {
+            "font-family": "Lato, sans-serif",
+            "font-size": "16px",
+            "padding-top": "16px",
+            "padding-bottom": "16px",
+            ":hover": {
+              "background-color": "#c96a2a"
+            },
+            "background-color": "#E07B39",
+            ":focus": {
+              "background-color": "#c96a2a"
+            },
+            "border-radius": "50px",
+            "font-weight": "700"
+          }
+        },
+        "text": {
+          "total": "Subtotal",
+          "button": "Checkout"
+        },
+        "googleFonts": [
+          "Lato"
+        ]
+      },
+      "toggle": {
+        "styles": {
+          "toggle": {
+            "font-family": "Lato, sans-serif",
+            "background-color": "#E07B39",
+            ":hover": {
+              "background-color": "#c96a2a"
+            },
+            ":focus": {
+              "background-color": "#c96a2a"
+            }
+          },
+          "count": {
+            "font-size": "16px"
+          }
+        },
+        "googleFonts": [
+          "Lato"
+        ]
+      }
+    },
+          });
+        });
+      }
+    })();
+    /*]]>*/
+    </script>
 
     <script>
         // Initialize Lucide icons
