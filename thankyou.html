@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for Booking! - JB Marketing</title>
+    <link rel="stylesheet" href="https://jbmktg.com/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Kulim+Park:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kulim Park', sans-serif;
+            background: #0B0B12;
+            color: #EDEBFF;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: #423ECC;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #B7B3E6;
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        /* Quick Nav */
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(66, 62, 204, 0.05);
+            border-radius: 16px;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .quick-nav a {
+            color: #C3BCFF;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #423ECC;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .quick-nav a:hover {
+            background: #423ECC;
+            color: #EDEBFF;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 42px;
+            color: #6E63FF;
+            margin-bottom: 32px;
+        }
+
+        section p {
+            font-size: 20px;
+            color: #EDEBFF;
+            margin-bottom: 20px;
+        }
+
+        /* Personal Intro */
+        .intro {
+            background: linear-gradient(135deg, rgba(66, 62, 204, 0.1) 0%, rgba(11, 11, 18, 0.1) 100%);
+            border-left: 4px solid #423ECC;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        /* Video Section */
+        .video-container {
+            background: rgba(66, 62, 204, 0.1);
+            border: 2px dashed #423ECC;
+            border-radius: 16px;
+            padding: 80px 40px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            font-size: 24px;
+            color: #6E63FF;
+            font-weight: 600;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: rgba(66, 62, 204, 0.1);
+            border: 1px solid #423ECC;
+            border-radius: 16px;
+            padding: 40px 24px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            background: rgba(66, 62, 204, 0.15);
+        }
+
+        .stat-number {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 48px;
+            color: #423ECC;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .stat-description {
+            font-size: 18px;
+            color: #B7B3E6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(66, 62, 204, 0.08);
+            border-left: 4px solid #423ECC;
+            padding: 32px;
+            border-radius: 8px;
+        }
+
+        .testimonial-text {
+            font-size: 20px;
+            color: #EDEBFF;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 18px;
+            color: #6E63FF;
+            font-weight: 600;
+        }
+
+        .testimonial-company {
+            font-size: 16px;
+            color: #B7B3E6;
+        }
+
+        /* Ad Screenshots Grid */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .screenshot-placeholder {
+            background: rgba(66, 62, 204, 0.1);
+            border: 2px dashed #423ECC;
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #6E63FF;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-placeholder:hover {
+            transform: scale(1.05);
+            background: rgba(66, 62, 204, 0.15);
+        }
+
+        /* FAQ Section */
+        .faq {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: rgba(66, 62, 204, 0.05);
+            border: 1px solid #423ECC;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #EDEBFF;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(66, 62, 204, 0.1);
+            color: #6E63FF;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: #423ECC;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 24px 24px 24px;
+        }
+
+        .faq-answer p {
+            color: #B7B3E6;
+            font-size: 18px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #423ECC 0%, #6E63FF 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: #EDEBFF;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            color: #EDEBFF;
+            font-size: 20px;
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0B0B12;
+            color: #EDEBFF;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(66, 62, 204, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            section h2 {
+                font-size: 32px;
+            }
+
+            section p {
+                font-size: 18px;
+            }
+
+            .quick-nav {
+                flex-direction: column;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro {
+                padding: 24px;
+            }
+
+            .video-container {
+                padding: 40px 20px;
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Thanks for Booking!</h1>
+        <p>You just made a smart move. Seriously. Most ecommerce brands are leaving thousands on the table with Google Ads, and you're about to fix that.</p>
+        
+        <div class="quick-nav">
+            <a href="#intro">Who We Are</a>
+            <a href="#video">Watch This First</a>
+            <a href="#results">Our Results</a>
+            <a href="#testimonials">What Clients Say</a>
+            <a href="#proof">Campaign Proof</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </div>
+
+    <!-- Personal Intro Section -->
+    <section id="intro">
+        <div class="intro">
+            <h2>Here's What Happens Next</h2>
+            <p>If you're here, you've just booked a strategy call with us. First off, thanks for trusting us with your time.</p>
+            
+            <p>I'm Ben (or James, depending on who you booked with). We run JB Marketing, and we do one thing: Google Ads for ecommerce brands. Not local businesses. Not B2B SaaS. Just ecommerce. We've spent years in the trenches running campaigns, burning through budget to figure out what actually works, and now we help brands like yours scale profitably.</p>
+            
+            <p>Here's the deal. Most ecommerce brands come to us after wasting thousands on Google Ads that didn't convert. Maybe you've tried it yourself. Maybe your last agency promised the world and delivered crickets. We get it. That's why we're not here to sell you on vague promises. We're here to show you exactly what's broken, what's working for your competitors, and how we'd fix it for you.</p>
+            
+            <p>On our call, we'll dig into your current campaigns (if you have any), your profit margins, your customer acquisition costs, and your goals. We'll be straight with you. If Google Ads isn't the right fit for your business right now, we'll tell you. If it is, we'll walk you through exactly how we'd structure your campaigns to get you profitable results.</p>
+            
+            <p>This isn't a sales pitch. It's a genuine strategy session. Come prepared with questions, your current numbers, and what you want to achieve. We'll bring the Google Ads expertise, the data, and a plan to get you there.</p>
+            
+            <p>Looking forward to it.</p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video">
+        <h2>Watch This Before Our Call</h2>
+        <p>This quick video breaks down our process and what to expect. It'll make our call way more productive.</p>
+        <div class="video-container">
+            <div class="video-placeholder">[VIDEO PLACEHOLDER - Embed your intro/process video here]</div>
+        </div>
+    </section>
+
+    <!-- Stats/Results Section -->
+    <section id="results">
+        <h2>Why Ecommerce Brands Work With Us</h2>
+        <p>We don't do fluff. Here are the real numbers from our clients:</p>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">[STAT 1]</div>
+                <div class="stat-description">Average ROAS across all ecommerce clients in first 90 days</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">[STAT 2]</div>
+                <div class="stat-description">Total ad spend managed for ecommerce brands this year</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">[STAT 3]</div>
+                <div class="stat-description">Average monthly revenue increase for ecommerce clients after 6 months</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>What Our Ecommerce Clients Say</h2>
+        <p>Don't take our word for it. Here's what brands we've worked with have to say:</p>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="testimonial-text">[TESTIMONIAL PLACEHOLDER - Add client testimonial quote here about results, experience, or impact]</div>
+                <div class="testimonial-author">[Client Name]</div>
+                <div class="testimonial-company">[Ecommerce Brand Name & Title]</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">[TESTIMONIAL PLACEHOLDER - Add client testimonial quote here about results, experience, or impact]</div>
+                <div class="testimonial-author">[Client Name]</div>
+                <div class="testimonial-company">[Ecommerce Brand Name & Title]</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">[TESTIMONIAL PLACEHOLDER - Add client testimonial quote here about results, experience, or impact]</div>
+                <div class="testimonial-author">[Client Name]</div>
+                <div class="testimonial-company">[Ecommerce Brand Name & Title]</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">[TESTIMONIAL PLACEHOLDER - Add client testimonial quote here about results, experience, or impact]</div>
+                <div class="testimonial-author">[Client Name]</div>
+                <div class="testimonial-company">[Ecommerce Brand Name & Title]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Screenshots Section -->
+    <section id="proof">
+        <h2>Real Campaigns, Real Results</h2>
+        <p>Here's a look at some of the campaigns we've run for ecommerce brands. These aren't mockups. These are actual ads and dashboards from live accounts.</p>
+        <div class="screenshot-grid">
+            <div class="screenshot-placeholder">[AD SCREENSHOT PLACEHOLDER 1 - Add campaign performance screenshot]</div>
+            <div class="screenshot-placeholder">[AD SCREENSHOT PLACEHOLDER 2 - Add campaign performance screenshot]</div>
+            <div class="screenshot-placeholder">[AD SCREENSHOT PLACEHOLDER 3 - Add campaign performance screenshot]</div>
+            <div class="screenshot-placeholder">[AD SCREENSHOT PLACEHOLDER 4 - Add campaign performance screenshot]</div>
+            <div class="screenshot-placeholder">[AD SCREENSHOT PLACEHOLDER 5 - Add campaign performance screenshot]</div>
+            <div class="screenshot-placeholder">[AD SCREENSHOT PLACEHOLDER 6 - Add campaign performance screenshot]</div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <h2>Questions You Might Have</h2>
+        <p>Here are the most common questions we get before calls. If you have others, just bring them to the call.</p>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">
+                    What should I prepare for the call?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Bring your current Google Ads performance (if you're running ads), your average order value, profit margins, and monthly revenue goals. The more context you give us, the better we can tailor our strategy to your business.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How much does it cost to work with you?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our agency retainer is £2k/month with a minimum 3-month commitment. This covers full campaign setup, management, optimization, and regular reporting. We'll talk through pricing and what's included on the call.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What kind of results can I expect?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>It depends on your product, margins, and market. We're not going to promise 10x ROAS overnight. What we will do is build campaigns that are profitable from day one, then scale them aggressively. Most of our ecommerce clients see positive ROI within the first 60-90 days.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you work with brands in my niche?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We work exclusively with ecommerce brands across all niches (fashion, home goods, health/beauty, electronics, etc.). If you sell physical products online, we can help. We'll discuss your specific niche and competition on the call.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What if Google Ads isn't right for my business?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We'll tell you. Seriously. If your margins are too thin, your product isn't search-friendly, or your market is too small, we're not going to take your money. We'd rather be honest and point you in the right direction than waste your time and ours.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How involved do I need to be?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Not very. We handle everything from strategy to execution. You'll get weekly updates and monthly deep-dive reports. We'll need your input on creative assets and landing pages, but day-to-day campaign management is all on us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta">
+        <div class="cta-section">
+            <h2>Still Have Questions?</h2>
+            <p>No worries. If something came up and you can't make the call, or if you just want to chat before we meet, hit us up on Instagram.</p>
+            <a href="https://www.instagram.com/jbmktgads/" class="cta-button" target="_blank">DM Us on Instagram</a>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
