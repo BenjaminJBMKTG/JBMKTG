@@ -474,6 +474,18 @@
         scriptId: "budgetPacing"
       },
       {
+        title: "Broken URL Notifications",
+        desc: "A Google Ads script that crawls Final URLs across ads, keywords, and sitelink extensions, flags 404s and timeouts, and sends a formatted HTML email summary.",
+        category: "scripts",
+        tags: ["google ads", "scripts", "broken urls", "404", "sitelinks"],
+        updated: "2026-02-20",
+        format: "Script",
+        downloadUrl: "#",
+        previewUrl: "",
+        isScript: true,
+        scriptId: "brokenUrls"
+      },
+      {
         title: "AI Video Workflow",
         desc: "A step-by-step workflow for producing short-form ad videos with AI (brief → script → scenes → edit → variants).",
         category: "guides",
@@ -632,6 +644,515 @@
 
     // ---- Script code storage ----
     const scriptCodes = {
+      brokenUrls: `/**
+ * ============================================================
+ *  BROKEN URL NOTIFICATION SCRIPT
+ *  Google Ads Scripts Template
+ *
+ *  Version:  1.0.0
+ *  Schedule: Recommended — once daily (off-peak, e.g. 2am)
+ * ============================================================
+ *
+ *  WHAT THIS SCRIPT DOES:
+ *  - Crawls Final URLs across ads, keywords, and sitelink extensions
+ *  - Flags URLs returning HTTP 404 errors or connection timeouts
+ *  - Sends a formatted HTML summary email listing every broken URL
+ *    with its entity type, campaign, ad group, and error reason
+ *
+ *  HOW TO SET UP:
+ *  1. Fill in the CONFIG section below
+ *  2. Paste into Google Ads > Tools > Scripts
+ *  3. Authorise and set schedule to "Daily" (recommend 2–3am)
+ *
+ *  NOTES:
+ *  - Google Scripts has a 30-minute execution limit. If you have
+ *    a very large account, use CAMPAIGN_FILTER or MAX_URLS_PER_TYPE
+ *    to keep within limits.
+ *  - URLs are deduplicated before checking — the same URL shared
+ *    across multiple entities is only fetched once.
+ * ============================================================
+ */
+
+
+/* ============================================================
+   CONFIG — Edit everything in this section
+   ============================================================ */
+
+var CONFIG = {
+
+  // ----------------------------------------------------------
+  // EMAIL NOTIFICATIONS
+  // ----------------------------------------------------------
+  EMAIL: {
+    RECIPIENTS     : ['you@example.com', 'teammate@example.com'],
+    SUBJECT_PREFIX : '[Google Ads] Broken URL Alert',
+  },
+
+
+  // ----------------------------------------------------------
+  // WHAT TO CHECK
+  // Set any to false to skip that entity type entirely.
+  // ----------------------------------------------------------
+  CHECK: {
+    AD_FINAL_URLS      : true,  // Final URLs on ads
+    KEYWORD_FINAL_URLS : true,  // Final URLs on keywords
+    SITELINK_URLS      : true,  // Sitelink extension URLs (account & campaign level)
+  },
+
+
+  // ----------------------------------------------------------
+  // URL CHECK SETTINGS
+  // ----------------------------------------------------------
+  URL_CHECK: {
+    // Timeout in seconds before a URL is flagged as unreachable.
+    TIMEOUT_SECONDS : 10,
+
+    // Number of times to retry a URL before marking it broken.
+    // Helps avoid false positives from transient blips.
+    RETRY_COUNT : 1,
+
+    // Pause between retries in milliseconds.
+    RETRY_DELAY_MS : 2000,
+
+    // Cap on how many URLs to check per entity type.
+    // Increase if your account is small; lower if hitting time limits.
+    MAX_URLS_PER_TYPE : 200,
+  },
+
+
+  // ----------------------------------------------------------
+  // CAMPAIGN FILTERS
+  // ----------------------------------------------------------
+  CAMPAIGN_FILTER: {
+    // Only check entities in campaigns whose names CONTAIN one of these.
+    // Leave empty [] to check ALL campaigns.
+    INCLUDE_NAME_CONTAINS : [],           // e.g. ['Brand', 'Shopping']
+
+    // Skip campaigns whose names CONTAIN one of these strings.
+    EXCLUDE_NAME_CONTAINS : ['[EXCLUDE]', 'Paused Test'],
+
+    // Only check entities in campaigns with these statuses.
+    INCLUDE_STATUSES      : ['ENABLED'],
+  },
+
+
+  // ----------------------------------------------------------
+  // URL IGNORE LIST
+  // URLs or URL substrings to never flag, even if they error.
+  // Useful for known redirects, internal tools, or staging URLs.
+  // ----------------------------------------------------------
+  IGNORE_URL_CONTAINS: [
+    // 'staging.example.com',
+    // 'internal-tool',
+  ],
+
+
+  // ----------------------------------------------------------
+  // TIMEZONE
+  // Must match your Google Ads account timezone.
+  // Full list: https://www.joda.org/joda-time/timezones.html
+  // ----------------------------------------------------------
+  TIMEZONE: 'Australia/Sydney',
+
+};
+
+
+/* ============================================================
+   SCRIPT LOGIC — No edits needed below this line
+   ============================================================ */
+
+function main() {
+  var runTime = Utilities.formatDate(new Date(), CONFIG.TIMEZONE, 'yyyy-MM-dd HH:mm z');
+  var accountName = AdsApp.currentAccount().getName();
+
+  Logger.log('=== Broken URL Script ===');
+  Logger.log('Account  : ' + accountName);
+  Logger.log('Run time : ' + runTime);
+
+  var allBroken = [];
+
+  if (CONFIG.CHECK.AD_FINAL_URLS) {
+    Logger.log('--- Checking Ad Final URLs ---');
+    var broken = checkAdUrls();
+    Logger.log('Broken ad URLs found: ' + broken.length);
+    allBroken = allBroken.concat(broken);
+  }
+
+  if (CONFIG.CHECK.KEYWORD_FINAL_URLS) {
+    Logger.log('--- Checking Keyword Final URLs ---');
+    var broken = checkKeywordUrls();
+    Logger.log('Broken keyword URLs found: ' + broken.length);
+    allBroken = allBroken.concat(broken);
+  }
+
+  if (CONFIG.CHECK.SITELINK_URLS) {
+    Logger.log('--- Checking Sitelink Extension URLs ---');
+    var broken = checkSitelinkUrls();
+    Logger.log('Broken sitelink URLs found: ' + broken.length);
+    allBroken = allBroken.concat(broken);
+  }
+
+  Logger.log('Total broken URLs: ' + allBroken.length);
+
+  if (allBroken.length > 0) {
+    sendEmail(allBroken, accountName, runTime);
+  } else {
+    Logger.log('No broken URLs found. No email sent.');
+  }
+
+  Logger.log('=== Script Complete ===');
+}
+
+
+// ------------------------------------------------------------
+// AD FINAL URL CHECKER
+// ------------------------------------------------------------
+
+function checkAdUrls() {
+  var broken   = [];
+  var urlMap   = {}; // url -> [{ campaign, adGroup, adId }]
+  var count    = 0;
+
+  var adSelector = AdsApp.ads()
+    .withCondition("Status = 'ENABLED'")
+    .withCondition("AdGroupStatus = 'ENABLED'")
+    .withCondition("CampaignStatus = 'ENABLED'");
+
+  adSelector = applyCampaignNameFilter(adSelector);
+
+  var adIterator = adSelector.get();
+
+  while (adIterator.hasNext() && count < CONFIG.URL_CHECK.MAX_URLS_PER_TYPE) {
+    var ad       = adIterator.next();
+    var urls     = getAdFinalUrls(ad);
+    var campaign = ad.getCampaign().getName();
+    var adGroup  = ad.getAdGroup().getName();
+    var adId     = ad.getId();
+
+    urls.forEach(function(url) {
+      if (!url || shouldIgnoreUrl(url)) return;
+      if (!urlMap[url]) urlMap[url] = [];
+      urlMap[url].push({ type: 'Ad', campaign: campaign, adGroup: adGroup, id: adId });
+    });
+
+    count++;
+  }
+
+  var results = crawlUrls(urlMap);
+  return results;
+}
+
+
+function getAdFinalUrls(ad) {
+  try {
+    var urls = [];
+    if (ad.urls && ad.urls().getFinalUrl) {
+      var url = ad.urls().getFinalUrl();
+      if (url) urls.push(url);
+    } else if (ad.getFinalUrl) {
+      var url = ad.getFinalUrl();
+      if (url) urls.push(url);
+    }
+    return urls;
+  } catch (e) {
+    return [];
+  }
+}
+
+
+// ------------------------------------------------------------
+// KEYWORD FINAL URL CHECKER
+// ------------------------------------------------------------
+
+function checkKeywordUrls() {
+  var urlMap = {};
+  var count  = 0;
+
+  var kwSelector = AdsApp.keywords()
+    .withCondition("Status = 'ENABLED'")
+    .withCondition("AdGroupStatus = 'ENABLED'")
+    .withCondition("CampaignStatus = 'ENABLED'")
+    .withCondition("FinalUrl != ''");
+
+  kwSelector = applyCampaignNameFilter(kwSelector);
+
+  var kwIterator = kwSelector.get();
+
+  while (kwIterator.hasNext() && count < CONFIG.URL_CHECK.MAX_URLS_PER_TYPE) {
+    var kw       = kwIterator.next();
+    var url      = '';
+    var campaign = kw.getCampaign().getName();
+    var adGroup  = kw.getAdGroup().getName();
+
+    try {
+      url = kw.urls().getFinalUrl();
+    } catch(e) {}
+
+    if (url && !shouldIgnoreUrl(url)) {
+      if (!urlMap[url]) urlMap[url] = [];
+      urlMap[url].push({ type: 'Keyword', campaign: campaign, adGroup: adGroup, id: kw.getText() });
+    }
+
+    count++;
+  }
+
+  return crawlUrls(urlMap);
+}
+
+
+// ------------------------------------------------------------
+// SITELINK EXTENSION URL CHECKER
+// ------------------------------------------------------------
+
+function checkSitelinkUrls() {
+  var urlMap = {};
+
+  // Account-level sitelinks
+  try {
+    var acctSitelinks = AdsApp.extensions().sitelinks().get();
+    while (acctSitelinks.hasNext()) {
+      var sl  = acctSitelinks.next();
+      var url = '';
+      try { url = sl.urls().getFinalUrl(); } catch(e) {}
+      if (!url) try { url = sl.getLinkUrl(); } catch(e) {}
+      if (url && !shouldIgnoreUrl(url)) {
+        if (!urlMap[url]) urlMap[url] = [];
+        urlMap[url].push({ type: 'Sitelink (Account)', campaign: 'Account-level', adGroup: '—', id: sl.getLinkText() });
+      }
+    }
+  } catch(e) {
+    Logger.log('Could not fetch account-level sitelinks: ' + e.message);
+  }
+
+  // Campaign-level sitelinks
+  try {
+    var campaignIterator = AdsApp.campaigns()
+      .withCondition("Status = 'ENABLED'")
+      .get();
+
+    while (campaignIterator.hasNext()) {
+      var campaign = campaignIterator.next();
+      var campName = campaign.getName();
+
+      if (shouldExcludeCampaign(campName)) continue;
+
+      try {
+        var slIterator = campaign.extensions().sitelinks().get();
+        while (slIterator.hasNext()) {
+          var sl  = slIterator.next();
+          var url = '';
+          try { url = sl.urls().getFinalUrl(); } catch(e) {}
+          if (!url) try { url = sl.getLinkUrl(); } catch(e) {}
+          if (url && !shouldIgnoreUrl(url)) {
+            if (!urlMap[url]) urlMap[url] = [];
+            urlMap[url].push({ type: 'Sitelink (Campaign)', campaign: campName, adGroup: '—', id: sl.getLinkText() });
+          }
+        }
+      } catch(e) {
+        Logger.log('Could not fetch sitelinks for campaign [' + campName + ']: ' + e.message);
+      }
+    }
+  } catch(e) {
+    Logger.log('Could not iterate campaigns for sitelinks: ' + e.message);
+  }
+
+  return crawlUrls(urlMap);
+}
+
+
+// ------------------------------------------------------------
+// URL CRAWLER — deduplicates then fetches each unique URL
+// ------------------------------------------------------------
+
+function crawlUrls(urlMap) {
+  var broken = [];
+  var urls   = Object.keys(urlMap);
+
+  Logger.log('Unique URLs to check: ' + urls.length);
+
+  urls.forEach(function(url) {
+    var result = fetchUrl(url);
+
+    if (!result.ok) {
+      Logger.log('BROKEN [' + result.reason + ']: ' + url);
+      urlMap[url].forEach(function(entity) {
+        broken.push({
+          url     : url,
+          reason  : result.reason,
+          type    : entity.type,
+          campaign: entity.campaign,
+          adGroup : entity.adGroup,
+          id      : entity.id,
+        });
+      });
+    } else {
+      Logger.log('OK [' + result.status + ']: ' + url);
+    }
+  });
+
+  return broken;
+}
+
+
+// ------------------------------------------------------------
+// URL FETCHER — with retry logic
+// ------------------------------------------------------------
+
+function fetchUrl(url) {
+  var attempts = CONFIG.URL_CHECK.RETRY_COUNT + 1;
+
+  for (var i = 0; i < attempts; i++) {
+    if (i > 0) {
+      Logger.log('Retrying (' + i + '): ' + url);
+      Utilities.sleep(CONFIG.URL_CHECK.RETRY_DELAY_MS);
+    }
+
+    try {
+      var response = UrlFetchApp.fetch(url, {
+        muteHttpExceptions : true,
+        followRedirects    : true,
+        validateHttpsCertificates: false,
+        deadline           : CONFIG.URL_CHECK.TIMEOUT_SECONDS,
+      });
+
+      var code = response.getResponseCode();
+
+      if (code === 404) {
+        // Only retry 404s once — they're usually definitive
+        return { ok: false, status: code, reason: 'HTTP 404 Not Found' };
+      }
+
+      // 2xx = success, everything else passes through (3xx followed, 5xx ignored per config)
+      return { ok: true, status: code, reason: null };
+
+    } catch (e) {
+      var isLastAttempt = (i === attempts - 1);
+      if (isLastAttempt) {
+        return { ok: false, status: null, reason: 'Connection timeout / unreachable' };
+      }
+    }
+  }
+
+  return { ok: false, status: null, reason: 'Connection timeout / unreachable' };
+}
+
+
+// ------------------------------------------------------------
+// FILTERS & HELPERS
+// ------------------------------------------------------------
+
+function shouldIgnoreUrl(url) {
+  if (!url) return true;
+  return CONFIG.IGNORE_URL_CONTAINS.some(function(str) {
+    return url.indexOf(str) !== -1;
+  });
+}
+
+function shouldExcludeCampaign(name) {
+  var excluded = CONFIG.CAMPAIGN_FILTER.EXCLUDE_NAME_CONTAINS.some(function(str) {
+    return name.indexOf(str) !== -1;
+  });
+  if (excluded) return true;
+
+  if (CONFIG.CAMPAIGN_FILTER.INCLUDE_NAME_CONTAINS.length > 0) {
+    var included = CONFIG.CAMPAIGN_FILTER.INCLUDE_NAME_CONTAINS.some(function(str) {
+      return name.indexOf(str) !== -1;
+    });
+    return !included;
+  }
+
+  return false;
+}
+
+function applyCampaignNameFilter(selector) {
+  CONFIG.CAMPAIGN_FILTER.EXCLUDE_NAME_CONTAINS.forEach(function(str) {
+    selector = selector.withCondition("CampaignName DOES_NOT_CONTAIN '" + str + "'");
+  });
+  return selector;
+}
+
+
+// ------------------------------------------------------------
+// EMAIL
+// ------------------------------------------------------------
+
+function sendEmail(broken, accountName, runTime) {
+  var count   = broken.length;
+  var subject = CONFIG.EMAIL.SUBJECT_PREFIX + ' \\u2014 ' + accountName +
+                ' (' + count + ' broken URL' + (count !== 1 ? 's' : '') + ')';
+
+  // Group by error reason for the summary line
+  var byReason = {};
+  broken.forEach(function(b) {
+    byReason[b.reason] = (byReason[b.reason] || 0) + 1;
+  });
+  var summaryParts = Object.keys(byReason).map(function(r) {
+    return byReason[r] + ' \\u00D7 ' + r;
+  });
+
+  var rows = broken.map(function(b) {
+    var reasonColor = b.reason.indexOf('404') !== -1 ? '#c0392b' : '#8e44ad';
+    return '<tr style="border-bottom:1px solid #e0e0e0;">' +
+      '<td style="padding:9px 12px;"><span style="background:' + reasonColor + ';color:#fff;padding:2px 7px;border-radius:3px;font-size:12px;white-space:nowrap;">' + escapeHtml(b.reason) + '</span></td>' +
+      '<td style="padding:9px 12px;">'       + escapeHtml(b.type)     + '</td>' +
+      '<td style="padding:9px 12px;">'       + escapeHtml(b.campaign) + '</td>' +
+      '<td style="padding:9px 12px;">'       + escapeHtml(b.adGroup)  + '</td>' +
+      '<td style="padding:9px 12px;font-size:12px;word-break:break-all;">' + escapeHtml(String(b.id)) + '</td>' +
+      '<td style="padding:9px 12px;font-size:12px;word-break:break-all;">' +
+        '<a href="' + escapeHtml(b.url) + '" style="color:#2980b9;">' + escapeHtml(b.url) + '</a>' +
+      '</td>' +
+    '</tr>';
+  }).join('');
+
+  var html =
+    '<div style="font-family:Arial,sans-serif;max-width:1000px;color:#2c3e50;">' +
+      '<h2 style="margin-bottom:4px;">\\uD83D\\uDEA8 Broken URL Alert \\u2014 ' + escapeHtml(accountName) + '</h2>' +
+      '<p style="color:#7f8c8d;margin-top:0;">' + runTime + '</p>' +
+      '<p><strong>' + count + ' broken URL' + (count !== 1 ? 's' : '') + '</strong> found across ads, keywords, and sitelinks: ' +
+        summaryParts.join(', ') + '.</p>' +
+      '<table style="border-collapse:collapse;width:100%;font-size:13px;">' +
+        '<thead>' +
+          '<tr style="background:#2c3e50;color:#fff;">' +
+            '<th style="padding:10px 12px;text-align:left;">Error</th>' +
+            '<th style="padding:10px 12px;text-align:left;">Type</th>' +
+            '<th style="padding:10px 12px;text-align:left;">Campaign</th>' +
+            '<th style="padding:10px 12px;text-align:left;">Ad Group</th>' +
+            '<th style="padding:10px 12px;text-align:left;">Ad / Keyword / Sitelink</th>' +
+            '<th style="padding:10px 12px;text-align:left;">URL</th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>' +
+      '<p style="font-size:12px;color:#bdc3c7;margin-top:20px;">' +
+        'Broken URL Script \\u00B7 ' + escapeHtml(accountName) +
+      '</p>' +
+    '</div>';
+
+  try {
+    MailApp.sendEmail({
+      to      : CONFIG.EMAIL.RECIPIENTS.join(','),
+      subject : subject,
+      htmlBody: html,
+    });
+    Logger.log('Alert email sent to: ' + CONFIG.EMAIL.RECIPIENTS.join(', '));
+  } catch(e) {
+    Logger.log('ERROR sending email: ' + e.message);
+  }
+}
+
+
+// ------------------------------------------------------------
+// HELPERS
+// ------------------------------------------------------------
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+`,
       budgetPacing: `/**
  * ============================================================
  *  BUDGET PACING & OVERDELIVERY NOTIFICATION SCRIPT
