@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5F8HHKK3');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resources — JB Marketing</title>
+
+  <!-- Fonts (matches your CSS variables) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:wght@300;400;600;700;800&family=Unbounded:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Use your existing stylesheet -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://jbmktg.com/Assets/orbsquare.png">
+  <link rel="apple-touch-icon" href="https://jbmktg.com/Assets/orbsquare.png">
+
+  <style>
+    /* Page-specific (small) additions — keeps your main CSS untouched */
+    .controls{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      margin-top: 18px;
+    }
+    .controls__left, .controls__right{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .field{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      border: 1px solid var(--border);
+      background: rgba(18,18,43,.40);
+      border-radius: 14px;
+      padding: 10px 12px;
+      min-width: min(360px, 100%);
+    }
+    .field input{
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+    }
+    .select{
+      border: 1px solid var(--border);
+      background: rgba(18,18,43,.40);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+    }
+    .resourceMeta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .metaPill{
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255,255,255,.86);
+      background: rgba(195,188,255,.10);
+      border: 1px solid rgba(195,188,255,.18);
+      white-space: nowrap;
+    }
+    .resourceTitle{
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
+    .resourceDesc{
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+    }
+    .resourceActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .emptyState{
+      padding: 22px;
+      text-align:center;
+    }
+    .emptyState h3{ margin-bottom: 10px; }
+    .countRow{
+      margin-top: 12px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    /* Code modal */
+    .codeModal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:200;
+      align-items:center;
+      justify-content:center;
+    }
+    .codeModal.open{ display:flex; }
+    .codeModal__overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(6px);
+    }
+    .codeModal__panel{
+      position:relative;
+      background:#0B0B12;
+      border:1px solid rgba(195,188,255,0.15);
+      border-radius:16px;
+      width:90%;
+      max-width:780px;
+      max-height:85vh;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 24px 80px rgba(0,0,0,0.5);
+    }
+    .codeModal__header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 24px;
+      border-bottom:1px solid rgba(195,188,255,0.1);
+    }
+    .codeModal__title{
+      font-family:var(--font-heading);
+      font-weight:800;
+      font-size:18px;
+      color:var(--text);
+    }
+    .codeModal__close{
+      background:none;
+      border:none;
+      color:var(--muted2);
+      font-size:22px;
+      cursor:pointer;
+      padding:4px 8px;
+    }
+    .codeModal__close:hover{ color:var(--text); }
+    .codeModal__body{
+      padding:20px 24px;
+      overflow-y:auto;
+      flex:1;
+    }
+    .codeModal__pre{
+      background:rgba(18,18,43,0.6);
+      border:1px solid rgba(195,188,255,0.08);
+      border-radius:12px;
+      padding:20px;
+      overflow-x:auto;
+      margin:0;
+      font-family:'JetBrains Mono','Fira Code',monospace;
+      font-size:13px;
+      line-height:1.6;
+      color:#C3BCFF;
+      white-space:pre;
+      tab-size:2;
+    }
+    .codeModal__footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 24px;
+      border-top:1px solid rgba(195,188,255,0.1);
+      gap:12px;
+    }
+    .codeModal__hint{
+      font-size:13px;
+      color:var(--muted2);
+    }
+    .copyBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 20px;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+      font-family:var(--font-body);
+      font-weight:700;
+      font-size:14px;
+      background:linear-gradient(135deg,#423ECC,#6E63FF);
+      color:white;
+      transition:all 0.2s;
+    }
+    .copyBtn:hover{ box-shadow:0 4px 16px rgba(66,62,204,0.4); }
+    .copyBtn.copied{ background:#22C55E; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5F8HHKK3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Topbar -->
+  <div id="top"></div>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="topbar__badge">FREE</span>
+        <div class="topbar__text">Grab templates, checklists, and mini-guides to tighten up your paid media.</div>
+      </div>
+      <div class="topbar__right">
+        <a class="topbar__link" href="#resources">Browse resources ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="brand">
+        <img
+          src="Assets/JBMKTGLogoYellow.png"
+          alt="JB Marketing"
+          class="brand__logo"
+          loading="eager"
+        />
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="https://jbmktg.com/#about">About</a>
+        <a href="https://jbmktg.com/#services">What We Do</a>
+        <a href="https://jbmktg.com/#proof">Proof</a>
+        <a href="https://jbmktg.com/#team">Team</a>
+        <a href="https://jbmktg.com/#faqs">FAQs</a>
+        <a class="btn btn--small btn--primary nav__cta" href="#" target="_blank" rel="noreferrer" data-calendly-open>Book a Discovery Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div>
+        <h1>Downloadable <span class="grad">Resources</span></h1>
+        <p class="lead">Practical resources you can use today: audits, templates, swipe files, and checklists for Google Ads + paid growth.</p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat__num" id="statCount">0</div>
+            <div class="stat__label">resources available</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">Instant</div>
+            <div class="stat__label">download access</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">Updated</div>
+            <div class="stat__label">regularly</div>
+          </div>
+        </div>
+
+        <div class="trustline">
+          <span class="stars">★★★★★</span>
+          <span>Built from real account wins not theory.</span>
+        </div>
+      </div>
+
+      <aside class="hero__panel">
+        <div class="panel panel--glow">
+          <div class="panel__kicker">How to use this page</div>
+          <ul class="checklist">
+            <li>Search by topic (e.g. “PMax”, “shopping feed”, “creative”).</li>
+            <li>Filter by category and sort by newest.</li>
+            <li>Download + implement — no fluff.</li>
+          </ul>
+          <a class="btn btn--primary btn--full" href="#resources">Browse resources</a>
+          <div class="panel__fineprint">Want a custom audit for your account? Hit “Book a call”.</div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- Resources -->
+  <section class="section section--alt" id="resources">
+    <div class="container">
+      <div class="section__head">
+        <h2>Resource library</h2>
+        <p class="section__lead">Everything here is designed to reduce waste, speed up learning, and make performance improvements obvious.</p>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <div class="controls__left">
+          <div class="field" role="search">
+            <span aria-hidden="true">🔎</span>
+            <input id="searchInput" type="search" placeholder="Search resources (e.g. audit, pmax, tracking, shopping)..." />
+          </div>
+
+          <select id="categorySelect" class="select" aria-label="Category filter">
+            <option value="all">All categories</option>
+            <option value="audits">Audits</option>
+            <option value="templates">Templates</option>
+            <option value="checklists">Checklists</option>
+            <option value="guides">Guides</option>
+            <option value="tracking">Tracking</option>
+            <option value="scripts">Scripts</option>
+          </select>
+        </div>
+
+        <div class="controls__right">
+          <select id="sortSelect" class="select" aria-label="Sort resources">
+            <option value="newest">Sort: Newest</option>
+            <option value="oldest">Sort: Oldest</option>
+            <option value="title">Sort: Title (A–Z)</option>
+          </select>
+
+        </div>
+      </div>
+
+      <div class="countRow" id="countRow">Showing 0 resources</div>
+
+      <!-- Grid -->
+      <div class="grid grid--3" id="resourceGrid" style="margin-top: 14px;">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div id="emptyState" class="card card--soft emptyState hidden">
+        <h3>No results</h3>
+        <p>Try a different keyword or switch category filters.</p>
+        <div style="margin-top:14px;">
+          <button class="btn btn--primary" id="clearFiltersBtn" type="button">Clear filters</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <div class="brand brand--footer">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__text">JB Marketing</span>
+          </div>
+          <div class="footer__meta">
+            <div>Company Number: 16696403</div>
+            <div>VAT Number: 501057346</div>
+            <div>JB MKTG, 20 Wenlock Road, N1 7GU London, England</div>
+            <div>© <span id="year"></span> All rights Reserved. Design by JBMKTG</div>
+          </div>
+        </div>
+
+        <div class="footer__right">
+          <a class="footer__link" href="https://www.instagram.com/jbmktgads/" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="footer__link" href="https://www.youtube.com/@jbmktg" target="_blank" rel="noreferrer">YouTube</a>
+          <a class="footer__link" href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+  <!-- Mobile bottom CTA -->
+  <div class="bottomCta">
+    <div class="bottomCta__pill">
+      <div class="bottomCta__title">Want help implementing these?</div>
+      <a class="btn btn--primary btn--small" href="/#contact">Book a call</a>
+    </div>
+  </div>
+
+  <!-- Code Modal -->
+  <div class="codeModal" id="codeModal">
+    <div class="codeModal__overlay" id="codeModalOverlay"></div>
+    <div class="codeModal__panel">
+      <div class="codeModal__header">
+        <div class="codeModal__title" id="codeModalTitle">Script</div>
+        <button class="codeModal__close" id="codeModalClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="codeModal__body">
+        <pre class="codeModal__pre" id="codeModalPre"></pre>
+      </div>
+      <div class="codeModal__footer">
+        <span class="codeModal__hint">Paste this into Google Ads &gt; Tools &gt; Scripts</span>
+        <button class="copyBtn" id="copyBtn">📋 Copy to clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav toggle (matches your existing pattern)
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Resource data (edit this array) ----
+    // Tip: host PDFs on your site or a CDN. Use direct URLs for downloads.
+    const resources = [
+      {
+        title: "Google Ad Copy Template",
+        desc: "A plug-and-play template to write Search copy faster.",
+        category: "templates",
+        tags: ["google ads", "ad copy", "search"],
+        updated: "2026-01-31",
+        format: "Sheet",
+        downloadUrl: "https://docs.google.com/spreadsheets/d/1DVukEivWQ5nyH8dJp-1qt_bCH9tmcyf_pT1vQRjW3Zk/copy",
+        previewUrl: ""
+      },
+      {
+        title: "Google Merchant Centre Disapproval Checklist",
+        desc: "A practical checklist to diagnose and fix common GMC disapprovals (policy, data quality, and feed issues).",
+        category: "checklists",
+        tags: ["gmc", "merchant center", "disapprovals", "policy"],
+        updated: "2026-01-06",
+        format: "Sheet",
+        downloadUrl: "https://docs.google.com/spreadsheets/d/121tfWVhYIAet4ydnnIAKl3f7zx-eJf-6V28ykuottRM/copy",
+        previewUrl: ""
+      },
+      {
+        title: "GMC Audit Checklist",
+        desc: "A full Google Merchant Center audit framework (feeds, rules, diagnostics, shipping/tax, and product data hygiene).",
+        category: "audits",
+        tags: ["gmc audit", "merchant center", "shopping", "feed"],
+        updated: "2026-01-20",
+        format: "Sheet",
+        downloadUrl: "https://docs.google.com/spreadsheets/d/1DdBZEDAU6kY5y4Qk6s6p7a-AReshRF7F9UfCSbnVev4/copy",
+        previewUrl: ""
+      },
+      {
+        title: "CRO Audit Template",
+        desc: "A conversion audit template to spot friction, messaging gaps, trust issues, and quick wins across key pages.",
+        category: "audits",
+        tags: ["cro", "landing pages", "conversion rate", "ux"],
+        updated: "2026-01-26",
+        format: "Sheet",
+        downloadUrl: "https://docs.google.com/spreadsheets/d/1X5R9Me2wFU24BpgRY53o2WIJQlXQaDpxL1Vu6iVj6S8/copy",
+        previewUrl: ""
+      },
+      {
+        title: "Budget Pacing & Overdelivery",
+        desc: "A Google Ads script that monitors daily spend pacing and flags campaigns that are overdelivering against their budget. Paste it into your account and run on a schedule.",
+        category: "scripts",
+        tags: ["google ads", "scripts", "budget", "pacing", "overdelivery"],
+        updated: "2026-02-20",
+        format: "Script",
+        downloadUrl: "#",
+        previewUrl: "",
+        isScript: true,
+        scriptId: "budgetPacing"
+      },
+      {
+        title: "AI Video Workflow",
+        desc: "A step-by-step workflow for producing short-form ad videos with AI (brief → script → scenes → edit → variants).",
+        category: "guides",
+        tags: ["ai", "video", "creative", "workflow"],
+        updated: "2026-01-15",
+        format: "Doc",
+        downloadUrl: "https://docs.google.com/document/d/1THYMBk7SE3vMm7i1hRR8rwGWb423HHGJ2FHA2yi2ZwQ/copy",
+        previewUrl: ""
+      }
+    ];
+
+    // ---- Rendering + filtering ----
+    const gridEl = document.getElementById('resourceGrid');
+    const searchEl = document.getElementById('searchInput');
+    const catEl = document.getElementById('categorySelect');
+    const sortEl = document.getElementById('sortSelect');
+    const countRow = document.getElementById('countRow');
+    const emptyState = document.getElementById('emptyState');
+    const clearBtn = document.getElementById('clearFiltersBtn');
+    const statCount = document.getElementById('statCount');
+
+    statCount.textContent = resources.length;
+
+    function pill(text){
+      const span = document.createElement('span');
+      span.className = 'metaPill';
+      span.textContent = text;
+      return span;
+    }
+
+    function formatDate(iso){
+      const d = new Date(iso + "T00:00:00");
+      return d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'2-digit' });
+    }
+
+    function normalize(s){ return (s || '').toLowerCase().trim(); }
+
+    function matches(r, q){
+      if(!q) return true;
+      const hay = [
+        r.title, r.desc, r.category,
+        ...(r.tags || [])
+      ].join(' ').toLowerCase();
+      return hay.includes(q);
+    }
+
+    function sortResources(list, mode){
+      const copy = [...list];
+      if(mode === 'title'){
+        copy.sort((a,b) => a.title.localeCompare(b.title));
+      }else if(mode === 'oldest'){
+        copy.sort((a,b) => new Date(a.updated) - new Date(b.updated));
+      }else{
+        copy.sort((a,b) => new Date(b.updated) - new Date(a.updated));
+      }
+      return copy;
+    }
+
+    function render(){
+      const q = normalize(searchEl.value);
+      const cat = catEl.value;
+      const sort = sortEl.value;
+
+      let filtered = resources.filter(r => {
+        const catOk = (cat === 'all') ? true : r.category === cat;
+        return catOk && matches(r, q);
+      });
+
+      filtered = sortResources(filtered, sort);
+
+      gridEl.innerHTML = '';
+      emptyState.classList.add('hidden');
+
+      countRow.textContent = `Showing ${filtered.length} resource${filtered.length === 1 ? '' : 's'}`;
+
+      if(filtered.length === 0){
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      filtered.forEach(r => {
+        const card = document.createElement('article');
+        card.className = 'card card--glow';
+
+        const h3 = document.createElement('h3');
+        h3.className = 'resourceTitle';
+        h3.textContent = r.title;
+
+        const p = document.createElement('p');
+        p.className = 'resourceDesc';
+        p.textContent = r.desc;
+
+        const meta = document.createElement('div');
+        meta.className = 'resourceMeta';
+        meta.appendChild(pill(r.category.toUpperCase()));
+        meta.appendChild(pill(`${r.format}`));
+        meta.appendChild(pill(`Updated: ${formatDate(r.updated)}`));
+        if(r.minutes) meta.appendChild(pill(`${r.minutes} min`));
+
+        const tags = document.createElement('div');
+        tags.className = 'serviceChips';
+        (r.tags || []).slice(0, 4).forEach(t => {
+          const tag = document.createElement('span');
+          tag.className = 'chip chip--soft';
+          tag.textContent = t;
+          tags.appendChild(tag);
+        });
+
+        const actions = document.createElement('div');
+        actions.className = 'resourceActions';
+
+        const dl = document.createElement(r.isScript ? 'button' : 'a');
+        dl.className = 'btn btn--primary';
+        if(r.isScript){
+          dl.type = 'button';
+          dl.textContent = 'View Script';
+          dl.addEventListener('click', () => openCodeModal(r.scriptId, r.title));
+        } else {
+          dl.href = r.downloadUrl;
+          dl.setAttribute('download', '');
+          dl.textContent = 'Download';
+        }
+
+        actions.appendChild(dl);
+
+        if(r.previewUrl){
+          const prev = document.createElement('a');
+          prev.className = 'btn btn--ghost';
+          prev.href = r.previewUrl;
+          prev.target = '_blank';
+          prev.rel = 'noopener';
+          prev.textContent = 'Preview';
+          actions.appendChild(prev);
+        }
+
+        card.appendChild(h3);
+        card.appendChild(p);
+        card.appendChild(actions);
+
+        gridEl.appendChild(card);
+      });
+    }
+
+    searchEl.addEventListener('input', render);
+    catEl.addEventListener('change', render);
+    sortEl.addEventListener('change', render);
+
+    clearBtn?.addEventListener('click', () => {
+      searchEl.value = '';
+      catEl.value = 'all';
+      sortEl.value = 'newest';
+      render();
+    });
+
+    render();
+
+    // ---- Script code storage ----
+    const scriptCodes = {
+      budgetPacing: `/**
+ * ============================================================
+ *  BUDGET PACING & OVERDELIVERY NOTIFICATION SCRIPT
+ *  Google Ads Scripts Template
+ *
+ *  Version:  1.1.0
+ *  Schedule: Recommended — every hour
+ * ============================================================
+ *
+ *  WHAT THIS SCRIPT DOES:
+ *  - Checks today's spend vs. expected spend at this time of day
+ *  - Alerts on overdelivery at both campaign and account level
+ *  - Sends a formatted HTML summary email
+ *
+ *  HOW TO SET UP:
+ *  1. Fill in the CONFIG section below
+ *  2. Paste into Google Ads > Tools > Scripts
+ *  3. Authorise and set schedule to "Every hour"
+ * ============================================================
+ */
+
+
+/* ============================================================
+   CONFIG — Edit everything in this section
+   ============================================================ */
+
+var CONFIG = {
+
+  // ----------------------------------------------------------
+  // EMAIL NOTIFICATIONS
+  // ----------------------------------------------------------
+  EMAIL: {
+    RECIPIENTS     : ['you@example.com', 'teammate@example.com'],
+    SUBJECT_PREFIX : '[Google Ads] Overdelivery Alert',
+  },
+
+
+  // ----------------------------------------------------------
+  // OVERDELIVERY THRESHOLD
+  // Fire an alert when spend exceeds expected spend by this %.
+  // e.g. 0.20 = alert when 20% over expected pace
+  // ----------------------------------------------------------
+  OVERDELIVERY_THRESHOLD_PCT: 0.20,
+
+
+  // ----------------------------------------------------------
+  // MINIMUM SPEND
+  // Ignore campaigns/account totals below this amount (in your
+  // account currency). Prevents noise from tiny-budget campaigns.
+  // ----------------------------------------------------------
+  MIN_SPEND_TO_ALERT: 10.00,
+
+
+  // ----------------------------------------------------------
+  // CAMPAIGN FILTERS
+  // ----------------------------------------------------------
+  CAMPAIGN_FILTER: {
+    // Only alert on campaigns whose names CONTAIN one of these strings.
+    // Leave empty [] to include ALL campaigns.
+    INCLUDE_NAME_CONTAINS : [],           // e.g. ['Brand', 'Shopping']
+
+    // Never alert on campaigns whose names CONTAIN one of these strings.
+    EXCLUDE_NAME_CONTAINS : ['[EXCLUDE]', 'Paused Test'],
+
+    // Only check campaigns with these statuses.
+    INCLUDE_STATUSES      : ['ENABLED'],  // Options: 'ENABLED', 'PAUSED', 'REMOVED'
+  },
+
+
+  // ----------------------------------------------------------
+  // TIMEZONE
+  // Must match your Google Ads account timezone.
+  // Full list: https://www.joda.org/joda-time/timezones.html
+  // ----------------------------------------------------------
+  TIMEZONE: 'Australia/Sydney',
+
+};
+
+
+/* ============================================================
+   SCRIPT LOGIC — No edits needed below this line
+   ============================================================ */
+
+function main() {
+  var dateInfo    = getDateInfo();
+  var accountName = AdsApp.currentAccount().getName();
+
+  Logger.log('=== Budget Pacing Script ===');
+  Logger.log('Account  : ' + accountName);
+  Logger.log('Run time : ' + dateInfo.now);
+  Logger.log('Day progress: ' + (dateInfo.hourFraction * 100).toFixed(1) + '% of today elapsed');
+
+  // Don't fire alerts in the first 10% of the day — too little data
+  if (dateInfo.hourFraction < 0.10) {
+    Logger.log('Too early in the day to check pacing. Exiting.');
+    return;
+  }
+
+  var campaigns      = getCampaigns();
+  var campaignAlerts = [];
+  var accountSpend   = 0;
+  var accountBudget  = 0;
+
+  Logger.log('Campaigns to check: ' + campaigns.length);
+
+  // --- Campaign-level checks ---
+  campaigns.forEach(function(campaign) {
+    var result = checkCampaign(campaign, dateInfo);
+    accountSpend  += result.spend;
+    accountBudget += result.budget;
+    if (result.alert) campaignAlerts.push(result.alert);
+  });
+
+  // --- Account-level check ---
+  var accountAlert = checkAccountLevel(accountSpend, accountBudget, dateInfo, accountName);
+
+  var allAlerts = campaignAlerts.slice();
+  if (accountAlert) allAlerts.unshift(accountAlert); // account alert shown first
+
+  Logger.log('Total alerts: ' + allAlerts.length);
+
+  if (allAlerts.length > 0) {
+    sendEmail(allAlerts, accountName, dateInfo.now);
+  } else {
+    Logger.log('All campaigns pacing within threshold. No email sent.');
+  }
+
+  Logger.log('=== Script Complete ===');
+}
+
+
+// ------------------------------------------------------------
+// DATE HELPERS
+// ------------------------------------------------------------
+
+function getDateInfo() {
+  var now      = new Date();
+  var hour     = parseInt(Utilities.formatDate(now, CONFIG.TIMEZONE, 'H'), 10);
+  var minute   = parseInt(Utilities.formatDate(now, CONFIG.TIMEZONE, 'm'), 10);
+
+  return {
+    now         : Utilities.formatDate(now, CONFIG.TIMEZONE, 'yyyy-MM-dd HH:mm z'),
+    hourFraction: (hour + minute / 60) / 24,
+  };
+}
+
+
+// ------------------------------------------------------------
+// CAMPAIGN FETCHING
+// ------------------------------------------------------------
+
+function getCampaigns() {
+  var selector = AdsApp.campaigns();
+
+  if (CONFIG.CAMPAIGN_FILTER.INCLUDE_STATUSES.length > 0) {
+    selector = selector.withCondition(
+      "Status IN ['" + CONFIG.CAMPAIGN_FILTER.INCLUDE_STATUSES.join("','") + "']"
+    );
+  }
+
+  var iterator  = selector.get();
+  var campaigns = [];
+
+  while (iterator.hasNext()) {
+    var campaign = iterator.next();
+    var name     = campaign.getName();
+
+    // Include filter
+    if (CONFIG.CAMPAIGN_FILTER.INCLUDE_NAME_CONTAINS.length > 0) {
+      var included = CONFIG.CAMPAIGN_FILTER.INCLUDE_NAME_CONTAINS.some(function(str) {
+        return name.indexOf(str) !== -1;
+      });
+      if (!included) continue;
+    }
+
+    // Exclude filter
+    var excluded = CONFIG.CAMPAIGN_FILTER.EXCLUDE_NAME_CONTAINS.some(function(str) {
+      return name.indexOf(str) !== -1;
+    });
+    if (excluded) continue;
+
+    campaigns.push(campaign);
+  }
+
+  return campaigns;
+}
+
+
+// ------------------------------------------------------------
+// CAMPAIGN-LEVEL CHECK
+// ------------------------------------------------------------
+
+function checkCampaign(campaign, dateInfo) {
+  var name   = campaign.getName();
+  var result = { spend: 0, budget: 0, alert: null };
+
+  try {
+    var spend       = campaign.getStatsFor('TODAY').getCost();
+    var dailyBudget = campaign.getBudget().getAmount();
+
+    result.spend  = spend;
+    result.budget = dailyBudget;
+
+    var expected  = dailyBudget * dateInfo.hourFraction;
+    var pacingPct = expected > 0 ? spend / expected : 0;
+
+    Logger.log('[Campaign] ' + name +
+               ' | Spent: $' + spend.toFixed(2) +
+               ' | Expected: $' + expected.toFixed(2) +
+               ' | Pacing: ' + (pacingPct * 100).toFixed(1) + '%');
+
+    var meetsMinSpend    = spend >= CONFIG.MIN_SPEND_TO_ALERT || expected >= CONFIG.MIN_SPEND_TO_ALERT;
+    var isOverdelivering = pacingPct > (1 + CONFIG.OVERDELIVERY_THRESHOLD_PCT);
+
+    if (meetsMinSpend && isOverdelivering) {
+      result.alert = {
+        level    : 'Campaign',
+        name     : name,
+        spend    : spend,
+        expected : expected,
+        budget   : dailyBudget,
+        pacingPct: pacingPct,
+      };
+    }
+
+  } catch (e) {
+    Logger.log('Error checking campaign [' + name + ']: ' + e.message);
+  }
+
+  return result;
+}
+
+
+// ------------------------------------------------------------
+// ACCOUNT-LEVEL CHECK
+// ------------------------------------------------------------
+
+function checkAccountLevel(totalSpend, totalBudget, dateInfo, accountName) {
+  if (totalBudget === 0) return null;
+
+  var expected  = totalBudget * dateInfo.hourFraction;
+  var pacingPct = expected > 0 ? totalSpend / expected : 0;
+
+  Logger.log('[Account Total]' +
+             ' | Spent: $' + totalSpend.toFixed(2) +
+             ' | Expected: $' + expected.toFixed(2) +
+             ' | Pacing: ' + (pacingPct * 100).toFixed(1) + '%');
+
+  var meetsMinSpend    = totalSpend >= CONFIG.MIN_SPEND_TO_ALERT || expected >= CONFIG.MIN_SPEND_TO_ALERT;
+  var isOverdelivering = pacingPct > (1 + CONFIG.OVERDELIVERY_THRESHOLD_PCT);
+
+  if (meetsMinSpend && isOverdelivering) {
+    return {
+      level    : 'Account Total',
+      name     : accountName,
+      spend    : totalSpend,
+      expected : expected,
+      budget   : totalBudget,
+      pacingPct: pacingPct,
+    };
+  }
+
+  return null;
+}
+
+
+// ------------------------------------------------------------
+// EMAIL
+// ------------------------------------------------------------
+
+function sendEmail(alerts, accountName, runTime) {
+  var alertCount = alerts.length;
+  var subject    = CONFIG.EMAIL.SUBJECT_PREFIX + ' \\u2014 ' + accountName +
+                   ' (' + alertCount + ' alert' + (alertCount !== 1 ? 's' : '') + ')';
+
+  var rows = alerts.map(function(a) {
+    var overPct  = ((a.pacingPct - 1) * 100).toFixed(1);
+    var rowColor = a.level === 'Account Total' ? '#fff3cd' : '#ffffff';
+    return '<tr style="background:' + rowColor + ';border-bottom:1px solid #e0e0e0;">' +
+      '<td style="padding:10px 14px;"><strong>' + escapeHtml(a.level) + '</strong></td>' +
+      '<td style="padding:10px 14px;">'          + escapeHtml(a.name) + '</td>' +
+      '<td style="padding:10px 14px;">'          + formatCurrency(a.spend)    + '</td>' +
+      '<td style="padding:10px 14px;">'          + formatCurrency(a.expected) + '</td>' +
+      '<td style="padding:10px 14px;">'          + formatCurrency(a.budget)   + '</td>' +
+      '<td style="padding:10px 14px;font-weight:bold;color:#c0392b;">+' + overPct + '%</td>' +
+    '</tr>';
+  }).join('');
+
+  var html =
+    '<div style="font-family:Arial,sans-serif;max-width:860px;color:#2c3e50;">' +
+      '<h2 style="margin-bottom:4px;">\\uD83D\\uDD34 Overdelivery Alert \\u2014 ' + escapeHtml(accountName) + '</h2>' +
+      '<p style="color:#7f8c8d;margin-top:0;">' + runTime + '</p>' +
+      '<p>The following campaigns are spending ahead of expected daily pace by more than ' +
+        '<strong>' + (CONFIG.OVERDELIVERY_THRESHOLD_PCT * 100).toFixed(0) + '%</strong>. ' +
+        'Review budgets and bid strategies as soon as possible.</p>' +
+      '<table style="border-collapse:collapse;width:100%;font-size:14px;">' +
+        '<thead>' +
+          '<tr style="background:#c0392b;color:#fff;">' +
+            '<th style="padding:10px 14px;text-align:left;">Level</th>' +
+            '<th style="padding:10px 14px;text-align:left;">Campaign / Account</th>' +
+            '<th style="padding:10px 14px;text-align:left;">Actual Spend</th>' +
+            '<th style="padding:10px 14px;text-align:left;">Expected Spend</th>' +
+            '<th style="padding:10px 14px;text-align:left;">Daily Budget</th>' +
+            '<th style="padding:10px 14px;text-align:left;">Over Pace By</th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>' +
+      '<p style="font-size:12px;color:#bdc3c7;margin-top:20px;">' +
+        'Budget Pacing Script \\u00B7 ' + escapeHtml(accountName) +
+      '</p>' +
+    '</div>';
+
+  try {
+    MailApp.sendEmail({
+      to      : CONFIG.EMAIL.RECIPIENTS.join(','),
+      subject : subject,
+      htmlBody: html,
+    });
+    Logger.log('Alert email sent to: ' + CONFIG.EMAIL.RECIPIENTS.join(', '));
+  } catch (e) {
+    Logger.log('ERROR sending email: ' + e.message);
+  }
+}
+
+
+// ------------------------------------------------------------
+// HELPERS
+// ------------------------------------------------------------
+
+function formatCurrency(amount) {
+  return '$' + amount.toFixed(2).replace(/\\B(?=(\\d{3})+(?!\\d))/g, ',');
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+`
+    };
+
+    // ---- Code modal logic ----
+    const codeModal = document.getElementById('codeModal');
+    const codeModalOverlay = document.getElementById('codeModalOverlay');
+    const codeModalClose = document.getElementById('codeModalClose');
+    const codeModalTitle = document.getElementById('codeModalTitle');
+    const codeModalPre = document.getElementById('codeModalPre');
+    const copyBtn = document.getElementById('copyBtn');
+
+    function openCodeModal(scriptId, title){
+      codeModalTitle.textContent = title;
+      codeModalPre.textContent = scriptCodes[scriptId] || '// Script not found';
+      codeModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      copyBtn.classList.remove('copied');
+      copyBtn.innerHTML = '📋 Copy to clipboard';
+    }
+
+    function closeCodeModal(){
+      codeModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    codeModalOverlay?.addEventListener('click', closeCodeModal);
+    codeModalClose?.addEventListener('click', closeCodeModal);
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeCodeModal(); });
+
+    copyBtn?.addEventListener('click', () => {
+      const code = codeModalPre.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        copyBtn.classList.add('copied');
+        copyBtn.innerHTML = '✓ Copied!';
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.innerHTML = '📋 Copy to clipboard';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
