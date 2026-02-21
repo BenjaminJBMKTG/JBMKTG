@@ -1,0 +1,31 @@
+{
+  "name": "LinkDrop",
+  "short_name": "LinkDrop",
+  "description": "Save links on mobile, review on desktop",
+  "start_url": "/link-saver/",
+  "scope": "/link-saver/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "share_target": {
+    "action": "/link-saver/",
+    "method": "GET",
+    "params": {
+      "url": "url",
+      "text": "text",
+      "title": "title"
+    }
+  }
+}
