@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saving...</title>
+<style>
+  body { background: #0f172a; color: #f8fafc; font-family: -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100dvh; margin: 0; }
+  .msg { text-align: center; font-size: 20px; }
+  .emoji { font-size: 48px; margin-bottom: 16px; }
+</style>
+</head><body>
+<div class="msg" id="msg"><div class="emoji">⏳</div>Saving link...</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const sb = supabase.createClient(
+  'https://hixpsdxekxmpsvkbrzsz.supabase.co',
+  'sb_publishable_-o3nV01KOqFBlYlAC3f1tA_ll2HVKWH'
+);
+const params = new URLSearchParams(window.location.search);
+const url = params.get('url') || params.get('text') || '';
+const urlMatch = url.match(/https?:\/\/[^\s]+/);
+const msg = document.getElementById('msg');
+
+if (urlMatch) {
+  sb.from('links').insert({ url: urlMatch[0], title: new URL(urlMatch[0]).hostname.replace('www.','') })
+    .then(({ error }) => {
+      if (error) msg.innerHTML = '<div class="emoji">❌</div>Error: ' + error.message;
+      else msg.innerHTML = '<div class="emoji">✅</div>Saved!<br><br><a href="/JBMKTG/link-saver/" style="color:#3b82f6">Open LinkDrop</a>';
+    });
+} else {
+  msg.innerHTML = '<div class="emoji">❌</div>No URL found';
+}
+</script>
+</body></html>
