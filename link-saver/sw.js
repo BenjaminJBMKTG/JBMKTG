@@ -1,5 +1,5 @@
 const CACHE = 'linkdrop-v1';
-const ASSETS = ['/', '/link-saver/', '/link-saver/index.html'];
+const ASSETS = ['/JBMKTG/link-saver/', '/JBMKTG/link-saver/index.html'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
