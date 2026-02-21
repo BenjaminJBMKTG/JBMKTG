@@ -2,8 +2,8 @@
   "name": "LinkDrop",
   "short_name": "LinkDrop",
   "description": "Save links on mobile, review on desktop",
-  "start_url": "/link-saver/",
-  "scope": "/link-saver/",
+  "start_url": "/JBMKTG/link-saver/",
+  "scope": "/JBMKTG/link-saver/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
@@ -20,7 +20,7 @@
     }
   ],
   "share_target": {
-    "action": "/link-saver/",
+    "action": "/JBMKTG/link-saver/",
     "method": "GET",
     "params": {
       "url": "url",
