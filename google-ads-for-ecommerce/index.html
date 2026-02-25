@@ -437,6 +437,86 @@
             text-align: center;
         }
         
+        /* Visual assets */
+        .hero-image {
+            margin-top: 50px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 14px 50px rgba(0,0,0,.55);
+        }
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+        .funnel-visual {
+            margin-top: 40px;
+        }
+        .funnel-visual img {
+            width: 100%;
+            display: block;
+            border-radius: var(--radius);
+        }
+        .trust-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        .trust-bar img {
+            height: 50px;
+            width: auto;
+            opacity: 0.85;
+            filter: brightness(1.1);
+        }
+        .trust-bar .trust-text {
+            font-size: 0.9rem;
+            color: var(--muted2);
+            font-weight: 600;
+        }
+        .dashboard-image {
+            margin-top: 30px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 30px rgba(0,0,0,.3);
+        }
+        .dashboard-image img {
+            width: 100%;
+            display: block;
+        }
+        .team-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            margin-bottom: 10px;
+        }
+        .team-member .team-name {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .team-member .team-role {
+            font-size: 0.8rem;
+            color: var(--muted2);
+        }
+        
         /* Footer */
         .footer {
             border-top: 1px solid var(--border);
@@ -477,6 +557,9 @@
         <p class="lead">You've built a solid ecommerce business on Meta. But there's a whole channel of high-intent buyers already searching for your products on Google. We help you capture them.</p>
         <a href="#book" class="hero-cta">Book a Free Strategy Call</a>
         <p class="hero-sub">No commitment. We'll look at your store and tell you honestly if Google Ads is right for you.</p>
+        <div class="hero-image">
+            <img src="shopping-mockup.png" alt="Google Shopping ads showing your products at the top of search results">
+        </div>
     </div>
 </section>
 
@@ -531,6 +614,9 @@
                 </ul>
             </div>
         </div>
+        <div class="dashboard-image">
+            <img src="https://jbmktg.com/Assets/shopifyperformancescreenshot.png" alt="Real account performance screenshot">
+        </div>
     </div>
 </section>
 
@@ -557,6 +643,9 @@
                 <h3>Your Google Ad captures them</h3>
                 <p>Your product shows up with image, price, and reviews. They click. They buy. That's the loop.</p>
             </div>
+        </div>
+        <div class="funnel-visual">
+            <img src="funnel-diagram.png" alt="The customer journey: Meta ad → considers → searches Google → your ad captures them">
         </div>
     </div>
 </section>
@@ -619,6 +708,16 @@
     </div>
 </section>
 
+<!-- Trust bar -->
+<div class="container">
+    <div class="trust-bar">
+        <span class="trust-text">Trusted by</span>
+        <img src="https://jbmktg.com/Assets/googlepartnerlogo.png" alt="Google Partner">
+        <img src="https://jbmktg.com/Assets/nugennet.jpg" alt="Nugen Network" style="border-radius: 8px;">
+        <span class="trust-text">Official Google Ads coaches inside Nugen Network</span>
+    </div>
+</div>
+
 <!-- Social proof -->
 <section class="testimonial-section" style="border-top: 1px solid var(--border);">
     <div class="container">
@@ -680,6 +779,18 @@
                 <li>Exactly what campaigns we'd build and why</li>
                 <li>Clear pricing, no surprises</li>
             </ul>
+            <div class="team-row">
+                <div class="team-member">
+                    <img src="https://jbmktg.com/Assets/JamesFPFP.jpg" alt="James Foster">
+                    <div class="team-name">James Foster</div>
+                    <div class="team-role">Co-Founder / eCom Growth</div>
+                </div>
+                <div class="team-member">
+                    <img src="https://jbmktg.com/Assets/BDPFP.jpg" alt="Benjamin Davis">
+                    <div class="team-name">Benjamin Davis</div>
+                    <div class="team-role">Co-Founder / Google Ads Lead</div>
+                </div>
+            </div>
             <!-- Calendly inline widget -->
             <div class="calendly-inline-widget" data-url="https://calendly.com/ben-jbmktg/30min?background_color=0b0b12&text_color=ffffff&primary_color=423ecc" style="min-width:320px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
