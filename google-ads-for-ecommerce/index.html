@@ -71,11 +71,15 @@
             justify-content: space-between;
         }
         .brand {
-            font-family: var(--font-heading);
-            font-weight: 800;
-            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
         }
-        .brand span { color: var(--p2); }
+        .brand img {
+            height: 34px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(66,62,204,.25));
+        }
         .nav-cta {
             background: linear-gradient(135deg, var(--p), var(--p2));
             color: var(--text);
@@ -460,7 +464,7 @@
 <!-- Nav -->
 <nav class="nav">
     <div class="container nav__inner">
-        <div class="brand">JB<span>MKTG</span></div>
+        <div class="brand"><img src="https://jbmktg.com/Assets/JBMKTGLogoYellow.png" alt="JB Marketing"></div>
         <a href="#book" class="nav-cta">Book a Strategy Call</a>
     </div>
 </nav>
