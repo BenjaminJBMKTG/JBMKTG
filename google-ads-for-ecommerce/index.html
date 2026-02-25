@@ -317,6 +317,37 @@
         .testimonial-section {
             padding: 70px 0;
         }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .video-card {
+            border: 1px solid var(--border);
+            background: rgba(18,18,43,.55);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 9/16;
+            display: block;
+            border: none;
+        }
+        .video-card .video-info {
+            padding: 16px 20px;
+        }
+        .video-card .video-name {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .video-card .video-role {
+            font-size: 0.85rem;
+            color: var(--muted2);
+            margin-top: 4px;
+        }
         .testimonial {
             max-width: 700px;
             margin: 0 auto;
@@ -418,6 +449,7 @@
             .stats-row { grid-template-columns: repeat(2, 1fr); }
             .compare-grid { grid-template-columns: 1fr; }
             .steps { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
             .hero { padding: 50px 0 40px; }
             .section { padding: 50px 0; }
         }
@@ -587,12 +619,46 @@
 <section class="testimonial-section" style="border-top: 1px solid var(--border);">
     <div class="container">
         <div class="section__head">
-            <h2>What our clients say</h2>
+            <h2>Real founders. Real results.</h2>
+            <p>Hear directly from ecommerce brand owners we've worked with.</p>
         </div>
-        <div class="testimonial">
-            <div class="quote">"I started working with JB Marketing last year to scale my business with Google Ads. They understand both the platform and how to scale a brand. Campaigns have been performing really well. Can't recommend the service enough."</div>
-            <div class="author">Ecommerce Brand Owner</div>
-            <div class="role">Scaled from Meta-only to multi-channel</div>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/c-l1R6q4JMI?rel=0&modestbranding=1&playsinline=1"
+                    title="Zac C. testimonial"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <div class="video-info">
+                    <div class="video-name">Zac C.</div>
+                    <div class="video-role">Ecommerce Brand Owner</div>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/HQfudtmWkvU?rel=0&modestbranding=1&playsinline=1"
+                    title="Erik B. testimonial"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <div class="video-info">
+                    <div class="video-name">Erik B.</div>
+                    <div class="video-role">Ecommerce Brand Owner</div>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/nSNpHkji-dQ?rel=0&modestbranding=1&playsinline=1"
+                    title="Based Paw testimonial"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <div class="video-info">
+                    <div class="video-name">Based Paw</div>
+                    <div class="video-role">Ecommerce Brand</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
