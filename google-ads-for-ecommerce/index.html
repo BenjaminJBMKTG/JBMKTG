@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads for Ecommerce Brands | JB Marketing</title>
+    <meta name="description" content="Already running Meta ads? Add Google Ads and capture high-intent buyers searching for your products. Ecommerce-only Google Ads specialists.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;800;900&family=Kulim+Park:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0B0B12;
+            --bg2: #101023;
+            --card: #12122B;
+            --text: #EDEBFF;
+            --muted: #B7B3E6;
+            --muted2: #8D89C7;
+            --border: rgba(195,188,255,.14);
+            --p: #423ECC;
+            --p2: #6E63FF;
+            --p3: #C3BCFF;
+            --font-body: "Kulim Park", system-ui, sans-serif;
+            --font-heading: "Unbounded", system-ui, sans-serif;
+            --max: 1120px;
+            --radius: 18px;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            background: #07070D;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: radial-gradient(1200px 700px at 20% -10%, rgba(110,99,255,.25), transparent 55%),
+                        radial-gradient(900px 600px at 90% 10%, rgba(66,62,204,.22), transparent 50%),
+                        linear-gradient(180deg, var(--bg) 0%, #07070D 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        p { color: var(--muted); margin: 0; }
+        
+        .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+        
+        /* Nav */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11,11,18,.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
+        .nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        .brand span { color: var(--p2); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--p), var(--p2));
+            color: var(--text);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 10px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(110,99,255,.35);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        .hero .chip {
+            display: inline-block;
+            background: rgba(110,99,255,.14);
+            border: 1px solid rgba(195,188,255,.2);
+            color: var(--p3);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 8px 18px;
+            border-radius: 999px;
+            margin-bottom: 28px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            line-height: 1.08;
+            margin-bottom: 24px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(90deg, var(--p3), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero .lead {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--p), var(--p2));
+            color: var(--text);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 18px 44px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 12px 40px rgba(110,99,255,.25);
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 50px rgba(110,99,255,.4);
+        }
+        .hero-sub {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--muted2);
+        }
+        
+        /* Stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding: 50px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 40px 0;
+        }
+        .stat { text-align: center; }
+        .stat__num {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: var(--text);
+        }
+        .stat__label {
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: var(--muted2);
+        }
+        
+        /* Problem section */
+        .section {
+            padding: 70px 0;
+        }
+        .section__head {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section__head h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .section__head p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+        
+        /* Problem/Solution cards */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        .compare-card {
+            border: 1px solid var(--border);
+            background: rgba(18,18,43,.55);
+            border-radius: var(--radius);
+            padding: 36px 32px;
+        }
+        .compare-card.problem {
+            border-color: rgba(255,100,100,.2);
+            background: rgba(255,60,60,.04);
+        }
+        .compare-card.solution {
+            border-color: rgba(110,99,255,.3);
+            background: rgba(110,99,255,.06);
+        }
+        .compare-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .compare-card.problem h3 { color: #FF6B6B; }
+        .compare-card.solution h3 { color: var(--p3); }
+        .compare-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .compare-card li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--muted);
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(195,188,255,.06);
+        }
+        .compare-card li:last-child { border-bottom: none; }
+        .compare-card.problem li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #FF6B6B;
+            font-weight: 700;
+        }
+        .compare-card.solution li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--p2);
+            font-weight: 700;
+        }
+        
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .step {
+            border: 1px solid var(--border);
+            background: rgba(18,18,43,.55);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            text-align: center;
+        }
+        .step__num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(110,99,255,.15);
+            border: 1px solid rgba(195,188,255,.2);
+            color: var(--p3);
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .step h3 {
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+        }
+        .step p {
+            font-size: 0.95rem;
+        }
+        
+        /* Objections / FAQ */
+        .objections {
+            display: grid;
+            gap: 16px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .objection {
+            border: 1px solid var(--border);
+            background: rgba(18,18,43,.55);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+        }
+        .objection h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        .objection p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Testimonial */
+        .testimonial-section {
+            padding: 70px 0;
+        }
+        .testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid var(--border);
+            background: rgba(18,18,43,.55);
+            border-radius: 24px;
+            padding: 50px 40px;
+        }
+        .testimonial .quote {
+            font-size: 1.2rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial .author {
+            font-weight: 700;
+            color: var(--p3);
+        }
+        .testimonial .role {
+            font-size: 0.9rem;
+            color: var(--muted2);
+            margin-top: 4px;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 80px 0 100px;
+        }
+        .final-cta h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+        .final-cta p {
+            max-width: 550px;
+            margin: 0 auto 36px;
+            font-size: 1.05rem;
+        }
+        
+        /* CTA panel */
+        .cta-panel {
+            max-width: 580px;
+            margin: 0 auto;
+            border: 1px solid rgba(195,188,255,.18);
+            background: linear-gradient(180deg, rgba(18,18,43,.75), rgba(15,15,30,.62));
+            border-radius: 24px;
+            padding: 40px 36px;
+            box-shadow: 0 18px 70px rgba(110,99,255,.12);
+        }
+        .cta-panel h3 {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+        }
+        .cta-panel .checklist {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 28px;
+        }
+        .cta-panel .checklist li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            color: var(--muted);
+        }
+        .cta-panel .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--p2);
+            font-weight: 700;
+        }
+        .cta-panel .hero-cta {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        .cta-panel .fine {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: var(--muted2);
+            text-align: center;
+        }
+        
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 0.85rem;
+            color: var(--muted2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .compare-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .hero { padding: 50px 0 40px; }
+            .section { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+    <div class="container nav__inner">
+        <div class="brand">JB<span>MKTG</span></div>
+        <a href="#book" class="nav-cta">Book a Strategy Call</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="chip">Ecommerce Google Ads Specialists</div>
+        <h1>Your Meta ads found them. <span class="accent">Google Ads closes them.</span></h1>
+        <p class="lead">You've built a solid ecommerce business on Meta. But there's a whole channel of high-intent buyers already searching for your products on Google. We help you capture them.</p>
+        <a href="#book" class="hero-cta">Book a Free Strategy Call</a>
+        <p class="hero-sub">No commitment. We'll look at your store and tell you honestly if Google Ads is right for you.</p>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="container">
+    <div class="stats-row">
+        <div class="stat">
+            <div class="stat__num">$150M+</div>
+            <div class="stat__label">Revenue generated</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">70+</div>
+            <div class="stat__label">Brands scaled</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">Ecom Only</div>
+            <div class="stat__label">100% ecommerce focus</div>
+        </div>
+        <div class="stat">
+            <div class="stat__num">★★★★★</div>
+            <div class="stat__label">Trusted by founders</div>
+        </div>
+    </div>
+</div>
+
+<!-- Problem/Solution -->
+<section class="section">
+    <div class="container">
+        <div class="section__head">
+            <h2>Sound familiar?</h2>
+            <p>Most ecommerce brands we work with come to us with the same story.</p>
+        </div>
+        <div class="compare-grid">
+            <div class="compare-card problem">
+                <h3>⚠️ Where you are now</h3>
+                <ul>
+                    <li>All revenue comes from Meta ads</li>
+                    <li>Hit a plateau you can't break through</li>
+                    <li>Tried Google Ads yourself but it felt overwhelming</li>
+                    <li>Hired an agency that burned your budget with nothing to show</li>
+                    <li>Know you should diversify but don't know where to start</li>
+                </ul>
+            </div>
+            <div class="compare-card solution">
+                <h3>✦ Where we take you</h3>
+                <ul>
+                    <li>Two revenue channels compounding together</li>
+                    <li>Capturing buyers already searching for your products</li>
+                    <li>Clear ROAS reporting you actually understand</li>
+                    <li>Google Shopping, Search, and PMAX working for your store</li>
+                    <li>A second channel you don't have to think about</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Google Ads -->
+<section class="section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section__head">
+            <h2>Meta creates demand. Google captures it.</h2>
+            <p>Your Meta ads put your products in front of people. But when those people are ready to buy, they search Google. If you're not there, your competitors are.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step__num">1</div>
+                <h3>Someone sees your product on Instagram</h3>
+                <p>Your Meta ad does its job. They're interested, but not ready to buy yet.</p>
+            </div>
+            <div class="step">
+                <div class="step__num">2</div>
+                <h3>Later, they search Google</h3>
+                <p>"Best [your product] UK" or "buy [your product] online." High intent. Ready to purchase.</p>
+            </div>
+            <div class="step">
+                <div class="step__num">3</div>
+                <h3>Your Google Ad captures them</h3>
+                <p>Your product shows up with image, price, and reviews. They click. They buy. That's the loop.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How we work -->
+<section class="section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section__head">
+            <h2>How it works</h2>
+            <p>We handle everything. You focus on your products and customers.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step__num">1</div>
+                <h3>Strategy call</h3>
+                <p>We look at your store, your margins, your Meta data, and figure out the right Google Ads approach for your business.</p>
+            </div>
+            <div class="step">
+                <div class="step__num">2</div>
+                <h3>We build everything</h3>
+                <p>Campaign structure, Shopping feeds, conversion tracking, audience setup. All done for you within the first week.</p>
+            </div>
+            <div class="step">
+                <div class="step__num">3</div>
+                <h3>Optimise and scale</h3>
+                <p>We manage your campaigns daily, send you clear monthly reports, and scale what works. No jargon, no guesswork.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Objection handling -->
+<section class="section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section__head">
+            <h2>Honest answers to real questions</h2>
+        </div>
+        <div class="objections">
+            <div class="objection">
+                <h3>"I've tried Google Ads before and it didn't work."</h3>
+                <p>Most ecommerce brands that "tried" Google Ads either did it themselves without proper tracking, or used a generalist agency that doesn't understand ecommerce. We only do ecommerce. It's all we know. And we set up proper conversion tracking before spending a penny.</p>
+            </div>
+            <div class="objection">
+                <h3>"Google Ads looks too complicated for me."</h3>
+                <p>It is complicated. That's exactly why you hire us. You don't need to learn it. We handle campaign setup, keyword research, Shopping feeds, bid strategies, conversion tracking, all of it. You get a clear report each month showing what we spent and what you earned.</p>
+            </div>
+            <div class="objection">
+                <h3>"My Meta ads are working fine. Why change?"</h3>
+                <p>We're not saying stop Meta. We're saying add Google. They compound. Meta creates awareness and demand. Google captures people who are already searching for your products. Most of our clients see their overall revenue jump 40-80% when both channels run together.</p>
+            </div>
+            <div class="objection">
+                <h3>"I got burned by my last agency."</h3>
+                <p>We get it. That's why we give you full access to your own accounts, transparent reporting, and no long lock-in contracts. 3 month minimum to give the campaigns time to optimise, then you stay because it works, not because you're stuck.</p>
+            </div>
+            <div class="objection">
+                <h3>"I'm not very tech-savvy. Will I understand what's happening?"</h3>
+                <p>Yes. Our reports are built for business owners, not data analysts. You'll see what we spent, what revenue came in, your ROAS, and what we're doing next. Plain English. No jargon. And you can message us anytime with questions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social proof -->
+<section class="testimonial-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section__head">
+            <h2>What our clients say</h2>
+        </div>
+        <div class="testimonial">
+            <div class="quote">"I started working with JB Marketing last year to scale my business with Google Ads. They understand both the platform and how to scale a brand. Campaigns have been performing really well. Can't recommend the service enough."</div>
+            <div class="author">Ecommerce Brand Owner</div>
+            <div class="role">Scaled from Meta-only to multi-channel</div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta" id="book" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <h2>Ready to stop leaving money on the table?</h2>
+        <p>Book a free strategy call. We'll look at your store, your numbers, and tell you exactly what we'd do. No pressure, no fluff.</p>
+        <div class="cta-panel">
+            <h3>What you get on the call</h3>
+            <ul class="checklist">
+                <li>Walk through your store and numbers live</li>
+                <li>Honest assessment of Google Ads potential for your brand</li>
+                <li>Exactly what campaigns we'd build and why</li>
+                <li>Clear pricing, no surprises</li>
+            </ul>
+            <a href="https://jbmktg.com/#book" class="hero-cta">Book Your Free Strategy Call</a>
+            <p class="fine">From £2k/month. 3 month minimum. Your accounts, your data, always.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>JB Marketing. Google Ads for ecommerce brands. That's it.</p>
+    </div>
+</footer>
+
+</body>
+</html>
