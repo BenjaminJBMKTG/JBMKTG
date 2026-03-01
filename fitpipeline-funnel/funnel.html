@@ -1347,6 +1347,9 @@
                 formData.phone = phone;
                 formData.instagram = instagram;
 
+                // Fire to n8n immediately to capture contact info
+                submitToNotion('Partial - Contact Info');
+
                 // META PIXEL EVENT: Track lead
                 // fbq('track', 'Lead');
             }
@@ -1363,6 +1366,7 @@
                 
                 // If not a coach, show rejection message
                 if (coach.value === 'no') {
+                    submitToNotion('Unqualified');
                     showResult('unqualified-coach');
                     return;
                 }
@@ -1412,10 +1416,9 @@
         }
 
         // n8n webhook URL - replace with your production URL after importing the workflow
-        const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+        const N8N_WEBHOOK_URL = 'https://jbmktg.app.n8n.cloud/webhook/fitpipeline-funnel-lead';
 
         function submitToNotion(qualification) {
-            if (N8N_WEBHOOK_URL === 'YOUR_N8N_WEBHOOK_URL_HERE') return;
             fetch(N8N_WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
