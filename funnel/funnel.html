@@ -1078,6 +1078,9 @@
                 formData.email = email;
                 formData.phone = phone;
 
+                // Fire to n8n immediately to capture contact info
+                submitToNotion('Partial - Contact Info');
+
                 // META PIXEL EVENT: Track lead
                 // fbq('track', 'Lead');
             }
@@ -1094,6 +1097,7 @@
                 
                 // If not DTC, show rejection message
                 if (dtc.value === 'no') {
+                    submitToNotion('Unqualified');
                     showResult('unqualified-dtc');
                     return;
                 }
@@ -1111,6 +1115,7 @@
                 
                 // If revenue too low, show rejection
                 if (revenue === 'under-10k') {
+                    submitToNotion('Unqualified');
                     showResult('unqualified-revenue');
                     return;
                 }
@@ -1137,11 +1142,9 @@
             updateProgress(currentStep + 1);
         }
 
-        // n8n webhook URL - replace with your production URL after importing the workflow
-        const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+        const N8N_WEBHOOK_URL = 'https://jbmktg.app.n8n.cloud/webhook-test/jbmktg-funnel-lead';
 
         function submitToNotion(qualification) {
-            if (N8N_WEBHOOK_URL === 'YOUR_N8N_WEBHOOK_URL_HERE') return;
             fetch(N8N_WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1150,10 +1153,11 @@
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
-                    dtc: formData.dtc,
-                    revenue: formData.revenue,
-                    spend: formData.marketingSpend,
-                    qualification: qualification
+                    dtc: formData.dtc || '',
+                    revenue: formData.revenue || '',
+                    spend: formData.marketingSpend || '',
+                    qualification: qualification,
+                    step: qualification === 'Partial - Contact Info' ? 1 : 'final'
                 })
             }).catch(err => console.log('Lead submission error:', err));
         }
