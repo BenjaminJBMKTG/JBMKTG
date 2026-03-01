@@ -281,7 +281,7 @@
 
         .testimonial-card {
             background: var(--card);
-            padding: 40px;
+            padding: 30px;
             border-radius: var(--radius2);
             border: 1px solid var(--border);
             position: relative;
@@ -293,30 +293,52 @@
             border-color: var(--p);
         }
 
-        .quote-mark {
-            font-size: 60px;
-            color: var(--p);
-            line-height: 1;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .testimonial-text {
-            font-size: 16px;
-            line-height: 1.8;
+        .testimonial-quote {
+            font-size: 15px;
+            line-height: 1.7;
             color: var(--muted);
             margin-bottom: 20px;
             font-style: italic;
         }
 
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--text);
+        .testimonial-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .testimonial-company {
-            color: var(--muted2);
+        .testimonial-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-stars {
+            color: #f5a623;
             font-size: 14px;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .testimonial-role {
+            color: var(--muted2);
+            font-size: 13px;
         }
 
         .form-section {
@@ -723,25 +745,46 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
+            <h2 class="section-title">Built for operators</h2>
+            <p style="text-align:center;color:var(--muted);margin-bottom:40px;">Real founders sharing their experience working with JB Marketing.</p>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">JB Marketing helped us unlock Google Ads as a profitable growth channel. Within 60 days we were seeing a 3.2x ROAS and consistent daily sales.</p>
-                    <p class="testimonial-author">Founder Name</p>
-                    <p class="testimonial-company">Brand Name</p>
+                    <p class="testimonial-quote">"James has been super helpful. Campaigns have been performing really well. Can't recommend the service enough."</p>
+                    <div class="testimonial-video">
+                        <iframe src="https://www.youtube-nocookie.com/embed/c-l1R6q4JMI?rel=0&modestbranding=1&playsinline=1" title="Zac C. testimonial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div class="testimonial-name">Zac C.</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">Finally, an agency that actually understands ecommerce. No fluff, no wasted spend. Just profitable campaigns that actually drive sales.</p>
-                    <p class="testimonial-author">Founder Name</p>
-                    <p class="testimonial-company">Brand Name</p>
+                    <p class="testimonial-quote">"I started working with James last year to scale my business with Google Ads. He understands both the platform and how to scale a brand."</p>
+                    <div class="testimonial-video">
+                        <iframe src="https://www.youtube-nocookie.com/embed/HQfudtmWkvU?rel=0&modestbranding=1&playsinline=1" title="Erik B. testimonial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div class="testimonial-name">Erik B.</div>
+                            <div class="testimonial-role">Founder, Home Decor</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <p class="testimonial-text">Ben and James are the real deal. They treat your ad budget like it's their own money. Highly recommend for any DTC brand serious about scaling.</p>
-                    <p class="testimonial-author">Founder Name</p>
-                    <p class="testimonial-company">Brand Name</p>
+                    <p class="testimonial-quote">"We started working with JB Marketing in 2025 and they helped us get consistent sales and outperform Meta."</p>
+                    <div class="testimonial-video">
+                        <iframe src="https://www.youtube-nocookie.com/embed/nSNpHkji-dQ?rel=0&modestbranding=1&playsinline=1" title="Based Paw testimonial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div class="testimonial-name">Martjin D.</div>
+                            <div class="testimonial-role">Founder, Pet Accessories</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
