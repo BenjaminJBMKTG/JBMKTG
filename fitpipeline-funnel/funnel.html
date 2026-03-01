@@ -762,24 +762,28 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 48px 16px 60px;
+            }
+
             h1 {
-                font-size: 36px;
+                font-size: 28px;
             }
 
             .subheading {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .section-title {
-                font-size: 36px;
+                font-size: 28px;
             }
 
-            .form-container {
-                padding: 30px 20px;
+            .section {
+                padding: 48px 16px;
             }
 
-            .radio-group {
-                flex-direction: column;
+            .stats-bar {
+                padding: 24px 16px;
             }
 
             .stats-grid {
@@ -788,7 +792,45 @@
             }
 
             .stat-number {
-                font-size: 28px;
+                font-size: 24px;
+            }
+
+            .video-placeholder {
+                height: 250px;
+                padding-bottom: 0;
+            }
+
+            .form-container {
+                padding: 24px 16px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+                padding: 16px 20px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 16px 32px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+
+            .progress-label {
+                display: none;
+            }
+
+            .progress-dot {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .progress-bar {
+                gap: 4px;
+                margin-bottom: 24px;
             }
 
             .cards-grid,
@@ -796,6 +838,37 @@
             .tiers-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .tier-card {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 32px 12px 48px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .section {
+                padding: 40px 12px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .form-container {
+                padding: 20px 12px;
+            }
+
+            .card,
+            .step-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -864,17 +937,37 @@
             <h2 class="section-title">Who This Is For</h2>
             <div class="cards-grid">
                 <div class="card">
-                    <div class="card-icon">💪</div>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
                     <h3>Online Coaches</h3>
                     <p>You have a proven offer and paying clients but you're stuck doing everything manually.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🏋️</div>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="5" r="1"></circle>
+                            <path d="M14 7v4h4"></path>
+                            <path d="M14 7 12 9.5 10 7"></path>
+                            <path d="M10 11v10"></path>
+                            <path d="M14 11v10"></path>
+                            <path d="M8 15h8"></path>
+                            <path d="M8 19h8"></path>
+                        </svg>
+                    </div>
                     <h3>Hybrid PTs</h3>
                     <p>Training clients in-person and want to add online revenue?</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon">📈</div>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                            <polyline points="16 7 22 7 22 13"></polyline>
+                        </svg>
+                    </div>
                     <h3>Scaling Coaches</h3>
                     <p>Already closing but want more volume?</p>
                 </div>
