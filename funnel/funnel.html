@@ -1137,11 +1137,33 @@
             updateProgress(currentStep + 1);
         }
 
+        // n8n webhook URL - replace with your production URL after importing the workflow
+        const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+
+        function submitToNotion(qualification) {
+            if (N8N_WEBHOOK_URL === 'YOUR_N8N_WEBHOOK_URL_HERE') return;
+            fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    funnel: 'jbmktg',
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    dtc: formData.dtc,
+                    revenue: formData.revenue,
+                    spend: formData.marketingSpend,
+                    qualification: qualification
+                })
+            }).catch(err => console.log('Lead submission error:', err));
+        }
+
         function routeQualification() {
             const { dtc, revenue } = formData;
             
             // Qualified: DTC + (£30k-£100k or £100k+)
             if (dtc === 'yes' && (revenue === '30k-100k' || revenue === '100k-plus')) {
+                submitToNotion('Qualified');
                 showResult('qualified');
                 // META PIXEL EVENT: Track qualification
                 // fbq('track', 'Schedule');
@@ -1150,11 +1172,13 @@
             
             // Semi-qualified: DTC + £10k-£30k
             if (dtc === 'yes' && revenue === '10k-30k') {
+                submitToNotion('Semi-Qualified');
                 showResult('semi-qualified');
                 return;
             }
             
             // Unqualified
+            submitToNotion('Unqualified');
             showResult('unqualified-revenue');
         }
 
