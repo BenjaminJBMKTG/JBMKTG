@@ -1234,6 +1234,17 @@
             }
             
             step5.innerHTML = content;
+            initCalendly();
+        }
+
+        function initCalendly() {
+            const widget = document.querySelector('.calendly-inline-widget');
+            if (widget && window.Calendly) {
+                Calendly.initInlineWidget({
+                    url: widget.getAttribute('data-url'),
+                    parentElement: widget
+                });
+            }
         }
 
         function showCalendar() {
@@ -1245,6 +1256,7 @@
                 </div>
                 <div class="calendly-inline-widget" data-url="https://calendly.com/ben-jbmktg/30min?background_color=12122b&text_color=edebff&primary_color=423ecc" style="min-width:320px;height:700px;"></div>
             `;
+            initCalendly();
             
             // META PIXEL EVENT: Track semi-qualified conversion
             // fbq('track', 'Schedule');
