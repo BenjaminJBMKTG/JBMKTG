@@ -642,20 +642,32 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 48px 16px 56px;
+            }
+
             h1 {
-                font-size: 32px;
+                font-size: 26px;
+                line-height: 1.15;
+            }
+
+            .icp-callout {
+                font-size: 11px;
+                padding: 8px 16px;
+                margin-bottom: 16px;
             }
 
             .subheading {
-                font-size: 18px;
+                font-size: 15px;
+                margin-bottom: 24px;
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 26px;
             }
 
             .form-container {
-                padding: 30px 20px;
+                padding: 24px 16px;
             }
 
             .radio-group {
@@ -663,12 +675,40 @@
             }
 
             .logo-grid {
-                gap: 20px;
+                gap: 16px;
             }
 
             .logo-placeholder {
-                width: 140px;
-                height: 60px;
+                width: 120px;
+                height: 50px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+                padding: 16px 20px;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .video-placeholder {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            .subheading {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 22px;
             }
         }
     </style>
