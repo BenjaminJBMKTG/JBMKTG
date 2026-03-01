@@ -1411,11 +1411,35 @@
             updateProgress(currentStep + 1);
         }
 
+        // n8n webhook URL - replace with your production URL after importing the workflow
+        const N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+
+        function submitToNotion(qualification) {
+            if (N8N_WEBHOOK_URL === 'YOUR_N8N_WEBHOOK_URL_HERE') return;
+            fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    funnel: 'fitpipeline',
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    instagram: formData.instagram,
+                    isCoach: formData.coach,
+                    clients: formData.clients,
+                    revenue: formData.revenue,
+                    bottleneck: formData.bottleneck,
+                    qualification: qualification
+                })
+            }).catch(err => console.log('Lead submission error:', err));
+        }
+
         function routeQualification() {
             const { coach, clients, revenue } = formData;
             
             // QUALIFIED: coach=Yes AND (clients=6-15 or 15+ OR revenue=£5k-£10k or £10k+)
             if (coach === 'yes' && (clients === '6-15' || clients === '15-plus' || revenue === '5k-10k' || revenue === '10k-plus')) {
+                submitToNotion('Qualified');
                 showResult('qualified');
                 // META PIXEL EVENT: Track qualification
                 // fbq('track', 'Schedule');
@@ -1424,11 +1448,13 @@
             
             // SEMI-QUALIFIED: coach=Yes AND (clients=1-5 AND revenue=£2k-£5k)
             if (coach === 'yes' && clients === '1-5' && revenue === '2k-5k') {
+                submitToNotion('Semi-Qualified');
                 showResult('semi-qualified');
                 return;
             }
             
             // UNQUALIFIED: no clients, under £2k, or not a coach
+            submitToNotion('Unqualified');
             showResult('unqualified-early');
         }
 
