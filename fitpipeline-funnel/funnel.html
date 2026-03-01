@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Acquisition System for Fitness Coaches | FitPipeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #2563EB;
+            --blue-light: #60A5FA;
+            --blue-dark: #1E40AF;
+            --blue-bg: #EFF6FF;
+            --bg: #FFFFFF;
+            --bg2: #F8FAFC;
+            --bg-alt: #F1F5F9;
+            --text: #0F172A;
+            --text-secondary: #475569;
+            --muted: #94A3B8;
+            --border: #E2E8F0;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --max: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .hero {
+            background: linear-gradient(180deg, var(--blue-bg) 0%, var(--bg) 100%);
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .icp-callout {
+            background: var(--blue);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text);
+        }
+
+        .subheading {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .video-placeholder {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            box-shadow: 0 15px 50px rgba(37, 99, 235, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--blue);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .video-placeholder:hover::before {
+            background: var(--blue-dark);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-placeholder::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-45%, -50%);
+            font-size: 32px;
+            color: white;
+            z-index: 2;
+        }
+
+        .video-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 600;
+            z-index: 3;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--blue);
+            color: white;
+            padding: 18px 48px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .stats-bar {
+            background: var(--bg);
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 10px;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .section {
+            padding: 80px 20px;
+            background: var(--bg);
+        }
+
+        .section.alt {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--bg);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .section.alt .card {
+            background: var(--bg);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--blue-bg);
+            color: var(--blue);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            color: var(--text);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            font-family: var(--font-heading);
+        }
+
+        .step-card h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            color: var(--text);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tier-card {
+            background: var(--bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .tier-name {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .tier-description {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tier-features li {
+            padding: 12px 0;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--blue-bg);
+            color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .testimonial-role {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .form-section {
+            background: var(--bg2);
+            padding: 80px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.05);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            flex: 1;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 15px;
+            background: var(--bg-alt);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        .btn-next {
+            width: 100%;
+            background: var(--blue);
+            color: white;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-next:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-next:disabled {
+            background: var(--muted);
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .form-message h3 {
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .calendly-placeholder {
+            background: var(--blue-bg);
+            padding: 60px 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 2px dashed var(--blue);
+            margin: 30px 0;
+        }
+
+        .calendly-placeholder h3 {
+            color: var(--text);
+            margin-bottom: 10px;
+            font-family: var(--font-heading);
+        }
+
+        .calendly-placeholder p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .progress-dot {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-alt);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--muted);
+            position: relative;
+            z-index: 2;
+            font-size: 14px;
+        }
+
+        .progress-step.active .progress-dot {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        .progress-step.completed .progress-dot {
+            background: var(--blue-light);
+            color: white;
+            border-color: var(--blue-light);
+        }
+
+        .progress-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .faq-section {
+            background: var(--bg);
+            padding: 80px 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg2);
+            margin-bottom: 15px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--blue);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 25px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 28px;
+            line-height: 1;
+            color: var(--blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 25px 25px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .final-cta {
+            background: linear-gradient(180deg, var(--bg) 0%, var(--blue-bg) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            letter-spacing: -0.02em;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subheading {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .cards-grid,
+            .steps-grid,
+            .tiers-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body>
+    <!-- META PIXEL: Add your pixel ID here -->
+    <!-- <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript> -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="icp-callout">For online fitness coaches and PTs selling high-ticket programs</div>
+            <h1>The system behind coaches who never run out of clients</h1>
+            <p class="subheading">We build predictable client acquisition infrastructure for online fitness coaches. Content, DM automation, and paid ads, all wired together. Without spending hours in DMs. Without guessing what to post. Without relying on referrals.</p>
+            
+            <div class="video-placeholder">
+                <span class="video-text">Watch How It Works</span>
+            </div>
+
+            <a href="#application-form" class="cta-button">Book Your Free Audit</a>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Fitness Clients Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-label">DMs Automated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3x</div>
+                    <div class="stat-label">Average Lead Increase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">70-85%</div>
+                    <div class="stat-label">Show-Up Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="section alt">
+        <div class="container">
+            <h2 class="section-title">Who This Is For</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">💪</div>
+                    <h3>Online Coaches</h3>
+                    <p>You have a proven offer and paying clients but you're stuck doing everything manually.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏋️</div>
+                    <h3>Hybrid PTs</h3>
+                    <p>Training clients in-person and want to add online revenue?</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3>Scaling Coaches</h3>
+                    <p>Already closing but want more volume?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Audit + Positioning</h3>
+                    <p>We audit your profile, refine your positioning, and identify exactly what your ideal client needs to hear.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Build the Machine</h3>
+                    <p>We create your content calendar, DM automation flows, and paid ad campaigns. Everything wired together.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Run the Cadence</h3>
+                    <p>You post, the system handles DMs, and qualified leads book directly into your calendar. Week after week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="section alt">
+        <div class="container">
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-subtitle">Two tiers. Both designed to fill your pipeline. Choose based on where you're at.</p>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-name">CORE</div>
+                    <p class="tier-description">The organic client system</p>
+                    <ul class="tier-features">
+                        <li>Profile audit and positioning workshop</li>
+                        <li>Monthly content calendar (carousels + reel frameworks)</li>
+                        <li>DM automation flows</li>
+                        <li>Lead magnet setup</li>
+                        <li>Weekly performance reviews</li>
+                        <li>Direct access to Ben and Archie</li>
+                    </ul>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-name">SCALE</div>
+                    <p class="tier-description">Organic + paid acceleration</p>
+                    <ul class="tier-features">
+                        <li>Everything in CORE, plus:</li>
+                        <li>Meta Ads campaign setup and management</li>
+                        <li>Custom landing page and funnel</li>
+                        <li>Ad creative production</li>
+                        <li>Weekly ad optimisation</li>
+                        <li>Monthly strategy calls</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Built by Coaches, For Coaches</h2>
+            <p class="section-subtitle">What fitness coaches are saying about working with FitPipeline.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Within 3 weeks of implementing the system, I had 8 qualified leads book calls. My DMs were on autopilot and I finally had time to actually coach."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">JM</div>
+                        <div>
+                            <div class="testimonial-name">James M.</div>
+                            <div class="testimonial-role">Online Strength Coach</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I was stuck at 5 clients for months. Ben and Archie rebuilt my content strategy and now I'm consistently at 12+ clients. Game changer."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">SC</div>
+                        <div>
+                            <div class="testimonial-name">Sarah C.</div>
+                            <div class="testimonial-role">Hybrid PT</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"The SCALE tier paid for itself in the first month. Running paid ads without wasting money on bad targeting was exactly what I needed."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div class="testimonial-name">Marcus R.</div>
+                            <div class="testimonial-role">Transformation Coach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="form-section" id="application-form">
+        <div class="container">
+            <h2 class="section-title">Book Your Free Audit</h2>
+            <div class="form-container">
+                <div class="progress-bar">
+                    <div class="progress-step active" id="progress-1">
+                        <div class="progress-dot">1</div>
+                        <div class="progress-label">Info</div>
+                    </div>
+                    <div class="progress-step" id="progress-2">
+                        <div class="progress-dot">2</div>
+                        <div class="progress-label">Qualify</div>
+                    </div>
+                    <div class="progress-step" id="progress-3">
+                        <div class="progress-dot">3</div>
+                        <div class="progress-label">Clients</div>
+                    </div>
+                    <div class="progress-step" id="progress-4">
+                        <div class="progress-dot">4</div>
+                        <div class="progress-label">Revenue</div>
+                    </div>
+                    <div class="progress-step" id="progress-5">
+                        <div class="progress-dot">5</div>
+                        <div class="progress-label">Bottleneck</div>
+                    </div>
+                    <div class="progress-step" id="progress-6">
+                        <div class="progress-dot">6</div>
+                        <div class="progress-label">Next Steps</div>
+                    </div>
+                </div>
+
+                <form id="qualification-form">
+                    <!-- Step 1: Contact Info -->
+                    <div class="form-step active" id="step-1">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram">Instagram Handle *</label>
+                            <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
+                        </div>
+                        <button type="button" class="btn-next" onclick="nextStep(1)">Continue</button>
+                    </div>
+
+                    <!-- Step 2: Coach Qualification -->
+                    <div class="form-step" id="step-2">
+                        <div class="form-group">
+                            <label>Are you an online fitness coach or PT? *</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="coach-yes" name="coach" value="yes" required>
+                                    <label for="coach-yes">Yes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="coach-no" name="coach" value="no">
+                                    <label for="coach-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-next" onclick="nextStep(2)">Continue</button>
+                    </div>
+
+                    <!-- Step 3: Client Count -->
+                    <div class="form-step" id="step-3">
+                        <div class="form-group">
+                            <label for="clients">How many paying clients do you currently have? *</label>
+                            <select id="clients" name="clients" required>
+                                <option value="">Select an option</option>
+                                <option value="none">None yet</option>
+                                <option value="1-5">1-5</option>
+                                <option value="6-15">6-15</option>
+                                <option value="15-plus">15+</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-next" onclick="nextStep(3)">Continue</button>
+                    </div>
+
+                    <!-- Step 4: Revenue -->
+                    <div class="form-step" id="step-4">
+                        <div class="form-group">
+                            <label for="revenue">What's your current monthly revenue from coaching? *</label>
+                            <select id="revenue" name="revenue" required>
+                                <option value="">Select an option</option>
+                                <option value="under-2k">Under £2k</option>
+                                <option value="2k-5k">£2k - £5k</option>
+                                <option value="5k-10k">£5k - £10k</option>
+                                <option value="10k-plus">£10k+</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-next" onclick="nextStep(4)">Continue</button>
+                    </div>
+
+                    <!-- Step 5: Bottleneck -->
+                    <div class="form-step" id="step-5">
+                        <div class="form-group">
+                            <label for="bottleneck">What's your biggest bottleneck? *</label>
+                            <select id="bottleneck" name="bottleneck" required>
+                                <option value="">Select an option</option>
+                                <option value="leads">Not enough leads</option>
+                                <option value="conversion">Can't convert DMs to calls</option>
+                                <option value="showup">Low show-up rate</option>
+                                <option value="content">Need more content</option>
+                                <option value="ads">Want to add paid ads</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-next" onclick="nextStep(5)">Continue</button>
+                    </div>
+
+                    <!-- Step 6: Results -->
+                    <div class="form-step" id="step-6">
+                        <!-- Results will be dynamically inserted here -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do I need a big following?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No. You need a clear offer and a repeatable system. We've helped coaches with under 1,000 followers fill their calendars. It's about positioning and process, not vanity metrics.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        I hate pushy DM sales
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Good, so do we. The flows start helpful conversations and guide to a call. No spammy scripts. No copy-paste nonsense. Just value-first messaging that actually converts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you create all my content?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We create carousels (DFY) and give structured reel frameworks. You film and post. Your face, your voice, your brand. We handle the strategy, structure, and automation.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long until I see results?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Initial build takes 2-3 weeks. Once installed, you're running the weekly cadence straight away. Most coaches see qualified leads within the first month. Consistency is key.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Who is this NOT for?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Beginners with no proof, low-ticket-only coaches, or anyone not willing to create content consistently. This system works, but you need to show up and post.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What's the investment?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We'll discuss pricing on the call based on which tier fits your situation. CORE and SCALE are both structured to deliver ROI quickly. No hidden fees, no surprises.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to build the machine?</h2>
+            <a href="#application-form" class="cta-button">Book Your Free Audit</a>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Form Logic
+        let formData = {
+            name: '',
+            email: '',
+            phone: '',
+            instagram: '',
+            coach: '',
+            clients: '',
+            revenue: '',
+            bottleneck: ''
+        };
+
+        function updateProgress(stepNumber) {
+            for (let i = 1; i <= 6; i++) {
+                const progressStep = document.getElementById(`progress-${i}`);
+                if (i < stepNumber) {
+                    progressStep.classList.add('completed');
+                    progressStep.classList.remove('active');
+                } else if (i === stepNumber) {
+                    progressStep.classList.add('active');
+                    progressStep.classList.remove('completed');
+                } else {
+                    progressStep.classList.remove('active', 'completed');
+                }
+            }
+        }
+
+        function nextStep(currentStep) {
+            const currentStepElement = document.getElementById(`step-${currentStep}`);
+            
+            // Validate current step
+            if (currentStep === 1) {
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const instagram = document.getElementById('instagram').value.trim();
+                
+                if (!name || !email || !phone || !instagram) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+                
+                formData.name = name;
+                formData.email = email;
+                formData.phone = phone;
+                formData.instagram = instagram;
+
+                // META PIXEL EVENT: Track lead
+                // fbq('track', 'Lead');
+            }
+            
+            if (currentStep === 2) {
+                const coach = document.querySelector('input[name="coach"]:checked');
+                
+                if (!coach) {
+                    alert('Please select an option');
+                    return;
+                }
+                
+                formData.coach = coach.value;
+                
+                // If not a coach, show rejection message
+                if (coach.value === 'no') {
+                    showResult('unqualified-coach');
+                    return;
+                }
+            }
+            
+            if (currentStep === 3) {
+                const clients = document.getElementById('clients').value;
+                
+                if (!clients) {
+                    alert('Please select your client count');
+                    return;
+                }
+                
+                formData.clients = clients;
+            }
+            
+            if (currentStep === 4) {
+                const revenue = document.getElementById('revenue').value;
+                
+                if (!revenue) {
+                    alert('Please select your revenue range');
+                    return;
+                }
+                
+                formData.revenue = revenue;
+            }
+            
+            if (currentStep === 5) {
+                const bottleneck = document.getElementById('bottleneck').value;
+                
+                if (!bottleneck) {
+                    alert('Please select your biggest bottleneck');
+                    return;
+                }
+                
+                formData.bottleneck = bottleneck;
+                
+                // Route based on qualification
+                routeQualification();
+                return;
+            }
+            
+            // Move to next step
+            currentStepElement.classList.remove('active');
+            document.getElementById(`step-${currentStep + 1}`).classList.add('active');
+            updateProgress(currentStep + 1);
+        }
+
+        function routeQualification() {
+            const { coach, clients, revenue } = formData;
+            
+            // QUALIFIED: coach=Yes AND (clients=6-15 or 15+ OR revenue=£5k-£10k or £10k+)
+            if (coach === 'yes' && (clients === '6-15' || clients === '15-plus' || revenue === '5k-10k' || revenue === '10k-plus')) {
+                showResult('qualified');
+                // META PIXEL EVENT: Track qualification
+                // fbq('track', 'Schedule');
+                return;
+            }
+            
+            // SEMI-QUALIFIED: coach=Yes AND (clients=1-5 AND revenue=£2k-£5k)
+            if (coach === 'yes' && clients === '1-5' && revenue === '2k-5k') {
+                showResult('semi-qualified');
+                return;
+            }
+            
+            // UNQUALIFIED: no clients, under £2k, or not a coach
+            showResult('unqualified-early');
+        }
+
+        function showResult(type) {
+            const step6 = document.getElementById('step-6');
+            step6.classList.add('active');
+            document.getElementById('step-5').classList.remove('active');
+            updateProgress(6);
+            
+            let content = '';
+            
+            if (type === 'qualified') {
+                content = `
+                    <div class="form-message success">
+                        <h3>Perfect fit, ${formData.name}!</h3>
+                        <p>You're exactly who we built this for. Let's audit your profile and map out your client acquisition system.</p>
+                        <p style="margin-top: 20px;">Book your free audit with Ben or Archie below:</p>
+                    </div>
+                    <!-- CALENDLY EMBED: Replace this placeholder with your actual Calendly embed code -->
+                    <div class="calendly-placeholder">
+                        <h3>Calendly Embed</h3>
+                        <p>Add your booking link here</p>
+                    </div>
+                    <!-- 
+                    Example Calendly embed code:
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/fitpipeline/audit?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                    -->
+                `;
+            } else if (type === 'semi-qualified') {
+                content = `
+                    <div class="form-message">
+                        <h3>Thanks for your interest, ${formData.name}</h3>
+                        <p>You're on the right track. We typically work best with coaches who have at least 6+ clients or £5k+ monthly revenue, but let's chat and see if we can help accelerate your growth.</p>
+                        <p style="margin-top: 20px;">Book a quick call and we'll figure out if this is the right fit:</p>
+                    </div>
+                    <!-- CALENDLY EMBED: Replace this placeholder with your actual Calendly embed code -->
+                    <div class="calendly-placeholder">
+                        <h3>Calendly Embed</h3>
+                        <p>Add your booking link here</p>
+                    </div>
+                `;
+            } else if (type === 'unqualified-early') {
+                content = `
+                    <div class="form-message">
+                        <h3>Thanks for your interest, ${formData.name}</h3>
+                        <p>We typically work with coaches who already have paying clients and a proven offer. Keep building and come back when you're ready.</p>
+                        <p style="margin-top: 20px;">In the meantime, follow us on Instagram <strong>@fitpipeline</strong> for free content on client acquisition.</p>
+                    </div>
+                `;
+            } else if (type === 'unqualified-coach') {
+                content = `
+                    <div class="form-message">
+                        <h3>Thanks for your interest, ${formData.name}</h3>
+                        <p>Sorry, we only work with online fitness coaches and PTs. Our system is built specifically for the fitness coaching niche.</p>
+                        <p style="margin-top: 20px;">If you think this was a mistake, reach out to us directly at <strong>fitpipeline.com</strong></p>
+                    </div>
+                `;
+            }
+            
+            step6.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
