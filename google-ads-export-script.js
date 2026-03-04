@@ -26,7 +26,7 @@ function main() {
   var today = new Date();
   var startDate = new Date(today.getTime() - (CONFIG.LOOKBACK_DAYS * 24 * 60 * 60 * 1000));
   
-  var dateRange = formatDate(startDate) + ',' + formatDate(today);
+  var dateRange = "BETWEEN '" + formatDate(startDate) + "' AND '" + formatDate(today) + "'";
   
   exportDailyPerformance(spreadsheet, dateRange);
   exportCampaignPerformance(spreadsheet, dateRange);
@@ -63,7 +63,7 @@ function exportDailyPerformance(spreadsheet, dateRange) {
     'metrics.conversions_value, ' +
     'campaign.status ' +
     'FROM campaign ' +
-    'WHERE segments.date DURING ' + dateRange + ' ' +
+    'WHERE segments.date ' + dateRange + ' ' +
     'AND metrics.impressions > 0 ' +
     'ORDER BY segments.date DESC, metrics.cost_micros DESC';
   
@@ -136,7 +136,7 @@ function exportCampaignPerformance(spreadsheet, dateRange) {
     'metrics.cost_per_conversion, ' +
     'metrics.conversions_value ' +
     'FROM campaign ' +
-    'WHERE segments.date DURING ' + dateRange + ' ' +
+    'WHERE segments.date ' + dateRange + ' ' +
     'AND metrics.impressions > 0 ' +
     'ORDER BY metrics.cost_micros DESC';
   
@@ -200,9 +200,9 @@ function exportSummary(spreadsheet, today) {
   sheet.appendRow(headers);
   
   var periods = [
-    { name: 'Yesterday', range: formatDate(new Date(today.getTime() - 86400000)) + ',' + formatDate(new Date(today.getTime() - 86400000)) },
-    { name: 'Last 7 Days', range: weekRange },
-    { name: 'Last 30 Days', range: monthRange }
+    { name: 'Yesterday', range: "BETWEEN '" + formatDate(new Date(today.getTime() - 86400000)) + "' AND '" + formatDate(new Date(today.getTime() - 86400000)) + "'" },
+    { name: 'Last 7 Days', range: "BETWEEN '" + formatDate(weekAgo) + "' AND '" + formatDate(today) + "'" },
+    { name: 'Last 30 Days', range: "BETWEEN '" + formatDate(monthAgo) + "' AND '" + formatDate(today) + "'" }
   ];
   
   periods.forEach(function(period) {
@@ -212,7 +212,7 @@ function exportSummary(spreadsheet, today) {
       'metrics.conversions, ' +
       'metrics.conversions_value ' +
       'FROM customer ' +
-      'WHERE segments.date DURING ' + period.range;
+      'WHERE segments.date ' + period.range;
     
     var report = AdsApp.search(query);
     var totalCost = 0, totalClicks = 0, totalConv = 0, totalValue = 0;
@@ -261,5 +261,5 @@ function getOrCreateSheet(spreadsheet, name) {
 }
 
 function formatDate(date) {
-  return "'" + Utilities.formatDate(date, 'UTC', 'yyyy-MM-dd') + "'";
+  return Utilities.formatDate(date, 'UTC', 'yyyy-MM-dd');
 }
