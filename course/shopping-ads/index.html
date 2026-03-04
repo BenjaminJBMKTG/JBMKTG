@@ -312,6 +312,65 @@
             margin: 0;
         }
 
+        /* Speaker Notes */
+        .notes-toggle {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: #423ECC;
+            border: none;
+            color: #EDEBFF;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .notes-toggle:hover {
+            background: #6E63FF;
+            transform: scale(1.1);
+        }
+
+        .notes-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: #12121f;
+            border-top: 3px solid #423ECC;
+            overflow-y: auto;
+            transition: height 0.3s ease;
+            z-index: 90;
+            padding: 0 60px;
+        }
+
+        .notes-panel.open {
+            height: 280px;
+            padding: 30px 60px;
+        }
+
+        .notes-panel h4 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 16px;
+            color: #6E63FF;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .notes-panel p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #B7B3E6;
+            margin: 0;
+        }
+
         @media (max-width: 1400px) {
             .slide {
                 padding: 60px 80px;
@@ -1174,6 +1233,20 @@
         </div>
     </div>
 
+    <button class="notes-toggle" id="notesToggle" title="Toggle Speaker Notes (N)">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="8" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="8" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="8" y1="17" x2="13" y2="17" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+    </button>
+
+    <div class="notes-panel" id="notesPanel">
+        <h4>Speaker Notes</h4>
+        <p id="notesContent"></p>
+    </div>
+
     <div class="controls">
         <button class="nav-btn" id="prevBtn">
             <svg width="24" height="24" viewBox="0 0 24 24">
@@ -1189,12 +1262,69 @@
     </div>
 
     <script>
+        const speakerNotes = [
+            // Slide 1: Title
+            "Welcome to this module on Google Shopping Ads. By the end of this lesson, you'll understand exactly what Shopping Ads are, how the whole ecosystem works from Merchant Center through to the auction, and how to set them up for profitable ecommerce growth. Shopping Ads are one of the most powerful tools in Google Ads for ecommerce, and most advertisers either don't use them properly or don't use them at all. That's an opportunity for you.",
+
+            // Slide 2: What Are Google Shopping Ads?
+            "So what actually are Shopping Ads? They're those visual product listings you see right at the top of Google when you search for something to buy. Unlike regular text ads, they show the product image, the price, and the store name right there in the search results. Think about it from the shopper's perspective: they can see exactly what the product looks like and how much it costs before they even click. That means the traffic you get from Shopping Ads is already highly qualified. They've seen your product and your price, and they still clicked. That's powerful.",
+
+            // Slide 3: Where Shopping Ads Appear
+            "Shopping Ads don't just show up in regular Google Search. They appear across five different surfaces. Google Search is the big one, right at the top of results. Then there's the dedicated Shopping tab, which is basically Google's product comparison engine. They also show up in Google Images, which a lot of people forget about. YouTube is another placement, especially with Performance Max campaigns. And finally the Display Network for remarketing. The key takeaway: your products can reach customers across Google's entire ecosystem from a single campaign.",
+
+            // Slide 4: Shopping Ads vs Search Ads
+            "Let's compare Shopping Ads to regular Search Ads because they work quite differently. Shopping Ads are visual with product images, they're driven by your product feed rather than keywords you choose, there's no ad copy to write since Google pulls everything from your feed, and the price is shown upfront. Search Ads are text-based, keyword-targeted, you write the headlines and descriptions manually, and they're better suited for services. For ecommerce products, Shopping Ads typically outperform Search Ads on click-through rate because that visual element is so compelling. Ideally you want both running, but if you had to pick one for a product-based business, Shopping wins.",
+
+            // Slide 5: How Shopping Ads Work
+            "Here's the ecosystem and how all the pieces fit together. It starts with Google Merchant Center, which is where your product data lives. Your product feed flows from Merchant Center into Google Ads, where you create your Shopping campaigns. When someone searches for a product, Google's algorithm matches their search query to products in your feed, and eligible products enter a real-time auction. The winners get displayed at the top of search results. The critical thing to understand is that there are no keywords in Shopping campaigns. Google decides which searches trigger your ads based on your product feed data. That's why feed quality is everything.",
+
+            // Slide 6: What is Google Merchant Center?
+            "Google Merchant Center is the foundation of everything. Think of it as the hub where Google stores and validates all your product data. It's where you upload your product feed, it checks your data against Google's requirements and flags any errors, it connects to your Google Ads account to power your campaigns, and it gives you diagnostics so you can fix issues before they hurt performance. Every single Shopping Ads campaign requires Merchant Center. No Merchant Center, no Shopping Ads. It's free to set up, and if you're on Shopify or WooCommerce there are apps that sync your product data automatically.",
+
+            // Slide 7: Product Feed Explained
+            "Your product feed is essentially a spreadsheet of all your product data. Each row is a product, each column is an attribute. The essential ones are: Product ID as your unique identifier, Title which is arguably the most important field for matching to search queries, Description for detailed product info, Image Link for your product photos, Price including currency, Availability status, GTIN which is the barcode number Google uses to identify products globally, and Brand name. There are optional fields too like colour, size, material, custom labels, and more. The more data you provide, the better Google can match your products to relevant searches.",
+
+            // Slide 8: Feed Optimization Tips
+            "This is where the money is. Three areas to focus on. First, product titles. This is the single most impactful thing you can optimise. Include the brand, product type, colour, size, and key features. Front-load the most important info because titles get truncated. Use natural language that people actually search for. Second, product images. Use high-resolution photos, minimum 800 by 800 pixels. Clean white or neutral backgrounds perform best. No watermarks, no text overlays, no borders. The image is what grabs attention in search results so it needs to be sharp. Third, pricing. Keep prices competitive and always up to date. If you're running a sale, use the sale_price field so Google shows the strikethrough price. That drives significantly higher CTR.",
+
+            // Slide 9: Campaign Types
+            "You've got two main options: Standard Shopping and Performance Max. Standard Shopping gives you full manual control. You set bids at the product group level, you can add negative keywords, and ads only show on Search. It's the best option when you're starting out because you can see exactly what's happening and make precise adjustments. Performance Max is Google's AI-driven campaign type. It runs across all Google networks automatically, uses machine learning to optimise bids, and requires solid conversion tracking to work well. It's powerful for scaling, but it's a black box. You have less visibility into what's working. My recommendation: start with Standard Shopping to learn what works, then layer in Performance Max once you have conversion data.",
+
+            // Slide 10: How the Auction Works
+            "The auction is fundamentally different from Search Ads. There are no keywords. Let me repeat that because it's the biggest misconception. You do not choose keywords for Shopping campaigns. Instead, Google matches search queries to your product feed data automatically. Here's the five-step process: a user searches for something, Google scans all the product feeds in Merchant Center, the algorithm matches the search intent with product titles, descriptions, categories, and attributes, eligible products enter a real-time auction where your bid and quality score determine your position, and the winners get displayed. This is exactly why your feed data matters so much. If your product title doesn't contain the words people search for, Google can't match your product to those searches.",
+
+            // Slide 11: Bidding Strategies
+            "Three main bidding strategies to know. Manual CPC is where you set the maximum you're willing to pay per click for each product group. It gives you the most control and is best when starting out. You'll learn what CPCs are competitive in your market and which products convert well. Target ROAS lets you set a return target, say 400%, and Google automatically adjusts bids to hit that goal. It needs at least 15 conversions in the last 30 days to work properly. Maximize Conversion Value tells Google to get you the most revenue possible within your daily budget. Great for scaling once you have solid data. Start manual, move to automated once you have 30 plus conversions. Don't let Google automate when there's not enough data to learn from.",
+
+            // Slide 12: Shopping Ad Anatomy
+            "Let's break down what a shopper actually sees. Six components. The product image is the hero, it's what catches the eye. The product title tells them what it is. The price is shown prominently so they know the cost before clicking. Your store name builds brand recognition and trust over time. Ratings and reviews, if you have them, massively increase CTR because they add social proof right in the ad. And finally promotions like free shipping badges or sale labels make your ad stand out from competitors. Each of these elements comes directly from your product feed or Merchant Center settings. You can't manually edit a Shopping Ad like you would a text ad. Everything is pulled from your data.",
+
+            // Slide 13: Key Metrics to Track
+            "Six metrics you need to be watching. ROAS, return on ad spend, is king. It tells you how much revenue you're generating per pound spent. Aim for at least 3x to be profitable after costs. Impression share shows what percentage of available auctions your ads appeared in. Low impression share means you're missing opportunities, usually due to budget or bid. Click share is similar but for actual clicks. Benchmark CPC lets you compare your cost-per-click against competitors in the same auction. If you're way above benchmark, you might need to optimise. Conversion rate tells you what percentage of clicks turn into purchases. And search impression share lost shows you exactly why you're missing impressions, whether it's budget or rank. These metrics together give you the full picture.",
+
+            // Slide 14: Common Mistakes
+            "Seven mistakes I see constantly. Poor feed quality with incomplete titles or bad images. Missing GTINs, which Google increasingly requires. Not using negative keywords in Standard Shopping to filter out irrelevant traffic. Not segmenting product groups, so you're bidding the same on your best seller and your worst performer. Low-quality images that look terrible in search results. Neglecting mobile when most Shopping clicks come from phones. And the classic set-and-forget mentality. Shopping campaigns need ongoing attention. Review search terms, adjust bids, update your feed, add negatives. The advertisers who win are the ones who treat it as an ongoing process, not a one-time setup.",
+
+            // Slide 15: Best Practices
+            "Quick summary of best practices across four areas. Feed excellence: update daily, include all required attributes, optimise titles for search, use professional images. Campaign structure: segment by performance so top sellers get higher bids, separate brand from generic traffic, use custom labels to group products strategically. Bidding and budget: start with Manual CPC for control, test automated strategies once you have data, focus budget on your most profitable products, and monitor ROAS religiously. Ongoing optimisation: review search terms weekly to find new negatives, continuously add negative keywords, and regularly test your pricing against competitors. Shopping Ads reward consistency.",
+
+            // Slide 16: Key Takeaways
+            "Five things to remember from this module. One: Shopping Ads are visual, product-feed driven ads that show images, prices, and store names at the top of Google Search. Two: Google Merchant Center is your product data hub and it's required for every Shopping campaign. Three: feed quality directly impacts your performance, so optimised titles, high-quality images, and complete data are non-negotiable. Four: choose the right campaign type. Standard Shopping for control and learning, Performance Max for scale and automation. Five: Shopping Ads require ongoing optimisation. Monitor ROAS, review search terms, manage your feed, and adjust bids regularly. This isn't set and forget.",
+
+            // Slide 17: Final
+            "That's everything you need to know about how Shopping Ads work. You now understand the full ecosystem from Merchant Center to the auction, you know what makes a great product feed, and you know the campaign types and bidding strategies available to you. In the next module, we'll get hands-on and actually set up a Shopping campaign from scratch. For now, if you have an ecommerce store, go and set up your Merchant Center account and get your product feed uploaded. That's your homework. See you in the next one."
+        ];
+
         let currentSlide = 0;
+        let notesOpen = false;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
         const counter = document.getElementById('counter');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
+        const notesToggle = document.getElementById('notesToggle');
+        const notesPanel = document.getElementById('notesPanel');
+        const notesContent = document.getElementById('notesContent');
 
         function updateSlide() {
             slides.forEach((slide, index) => {
@@ -1206,6 +1336,7 @@
             counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
             prevBtn.disabled = currentSlide === 0;
             nextBtn.disabled = currentSlide === totalSlides - 1;
+            notesContent.textContent = speakerNotes[currentSlide] || '';
         }
 
         function nextSlide() {
@@ -1222,12 +1353,19 @@
             }
         }
 
+        function toggleNotes() {
+            notesOpen = !notesOpen;
+            notesPanel.classList.toggle('open', notesOpen);
+        }
+
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
+        notesToggle.addEventListener('click', toggleNotes);
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'n' || e.key === 'N') toggleNotes();
         });
 
         updateSlide();
