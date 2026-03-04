@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Kulim Park', sans-serif;
-            background: #0B0B12;
-            color: #EDEBFF;
+            background: #FAFAFA;
+            color: #2d2d3f;
             overflow: hidden;
         }
 
@@ -41,6 +41,38 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
             pointer-events: none;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(110, 99, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(195, 188, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
         }
 
         .slide.active {
@@ -57,13 +89,14 @@
             font-size: 24px;
             color: #423ECC;
             letter-spacing: 2px;
+            z-index: 10;
         }
 
         h1 {
             font-family: 'Unbounded', sans-serif;
             font-weight: 800;
             font-size: 72px;
-            color: #C3BCFF;
+            color: #1a1a2e;
             text-align: center;
             margin-bottom: 40px;
             line-height: 1.2;
@@ -73,7 +106,7 @@
             font-family: 'Unbounded', sans-serif;
             font-weight: 800;
             font-size: 56px;
-            color: #C3BCFF;
+            color: #1a1a2e;
             margin-bottom: 50px;
             text-align: center;
         }
@@ -82,20 +115,20 @@
             font-family: 'Unbounded', sans-serif;
             font-weight: 800;
             font-size: 36px;
-            color: #6E63FF;
+            color: #423ECC;
             margin-bottom: 30px;
         }
 
         p, li {
             font-size: 28px;
             line-height: 1.6;
-            color: #EDEBFF;
+            color: #2d2d3f;
             margin-bottom: 20px;
         }
 
         .subtitle {
             font-size: 32px;
-            color: #B7B3E6;
+            color: #5a5a72;
             text-align: center;
             max-width: 900px;
         }
@@ -133,10 +166,11 @@
         }
 
         .comparison-box {
-            background: rgba(66, 62, 204, 0.1);
-            border: 2px solid #423ECC;
+            background: #FFFFFF;
+            border: 2px solid #6E63FF;
             border-radius: 20px;
             padding: 40px;
+            box-shadow: 0 4px 12px rgba(110, 99, 255, 0.08);
         }
 
         .flow-diagram {
@@ -149,7 +183,7 @@
         }
 
         .flow-box {
-            background: rgba(66, 62, 204, 0.2);
+            background: #FFFFFF;
             border: 3px solid #6E63FF;
             border-radius: 15px;
             padding: 30px 40px;
@@ -157,19 +191,21 @@
             font-weight: 600;
             text-align: center;
             min-width: 200px;
+            box-shadow: 0 4px 12px rgba(110, 99, 255, 0.08);
         }
 
         .arrow {
             font-size: 48px;
-            color: #C3BCFF;
+            color: #6E63FF;
         }
 
         .highlight-box {
-            background: rgba(195, 188, 255, 0.1);
-            border-left: 5px solid #C3BCFF;
+            background: #f0eeff;
+            border-left: 5px solid #6E63FF;
             padding: 30px;
             margin: 30px 0;
             border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(110, 99, 255, 0.06);
         }
 
         .metric-grid {
@@ -181,22 +217,23 @@
         }
 
         .metric-card {
-            background: rgba(66, 62, 204, 0.15);
-            border: 2px solid #6E63FF;
+            background: #FFFFFF;
+            border: 2px solid #C3BCFF;
             border-radius: 15px;
             padding: 35px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(110, 99, 255, 0.06);
         }
 
         .metric-card h3 {
             font-size: 28px;
             margin-bottom: 15px;
-            color: #C3BCFF;
+            color: #423ECC;
         }
 
         .metric-card p {
             font-size: 24px;
-            color: #EDEBFF;
+            color: #5a5a72;
             margin: 0;
         }
 
@@ -208,16 +245,18 @@
             display: flex;
             align-items: center;
             gap: 30px;
-            background: rgba(66, 62, 204, 0.3);
+            background: rgba(255, 255, 255, 0.95);
             padding: 15px 40px;
             border-radius: 50px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(110, 99, 255, 0.15);
+            border: 1px solid rgba(195, 188, 255, 0.3);
         }
 
         .nav-btn {
             background: #423ECC;
             border: none;
-            color: #EDEBFF;
+            color: #FFFFFF;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -234,14 +273,14 @@
         }
 
         .nav-btn:disabled {
-            background: rgba(66, 62, 204, 0.3);
+            background: rgba(195, 188, 255, 0.4);
             cursor: not-allowed;
             transform: scale(1);
         }
 
         .counter {
             font-size: 20px;
-            color: #C3BCFF;
+            color: #423ECC;
             font-weight: 600;
             min-width: 100px;
             text-align: center;
@@ -261,24 +300,27 @@
             align-items: center;
             gap: 15px;
             padding: 20px;
-            background: rgba(66, 62, 204, 0.1);
+            background: #FFFFFF;
             border-radius: 15px;
             min-width: 150px;
+            border: 2px solid #C3BCFF;
+            box-shadow: 0 2px 8px rgba(110, 99, 255, 0.06);
         }
 
         .icon-item span {
             font-size: 20px;
-            color: #B7B3E6;
+            color: #5a5a72;
             text-align: center;
         }
 
         .ad-anatomy {
-            background: rgba(66, 62, 204, 0.15);
+            background: #FFFFFF;
             border: 2px solid #6E63FF;
             border-radius: 20px;
             padding: 40px;
             max-width: 800px;
             margin: 30px auto;
+            box-shadow: 0 4px 12px rgba(110, 99, 255, 0.08);
         }
 
         .ad-anatomy-item {
@@ -287,7 +329,7 @@
             gap: 20px;
             margin-bottom: 25px;
             padding: 20px;
-            background: rgba(195, 188, 255, 0.05);
+            background: #f9f8ff;
             border-radius: 10px;
         }
 
@@ -302,13 +344,13 @@
         .ad-anatomy-item h4 {
             font-family: 'Unbounded', sans-serif;
             font-size: 22px;
-            color: #C3BCFF;
+            color: #423ECC;
             margin-bottom: 8px;
         }
 
         .ad-anatomy-item p {
             font-size: 20px;
-            color: #B7B3E6;
+            color: #5a5a72;
             margin: 0;
         }
 
@@ -319,7 +361,7 @@
             right: 40px;
             background: #423ECC;
             border: none;
-            color: #EDEBFF;
+            color: #FFFFFF;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -329,6 +371,7 @@
             justify-content: center;
             z-index: 100;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(66, 62, 204, 0.3);
         }
 
         .notes-toggle:hover {
@@ -342,12 +385,13 @@
             left: 0;
             right: 0;
             height: 0;
-            background: #12121f;
-            border-top: 3px solid #423ECC;
+            background: #f5f5f8;
+            border-top: 3px solid #6E63FF;
             overflow-y: auto;
             transition: height 0.3s ease;
             z-index: 90;
             padding: 0 60px;
+            box-shadow: 0 -4px 20px rgba(110, 99, 255, 0.12);
         }
 
         .notes-panel.open {
@@ -358,7 +402,7 @@
         .notes-panel h4 {
             font-family: 'Unbounded', sans-serif;
             font-size: 16px;
-            color: #6E63FF;
+            color: #423ECC;
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -367,7 +411,7 @@
         .notes-panel p {
             font-size: 18px;
             line-height: 1.7;
-            color: #B7B3E6;
+            color: #5a5a72;
             margin: 0;
         }
 
@@ -402,27 +446,27 @@
             </div>
             <svg width="600" height="300" style="margin-top: 40px;">
                 <!-- Search bar -->
-                <rect x="50" y="20" width="500" height="50" rx="25" fill="rgba(255,255,255,0.1)" stroke="#6E63FF" stroke-width="2"/>
-                <text x="80" y="52" fill="#B7B3E6" font-size="20">running shoes</text>
+                <rect x="50" y="20" width="500" height="50" rx="25" fill="rgba(255,255,255,0.8)" stroke="#6E63FF" stroke-width="2"/>
+                <text x="80" y="52" fill="#5a5a72" font-size="20">running shoes</text>
                 
                 <!-- Shopping Ad boxes -->
-                <rect x="50" y="100" width="140" height="180" rx="10" fill="rgba(66, 62, 204, 0.2)" stroke="#423ECC" stroke-width="2"/>
-                <rect x="70" y="115" width="100" height="100" rx="5" fill="rgba(195, 188, 255, 0.1)"/>
-                <text x="75" y="230" fill="#C3BCFF" font-size="12">Nike Air Max</text>
+                <rect x="50" y="100" width="140" height="180" rx="10" fill="#FFFFFF" stroke="#423ECC" stroke-width="2"/>
+                <rect x="70" y="115" width="100" height="100" rx="5" fill="#f9f8ff"/>
+                <text x="75" y="230" fill="#423ECC" font-size="12">Nike Air Max</text>
                 <text x="75" y="250" fill="#6E63FF" font-size="14" font-weight="bold">$129.99</text>
-                <text x="75" y="268" fill="#B7B3E6" font-size="11">SportStore</text>
+                <text x="75" y="268" fill="#5a5a72" font-size="11">SportStore</text>
                 
-                <rect x="230" y="100" width="140" height="180" rx="10" fill="rgba(66, 62, 204, 0.2)" stroke="#423ECC" stroke-width="2"/>
-                <rect x="250" y="115" width="100" height="100" rx="5" fill="rgba(195, 188, 255, 0.1)"/>
-                <text x="255" y="230" fill="#C3BCFF" font-size="12">Adidas Ultra</text>
+                <rect x="230" y="100" width="140" height="180" rx="10" fill="#FFFFFF" stroke="#423ECC" stroke-width="2"/>
+                <rect x="250" y="115" width="100" height="100" rx="5" fill="#f9f8ff"/>
+                <text x="255" y="230" fill="#423ECC" font-size="12">Adidas Ultra</text>
                 <text x="255" y="250" fill="#6E63FF" font-size="14" font-weight="bold">$149.99</text>
-                <text x="255" y="268" fill="#B7B3E6" font-size="11">RunShop</text>
+                <text x="255" y="268" fill="#5a5a72" font-size="11">RunShop</text>
                 
-                <rect x="410" y="100" width="140" height="180" rx="10" fill="rgba(66, 62, 204, 0.2)" stroke="#423ECC" stroke-width="2"/>
-                <rect x="430" y="115" width="100" height="100" rx="5" fill="rgba(195, 188, 255, 0.1)"/>
-                <text x="435" y="230" fill="#C3BCFF" font-size="12">Puma RS-X</text>
+                <rect x="410" y="100" width="140" height="180" rx="10" fill="#FFFFFF" stroke="#423ECC" stroke-width="2"/>
+                <rect x="430" y="115" width="100" height="100" rx="5" fill="#f9f8ff"/>
+                <text x="435" y="230" fill="#423ECC" font-size="12">Puma RS-X</text>
                 <text x="435" y="250" fill="#6E63FF" font-size="14" font-weight="bold">$99.99</text>
-                <text x="435" y="268" fill="#B7B3E6" font-size="11">ShoeZone</text>
+                <text x="435" y="268" fill="#5a5a72" font-size="11">ShoeZone</text>
             </svg>
         </div>
 
@@ -434,49 +478,49 @@
                 <div class="icon-item">
                     <svg width="80" height="80" viewBox="0 0 80 80">
                         <circle cx="40" cy="40" r="35" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <path d="M25 40 L35 50 L55 30" stroke="#C3BCFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <path d="M25 40 L35 50 L55 30" stroke="#423ECC" stroke-width="4" fill="none" stroke-linecap="round"/>
                     </svg>
                     <span>Google Search</span>
                 </div>
                 <div class="icon-item">
                     <svg width="80" height="80" viewBox="0 0 80 80">
                         <rect x="15" y="15" width="50" height="50" rx="5" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <rect x="22" y="22" width="15" height="15" fill="#C3BCFF"/>
-                        <rect x="43" y="22" width="15" height="15" fill="#C3BCFF"/>
-                        <rect x="22" y="43" width="15" height="15" fill="#C3BCFF"/>
-                        <rect x="43" y="43" width="15" height="15" fill="#C3BCFF"/>
+                        <rect x="22" y="22" width="15" height="15" fill="#423ECC"/>
+                        <rect x="43" y="22" width="15" height="15" fill="#423ECC"/>
+                        <rect x="22" y="43" width="15" height="15" fill="#423ECC"/>
+                        <rect x="43" y="43" width="15" height="15" fill="#423ECC"/>
                     </svg>
                     <span>Shopping Tab</span>
                 </div>
                 <div class="icon-item">
                     <svg width="80" height="80" viewBox="0 0 80 80">
                         <rect x="15" y="20" width="50" height="40" rx="3" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <rect x="20" y="25" width="20" height="15" fill="#C3BCFF"/>
-                        <rect x="45" y="25" width="15" height="10" fill="#C3BCFF"/>
-                        <rect x="20" y="43" width="40" height="2" fill="#B7B3E6"/>
-                        <rect x="20" y="48" width="35" height="2" fill="#B7B3E6"/>
-                        <rect x="20" y="53" width="30" height="2" fill="#B7B3E6"/>
+                        <rect x="20" y="25" width="20" height="15" fill="#423ECC"/>
+                        <rect x="45" y="25" width="15" height="10" fill="#423ECC"/>
+                        <rect x="20" y="43" width="40" height="2" fill="#6E63FF"/>
+                        <rect x="20" y="48" width="35" height="2" fill="#6E63FF"/>
+                        <rect x="20" y="53" width="30" height="2" fill="#6E63FF"/>
                     </svg>
                     <span>Google Images</span>
                 </div>
                 <div class="icon-item">
                     <svg width="80" height="80" viewBox="0 0 80 80">
                         <rect x="20" y="25" width="40" height="30" rx="5" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <polygon points="35,37 35,47 45,42" fill="#C3BCFF"/>
+                        <polygon points="35,37 35,47 45,42" fill="#423ECC"/>
                     </svg>
                     <span>YouTube</span>
                 </div>
                 <div class="icon-item">
                     <svg width="80" height="80" viewBox="0 0 80 80">
                         <circle cx="40" cy="40" r="30" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <circle cx="30" cy="35" r="8" fill="#C3BCFF"/>
-                        <circle cx="50" cy="35" r="8" fill="#C3BCFF"/>
-                        <circle cx="40" cy="52" r="8" fill="#C3BCFF"/>
+                        <circle cx="30" cy="35" r="8" fill="#423ECC"/>
+                        <circle cx="50" cy="35" r="8" fill="#423ECC"/>
+                        <circle cx="40" cy="52" r="8" fill="#423ECC"/>
                     </svg>
                     <span>Display Network</span>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 40px; font-size: 26px; color: #B7B3E6;">Shopping Ads reach customers across Google's entire ecosystem</p>
+            <p style="text-align: center; margin-top: 40px; font-size: 26px; color: #5a5a72;">Shopping Ads reach customers across Google's entire ecosystem</p>
         </div>
 
         <!-- Slide 4: Shopping Ads vs Search Ads -->
@@ -488,23 +532,23 @@
                     <h3>Shopping Ads</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Visual product images</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Product feed driven</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>No keywords needed</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Price shown upfront</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Higher CTR for products</span>
                         </li>
                     </ul>
@@ -513,23 +557,23 @@
                     <h3>Search Ads</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Text-based ads</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Keyword targeting</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Manual ad copy creation</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Extension-based visuals</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Better for services</span>
                         </li>
                     </ul>
@@ -541,11 +585,11 @@
         <div class="slide">
             <div class="branding">JBMKTG</div>
             <h2>How Shopping Ads Work</h2>
-            <p style="text-align: center; margin-bottom: 50px; font-size: 28px; color: #B7B3E6;">The Shopping Ads Ecosystem</p>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 28px; color: #5a5a72;">The Shopping Ads Ecosystem</p>
             <div class="flow-diagram">
                 <div class="flow-box">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
-                        <rect x="10" y="10" width="40" height="40" rx="5" fill="none" stroke="#C3BCFF" stroke-width="3"/>
+                        <rect x="10" y="10" width="40" height="40" rx="5" fill="none" stroke="#423ECC" stroke-width="3"/>
                         <rect x="15" y="20" width="10" height="10" fill="#6E63FF"/>
                         <rect x="28" y="20" width="10" height="10" fill="#6E63FF"/>
                         <rect x="15" y="33" width="10" height="10" fill="#6E63FF"/>
@@ -556,7 +600,7 @@
                 <div class="arrow">→</div>
                 <div class="flow-box">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
-                        <rect x="10" y="15" width="40" height="30" rx="3" fill="none" stroke="#C3BCFF" stroke-width="3"/>
+                        <rect x="10" y="15" width="40" height="30" rx="3" fill="none" stroke="#423ECC" stroke-width="3"/>
                         <line x1="15" y1="23" x2="45" y2="23" stroke="#6E63FF" stroke-width="2"/>
                         <line x1="15" y1="30" x2="45" y2="30" stroke="#6E63FF" stroke-width="2"/>
                         <line x1="15" y1="37" x2="40" y2="37" stroke="#6E63FF" stroke-width="2"/>
@@ -566,7 +610,7 @@
                 <div class="arrow">→</div>
                 <div class="flow-box">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
-                        <circle cx="30" cy="30" r="20" fill="none" stroke="#C3BCFF" stroke-width="3"/>
+                        <circle cx="30" cy="30" r="20" fill="none" stroke="#423ECC" stroke-width="3"/>
                         <path d="M20,30 L28,38 L42,24" stroke="#6E63FF" stroke-width="3" fill="none"/>
                     </svg>
                     <br>Google Ads
@@ -574,7 +618,7 @@
                 <div class="arrow">→</div>
                 <div class="flow-box">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
-                        <rect x="15" y="20" width="30" height="20" rx="3" fill="none" stroke="#C3BCFF" stroke-width="3"/>
+                        <rect x="15" y="20" width="30" height="20" rx="3" fill="none" stroke="#423ECC" stroke-width="3"/>
                         <circle cx="24" cy="27" r="2" fill="#6E63FF"/>
                         <circle cx="30" cy="27" r="2" fill="#6E63FF"/>
                         <circle cx="36" cy="27" r="2" fill="#6E63FF"/>
@@ -600,40 +644,40 @@
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <rect x="4" y="4" width="24" height="24" rx="3" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <rect x="8" y="10" width="7" height="7" fill="#C3BCFF"/>
-                            <rect x="17" y="10" width="7" height="7" fill="#C3BCFF"/>
-                            <rect x="8" y="19" width="7" height="7" fill="#C3BCFF"/>
-                            <rect x="17" y="19" width="7" height="7" fill="#C3BCFF"/>
+                            <rect x="8" y="10" width="7" height="7" fill="#423ECC"/>
+                            <rect x="17" y="10" width="7" height="7" fill="#423ECC"/>
+                            <rect x="8" y="19" width="7" height="7" fill="#423ECC"/>
+                            <rect x="17" y="19" width="7" height="7" fill="#423ECC"/>
                         </svg>
                         <span>Centralised platform for product inventory management</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <path d="M10 16 L14 20 L22 12" stroke="#C3BCFF" stroke-width="2" fill="none"/>
+                            <path d="M10 16 L14 20 L22 12" stroke="#423ECC" stroke-width="2" fill="none"/>
                         </svg>
                         <span>Validates product data against Google's requirements</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <path d="M16,4 L4,10 L4,22 L16,28 L28,22 L28,10 Z" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <circle cx="16" cy="16" r="4" fill="#C3BCFF"/>
+                            <circle cx="16" cy="16" r="4" fill="#423ECC"/>
                         </svg>
                         <span>Connects your product feed to Google Ads campaigns</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <rect x="6" y="8" width="20" height="16" rx="2" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <polyline points="6,12 16,18 26,12" fill="none" stroke="#C3BCFF" stroke-width="2"/>
+                            <polyline points="6,12 16,18 26,12" fill="none" stroke="#423ECC" stroke-width="2"/>
                         </svg>
                         <span>Provides diagnostics and error reporting for feed issues</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <rect x="8" y="6" width="16" height="20" rx="2" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <line x1="12" y1="11" x2="20" y2="11" stroke="#C3BCFF" stroke-width="2"/>
-                            <line x1="12" y1="16" x2="20" y2="16" stroke="#C3BCFF" stroke-width="2"/>
-                            <line x1="12" y1="21" x2="17" y2="21" stroke="#C3BCFF" stroke-width="2"/>
+                            <line x1="12" y1="11" x2="20" y2="11" stroke="#423ECC" stroke-width="2"/>
+                            <line x1="12" y1="16" x2="20" y2="16" stroke="#423ECC" stroke-width="2"/>
+                            <line x1="12" y1="21" x2="17" y2="21" stroke="#423ECC" stroke-width="2"/>
                         </svg>
                         <span>Required for all Shopping Ads campaigns</span>
                     </li>
@@ -645,7 +689,7 @@
         <div class="slide">
             <div class="branding">JBMKTG</div>
             <h2>Product Feed Explained</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: #B7B3E6; font-size: 26px;">Essential data attributes for every product:</p>
+            <p style="text-align: center; margin-bottom: 40px; color: #5a5a72; font-size: 26px;">Essential data attributes for every product:</p>
             <div class="metric-grid">
                 <div class="metric-card">
                     <h3>Product ID</h3>
@@ -691,15 +735,15 @@
                     <h3>Product Titles</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Include brand, product type, colour, size, and key features</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Front-load the most important information</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Use natural language that customers search for</span>
                         </li>
                     </ul>
@@ -708,15 +752,15 @@
                     <h3>Product Images</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Use high-resolution images (minimum 800x800px)</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Clean white or neutral backgrounds work best</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Show the product clearly, no watermarks or borders</span>
                         </li>
                     </ul>
@@ -725,11 +769,11 @@
                     <h3>Pricing Strategy</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Keep prices competitive and up-to-date</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Include sale prices when running promotions</span>
                         </li>
                     </ul>
@@ -746,23 +790,23 @@
                     <h3>Standard Shopping</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Full manual control over bids</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Product group segmentation</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Search network only</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Negative keyword support</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Best for granular control</span>
                         </li>
                     </ul>
@@ -771,23 +815,23 @@
                     <h3>Performance Max</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Automated bidding strategies</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>AI-powered optimisation</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>All Google networks</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Requires conversion tracking</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Best for maximum reach</span>
                         </li>
                     </ul>
@@ -807,35 +851,35 @@
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="16" font-weight="bold">1</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="16" font-weight="bold">1</text>
                         </svg>
                         <span>User searches for a product on Google</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="16" font-weight="bold">2</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="16" font-weight="bold">2</text>
                         </svg>
                         <span>Google scans product feeds from Merchant Center accounts</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="16" font-weight="bold">3</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="16" font-weight="bold">3</text>
                         </svg>
                         <span>Algorithm matches search intent with product titles, descriptions, and categories</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="16" font-weight="bold">4</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="16" font-weight="bold">4</text>
                         </svg>
                         <span>Eligible products enter real-time auction based on bid and quality</span>
                     </li>
                     <li>
                         <svg width="32" height="32" viewBox="0 0 32 32">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="16" font-weight="bold">5</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="16" font-weight="bold">5</text>
                         </svg>
                         <span>Winning ads are displayed at the top of search results</span>
                     </li>
@@ -863,7 +907,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <circle cx="16" cy="16" r="12" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <path d="M16,8 L20,16 L16,24 L12,16 Z" fill="#C3BCFF"/>
+                            <path d="M16,8 L20,16 L16,24 L12,16 Z" fill="#423ECC"/>
                         </svg>
                         Target ROAS
                     </h3>
@@ -873,7 +917,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <path d="M4,20 L16,4 L28,20 L16,28 Z" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <circle cx="16" cy="18" r="6" fill="#C3BCFF"/>
+                            <circle cx="16" cy="18" r="6" fill="#423ECC"/>
                         </svg>
                         Maximize Conversion Value
                     </h3>
@@ -886,12 +930,12 @@
         <div class="slide">
             <div class="branding">JBMKTG</div>
             <h2>Shopping Ad Anatomy</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: #B7B3E6;">What shoppers see in a Shopping Ad:</p>
+            <p style="text-align: center; margin-bottom: 40px; color: #5a5a72;">What shoppers see in a Shopping Ad:</p>
             <div class="ad-anatomy">
                 <div class="ad-anatomy-item">
                     <svg width="48" height="48" viewBox="0 0 48 48">
-                        <rect x="6" y="6" width="36" height="36" rx="4" fill="rgba(195, 188, 255, 0.2)" stroke="#6E63FF" stroke-width="2"/>
-                        <circle cx="18" cy="18" r="4" fill="#C3BCFF"/>
+                        <rect x="6" y="6" width="36" height="36" rx="4" fill="#f0eeff" stroke="#6E63FF" stroke-width="2"/>
+                        <circle cx="18" cy="18" r="4" fill="#423ECC"/>
                         <polygon points="12,36 24,24 30,30 36,24 36,36" fill="#6E63FF"/>
                     </svg>
                     <div>
@@ -913,7 +957,7 @@
                 <div class="ad-anatomy-item">
                     <svg width="48" height="48" viewBox="0 0 48 48">
                         <circle cx="24" cy="24" r="16" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                        <text x="24" y="30" text-anchor="middle" fill="#C3BCFF" font-size="20" font-weight="bold">£</text>
+                        <text x="24" y="30" text-anchor="middle" fill="#423ECC" font-size="20" font-weight="bold">£</text>
                     </svg>
                     <div>
                         <h4>Price</h4>
@@ -923,8 +967,8 @@
                 <div class="ad-anatomy-item">
                     <svg width="48" height="48" viewBox="0 0 48 48">
                         <rect x="8" y="14" width="32" height="20" rx="3" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                        <rect x="14" y="20" width="20" height="3" rx="1" fill="#C3BCFF"/>
-                        <rect x="14" y="26" width="16" height="3" rx="1" fill="#C3BCFF"/>
+                        <rect x="14" y="20" width="20" height="3" rx="1" fill="#423ECC"/>
+                        <rect x="14" y="26" width="16" height="3" rx="1" fill="#423ECC"/>
                     </svg>
                     <div>
                         <h4>Store Name</h4>
@@ -933,7 +977,7 @@
                 </div>
                 <div class="ad-anatomy-item">
                     <svg width="48" height="48" viewBox="0 0 48 48">
-                        <polygon points="24,10 28,20 38,20 30,27 33,37 24,31 15,37 18,27 10,20 20,20" fill="#C3BCFF" stroke="#6E63FF" stroke-width="2"/>
+                        <polygon points="24,10 28,20 38,20 30,27 33,37 24,31 15,37 18,27 10,20 20,20" fill="#423ECC" stroke="#6E63FF" stroke-width="2"/>
                     </svg>
                     <div>
                         <h4>Ratings & Reviews</h4>
@@ -943,8 +987,8 @@
                 <div class="ad-anatomy-item">
                     <svg width="48" height="48" viewBox="0 0 48 48">
                         <rect x="10" y="16" width="28" height="16" rx="3" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                        <path d="M14,24 L18,20 L22,24" stroke="#C3BCFF" stroke-width="2" fill="none"/>
-                        <text x="26" y="28" fill="#C3BCFF" font-size="10" font-weight="bold">SALE</text>
+                        <path d="M14,24 L18,20 L22,24" stroke="#423ECC" stroke-width="2" fill="none"/>
+                        <text x="26" y="28" fill="#423ECC" font-size="10" font-weight="bold">SALE</text>
                     </svg>
                     <div>
                         <h4>Promotions</h4>
@@ -962,7 +1006,7 @@
                 <div class="metric-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
                         <circle cx="30" cy="30" r="24" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <text x="30" y="36" text-anchor="middle" fill="#C3BCFF" font-size="22" font-weight="bold">£</text>
+                        <text x="30" y="36" text-anchor="middle" fill="#423ECC" font-size="22" font-weight="bold">£</text>
                         <path d="M30,12 L30,30 L42,30" stroke="#6E63FF" stroke-width="3" fill="none"/>
                     </svg>
                     <h3>ROAS</h3>
@@ -972,7 +1016,7 @@
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
                         <rect x="12" y="35" width="10" height="15" fill="#6E63FF" rx="2"/>
                         <rect x="25" y="25" width="10" height="25" fill="#6E63FF" rx="2"/>
-                        <rect x="38" y="15" width="10" height="35" fill="#C3BCFF" rx="2"/>
+                        <rect x="38" y="15" width="10" height="35" fill="#423ECC" rx="2"/>
                     </svg>
                     <h3>Impression Share</h3>
                     <p>Percentage of auctions your ads appeared in</p>
@@ -980,7 +1024,7 @@
                 <div class="metric-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
                         <circle cx="30" cy="30" r="20" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <circle cx="30" cy="30" r="14" fill="none" stroke="#C3BCFF" stroke-width="3"/>
+                        <circle cx="30" cy="30" r="14" fill="none" stroke="#423ECC" stroke-width="3"/>
                         <circle cx="30" cy="30" r="8" fill="#6E63FF"/>
                     </svg>
                     <h3>Click Share</h3>
@@ -989,9 +1033,9 @@
                 <div class="metric-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
                         <path d="M10,45 L25,25 L35,35 L50,15" stroke="#6E63FF" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <circle cx="25" cy="25" r="4" fill="#C3BCFF"/>
-                        <circle cx="35" cy="35" r="4" fill="#C3BCFF"/>
-                        <circle cx="50" cy="15" r="4" fill="#C3BCFF"/>
+                        <circle cx="25" cy="25" r="4" fill="#423ECC"/>
+                        <circle cx="35" cy="35" r="4" fill="#423ECC"/>
+                        <circle cx="50" cy="15" r="4" fill="#423ECC"/>
                     </svg>
                     <h3>Benchmark CPC</h3>
                     <p>Compare your cost-per-click against competitors</p>
@@ -999,7 +1043,7 @@
                 <div class="metric-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
                         <rect x="15" y="15" width="30" height="30" rx="3" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <path d="M20,30 L27,37 L40,24" stroke="#C3BCFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <path d="M20,30 L27,37 L40,24" stroke="#423ECC" stroke-width="3" fill="none" stroke-linecap="round"/>
                     </svg>
                     <h3>Conversion Rate</h3>
                     <p>Percentage of clicks that result in purchases</p>
@@ -1007,7 +1051,7 @@
                 <div class="metric-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom: 15px;">
                         <path d="M15,30 C15,20 20,15 30,15 C40,15 45,20 45,30 C45,35 42,40 30,50 C18,40 15,35 15,30 Z" fill="none" stroke="#6E63FF" stroke-width="3"/>
-                        <circle cx="30" cy="28" r="6" fill="#C3BCFF"/>
+                        <circle cx="30" cy="28" r="6" fill="#423ECC"/>
                     </svg>
                     <h3>Search Impression Share Lost</h3>
                     <p>Opportunities missed due to budget or rank</p>
@@ -1090,34 +1134,34 @@
                     <h3 style="text-align: left;">Feed Excellence</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Update feed daily</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Include all required attributes</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Optimise titles for search</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Use high-quality images</span>
                         </li>
                     </ul>
                     <h3 style="text-align: left; margin-top: 40px;">Campaign Structure</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Segment by performance</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Separate brand vs generic</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#6E63FF"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Use custom labels strategically</span>
                         </li>
                     </ul>
@@ -1126,34 +1170,34 @@
                     <h3 style="text-align: left;">Bidding & Budget</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Start with Manual CPC</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Test automated strategies</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Focus on profitable products</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Monitor ROAS closely</span>
                         </li>
                     </ul>
                     <h3 style="text-align: left; margin-top: 40px;">Ongoing Optimisation</h3>
                     <ul>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Review search terms weekly</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Add negative keywords</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#C3BCFF"/><path d="M7 12 L10 15 L17 8" stroke="#0B0B12" stroke-width="2" fill="none"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#423ECC"/><path d="M7 12 L10 15 L17 8" stroke="#FFFFFF" stroke-width="2" fill="none"/></svg>
                             <span>Test price competitiveness</span>
                         </li>
                     </ul>
@@ -1170,7 +1214,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <circle cx="16" cy="16" r="14" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="18" font-weight="bold">1</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="18" font-weight="bold">1</text>
                         </svg>
                         Shopping Ads are visual, product-feed driven ads
                     </h3>
@@ -1180,7 +1224,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <circle cx="16" cy="16" r="14" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="18" font-weight="bold">2</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="18" font-weight="bold">2</text>
                         </svg>
                         Google Merchant Center is your product data hub
                     </h3>
@@ -1190,7 +1234,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <circle cx="16" cy="16" r="14" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="18" font-weight="bold">3</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="18" font-weight="bold">3</text>
                         </svg>
                         Feed quality directly impacts performance
                     </h3>
@@ -1200,7 +1244,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <circle cx="16" cy="16" r="14" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="18" font-weight="bold">4</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="18" font-weight="bold">4</text>
                         </svg>
                         Choose the right campaign type for your goals
                     </h3>
@@ -1210,7 +1254,7 @@
                     <h3>
                         <svg width="32" height="32" viewBox="0 0 32 32" style="vertical-align: middle; margin-right: 15px;">
                             <circle cx="16" cy="16" r="14" fill="none" stroke="#6E63FF" stroke-width="2"/>
-                            <text x="16" y="21" text-anchor="middle" fill="#C3BCFF" font-size="18" font-weight="bold">5</text>
+                            <text x="16" y="21" text-anchor="middle" fill="#423ECC" font-size="18" font-weight="bold">5</text>
                         </svg>
                         Shopping Ads require ongoing optimisation
                     </h3>
@@ -1227,7 +1271,7 @@
             <div style="margin-top: 60px;">
                 <svg width="120" height="120" viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="55" fill="none" stroke="#423ECC" stroke-width="4"/>
-                    <path d="M45 60 L55 70 L80 45" stroke="#C3BCFF" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M45 60 L55 70 L80 45" stroke="#6E63FF" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
         </div>
