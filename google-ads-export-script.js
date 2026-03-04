@@ -9,7 +9,7 @@
  */
 
 var CONFIG = {
-  SPREADSHEET_URL: 'YOUR_GOOGLE_SHEET_URL_HERE',
+  SPREADSHEET_URL: 'https://docs.google.com/spreadsheets/d/1QUsYVZLYa4h9knDNsYvshCiepsCK-tjRkaxdIgwOrG0/edit',
   
   // How many days of data to export each run
   LOOKBACK_DAYS: 30,
