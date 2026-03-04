@@ -261,5 +261,5 @@ function getOrCreateSheet(spreadsheet, name) {
 }
 
 function formatDate(date) {
-  return Utilities.formatDate(date, 'UTC', 'yyyy-MM-dd');
+  return "'" + Utilities.formatDate(date, 'UTC', 'yyyy-MM-dd') + "'";
 }
