@@ -1406,10 +1406,20 @@
         nextBtn.addEventListener('click', nextSlide);
         notesToggle.addEventListener('click', toggleNotes);
 
+        let uiHidden = false;
+        function toggleUI() {
+            uiHidden = !uiHidden;
+            const vis = uiHidden ? 'none' : '';
+            document.querySelector('.controls').style.display = vis;
+            notesToggle.style.display = vis;
+            if (uiHidden && notesOpen) toggleNotes();
+        }
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'n' || e.key === 'N') toggleNotes();
+            if (e.key === 'h' || e.key === 'H') toggleUI();
         });
 
         updateSlide();
