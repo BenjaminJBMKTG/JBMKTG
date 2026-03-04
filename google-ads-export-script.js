@@ -26,7 +26,9 @@ function main() {
   var today = new Date();
   var startDate = new Date(today.getTime() - (CONFIG.LOOKBACK_DAYS * 24 * 60 * 60 * 1000));
   
-  var dateRange = "BETWEEN '" + formatDate(startDate) + "' AND '" + formatDate(today) + "'";
+  var dateFrom = formatDate(startDate);
+  var dateTo = formatDate(today);
+  var dateRange = ">= '" + dateFrom + "' AND segments.date <= '" + dateTo + "'";
   
   exportDailyPerformance(spreadsheet, dateRange);
   exportCampaignPerformance(spreadsheet, dateRange);
@@ -200,9 +202,9 @@ function exportSummary(spreadsheet, today) {
   sheet.appendRow(headers);
   
   var periods = [
-    { name: 'Yesterday', range: "BETWEEN '" + formatDate(new Date(today.getTime() - 86400000)) + "' AND '" + formatDate(new Date(today.getTime() - 86400000)) + "'" },
-    { name: 'Last 7 Days', range: "BETWEEN '" + formatDate(weekAgo) + "' AND '" + formatDate(today) + "'" },
-    { name: 'Last 30 Days', range: "BETWEEN '" + formatDate(monthAgo) + "' AND '" + formatDate(today) + "'" }
+    { name: 'Yesterday', range: ">= '" + formatDate(new Date(today.getTime() - 86400000)) + "' AND segments.date <= '" + formatDate(new Date(today.getTime() - 86400000)) + "'" },
+    { name: 'Last 7 Days', range: ">= '" + formatDate(weekAgo) + "' AND segments.date <= '" + formatDate(today) + "'" },
+    { name: 'Last 30 Days', range: ">= '" + formatDate(monthAgo) + "' AND segments.date <= '" + formatDate(today) + "'" }
   ];
   
   periods.forEach(function(period) {
