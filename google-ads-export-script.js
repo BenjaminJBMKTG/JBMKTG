@@ -17,7 +17,8 @@ var CONFIG = {
   // Sheet names
   DAILY_SHEET: 'Daily Performance',
   CAMPAIGN_SHEET: 'Campaign Performance',
-  SUMMARY_SHEET: 'Summary'
+  SUMMARY_SHEET: 'Summary',
+  CONVERSION_SHEET: 'Conversion Actions'
 };
 
 function main() {
@@ -32,6 +33,7 @@ function main() {
   
   exportDailyPerformance(spreadsheet, dateRange);
   exportCampaignPerformance(spreadsheet, dateRange);
+  exportConversionActions(spreadsheet, dateRange);
   exportSummary(spreadsheet, today);
   
   Logger.log('Export complete: ' + new Date());
@@ -181,6 +183,108 @@ function exportCampaignPerformance(spreadsheet, dateRange) {
   headerRange.setFontColor('#ffffff');
   
   Logger.log('Campaign performance: ' + rows.length + ' rows');
+}
+
+function exportConversionActions(spreadsheet, dateRange) {
+  var sheet = getOrCreateSheet(spreadsheet, CONFIG.CONVERSION_SHEET);
+  sheet.clear();
+  
+  var headers = [
+    'Conversion Action', 'Category', 'Campaign',
+    'Conversions', 'Conv Value', 'Cost', 'CPA',
+    'All Conversions', 'All Conv Value'
+  ];
+  sheet.appendRow(headers);
+  
+  // Query conversion action stats segmented by campaign
+  var query = 'SELECT ' +
+    'conversion_action.name, ' +
+    'conversion_action.category, ' +
+    'campaign.name, ' +
+    'metrics.conversions, ' +
+    'metrics.conversions_value, ' +
+    'metrics.cost_micros, ' +
+    'metrics.cost_per_conversion, ' +
+    'metrics.all_conversions, ' +
+    'metrics.all_conversions_value ' +
+    'FROM campaign ' +
+    'WHERE segments.date ' + dateRange + ' ' +
+    'AND metrics.conversions > 0 ' +
+    'ORDER BY conversion_action.name ASC, metrics.conversions DESC';
+  
+  var rows = [];
+  var report = AdsApp.search(query);
+  
+  while (report.hasNext()) {
+    var row = report.next();
+    var cost = row.metrics.costMicros / 1000000;
+    var convValue = row.metrics.conversionsValue || 0;
+    var allConvValue = row.metrics.allConversionsValue || 0;
+    
+    rows.push([
+      row.conversionAction.name,
+      row.conversionAction.category,
+      row.campaign.name,
+      row.metrics.conversions.toFixed(1),
+      '$' + convValue.toFixed(2),
+      '$' + cost.toFixed(2),
+      row.metrics.costPerConversion ? '$' + (row.metrics.costPerConversion / 1000000).toFixed(2) : '-',
+      row.metrics.allConversions ? row.metrics.allConversions.toFixed(1) : '0',
+      '$' + allConvValue.toFixed(2)
+    ]);
+  }
+  
+  if (rows.length > 0) {
+    sheet.getRange(2, 1, rows.length, headers.length).setValues(rows);
+  }
+  
+  // Also add a summary by conversion action (no campaign split)
+  sheet.appendRow([]);
+  sheet.appendRow(['--- Summary by Conversion Action ---']);
+  var summaryHeaders = ['Conversion Action', 'Category', 'Total Conversions', 'Total Conv Value', 'Total Cost', 'CPA'];
+  sheet.appendRow(summaryHeaders);
+  
+  var summaryQuery = 'SELECT ' +
+    'conversion_action.name, ' +
+    'conversion_action.category, ' +
+    'metrics.conversions, ' +
+    'metrics.conversions_value, ' +
+    'metrics.cost_micros, ' +
+    'metrics.cost_per_conversion ' +
+    'FROM customer ' +
+    'WHERE segments.date ' + dateRange + ' ' +
+    'AND metrics.conversions > 0 ' +
+    'ORDER BY metrics.conversions DESC';
+  
+  var summaryReport = AdsApp.search(summaryQuery);
+  var summaryRows = [];
+  
+  while (summaryReport.hasNext()) {
+    var row = summaryReport.next();
+    var cost = row.metrics.costMicros / 1000000;
+    
+    summaryRows.push([
+      row.conversionAction.name,
+      row.conversionAction.category,
+      row.metrics.conversions.toFixed(1),
+      '$' + (row.metrics.conversionsValue || 0).toFixed(2),
+      '$' + cost.toFixed(2),
+      row.metrics.costPerConversion ? '$' + (row.metrics.costPerConversion / 1000000).toFixed(2) : '-'
+    ]);
+  }
+  
+  if (summaryRows.length > 0) {
+    var startRow = sheet.getLastRow() + 1;
+    sheet.getRange(startRow, 1, summaryRows.length, summaryHeaders.length).setValues(summaryRows);
+  }
+  
+  // Format headers
+  var headerRange = sheet.getRange(1, 1, 1, headers.length);
+  headerRange.setFontWeight('bold');
+  headerRange.setBackground('#1a1a2e');
+  headerRange.setFontColor('#ffffff');
+  
+  Logger.log('Conversion actions: ' + rows.length + ' rows, ' + summaryRows.length + ' summary rows');
 }
 
 function exportSummary(spreadsheet, today) {
