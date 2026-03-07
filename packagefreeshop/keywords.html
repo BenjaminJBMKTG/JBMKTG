@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Free Shop - Keyword Research Summary | JB Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 50px;
+            position: relative;
+        }
+
+        .branding {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e7d32;
+            letter-spacing: -0.5px;
+        }
+
+        .branding span {
+            color: #66bb6a;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #4caf50;
+        }
+
+        h1 {
+            color: #1b5e20;
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #558b2f;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .campaign-section {
+            margin-bottom: 50px;
+        }
+
+        .campaign-title {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            font-size: 26px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .ad-group-section {
+            margin-bottom: 30px;
+            background: #f1f8e9;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #7cb342;
+        }
+
+        .ad-group-header {
+            color: #33691e;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ad-group-header::before {
+            content: "▸";
+            margin-right: 10px;
+            color: #7cb342;
+            font-size: 24px;
+        }
+
+        .keyword-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .keyword-table thead {
+            background: linear-gradient(135deg, #7cb342 0%, #689f38 100%);
+            color: white;
+        }
+
+        .keyword-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .keyword-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 15px;
+        }
+
+        .keyword-table tbody tr:hover {
+            background: #f5f5f5;
+        }
+
+        .keyword-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .keyword-text {
+            color: #1b5e20;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .intent-transactional {
+            background: #1b5e20;
+            color: white;
+        }
+
+        .intent-commercial {
+            background: #558b2f;
+            color: white;
+        }
+
+        .intent-informational {
+            background: #9ccc65;
+            color: #33691e;
+        }
+
+        .match-exact {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .match-phrase {
+            background: #558b2f;
+            color: white;
+        }
+
+        .match-broad {
+            background: #7cb342;
+            color: white;
+        }
+
+        .priority-high {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .priority-medium {
+            background: #ff9800;
+            color: white;
+        }
+
+        .priority-low {
+            background: #fbc02d;
+            color: #33691e;
+        }
+
+        .legend {
+            background: #e8f5e9;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 2px solid #a5d6a7;
+        }
+
+        .legend h3 {
+            color: #1b5e20;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .legend-category {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .legend-category h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .legend-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .notes {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .notes h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+            color: #bf360c;
+        }
+
+        .notes li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .keyword-table {
+                font-size: 13px;
+            }
+
+            .keyword-table th,
+            .keyword-table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .branding {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .keyword-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .summary-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .campaign-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="branding">JB<span>Marketing</span></div>
+        
+        <header>
+            <h1>Package Free Shop</h1>
+            <p class="subtitle">Keyword Research Summary & Strategy</p>
+        </header>
+
+        <div class="summary-stats">
+            <div class="stat-card">
+                <div class="stat-number">127</div>
+                <div class="stat-label">Total Keywords</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Campaigns</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">23</div>
+                <div class="stat-label">Ad Groups</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">High Intent Keywords</div>
+            </div>
+        </div>
+
+        <!-- BRAND CAMPAIGN -->
+        <div class="campaign-section">
+            <h2 class="campaign-title">🎯 Brand Campaign</h2>
+            
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Brand Terms</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[package free shop]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[packagefreeshop]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"package free"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"package free shop reviews"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[packagefreeshop.com]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"package free shop discount"</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"package free shop coupon"</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- BODY & SKINCARE CAMPAIGN -->
+        <div class="campaign-section">
+            <h2 class="campaign-title">🧴 Non-Brand: Body & Skincare</h2>
+            
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Zero Waste Body Wash</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste body wash]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free body wash"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly body wash"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable body wash"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"buy zero waste body wash"</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Shampoo Bars</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[plastic free shampoo bar]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste shampoo bar"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly shampoo bar"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"solid shampoo bar"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[best shampoo bar]</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"shampoo bar for hair"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-low">Low</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Body Bars & Soap</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste soap]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free body bar"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly soap bar"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"natural body bar"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[organic soap bar]</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Skincare Products</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste skincare]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free skincare"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly skincare products"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"ewg verified skincare"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[sustainable skincare]</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- HOME & CLEANING CAMPAIGN -->
+        <div class="campaign-section">
+            <h2 class="campaign-title">🏠 Non-Brand: Home & Cleaning</h2>
+            
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Cleaning Products</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste cleaning products]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free cleaning supplies"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly cleaning products"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable cleaning supplies"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[natural cleaning products]</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Laundry Products</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[eco friendly laundry detergent]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste laundry"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free laundry detergent"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"wool dryer balls"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[dryer balls]</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco laundry strips"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Dishwashing</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[plastic free dishwasher tabs]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste dish soap"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly dishwasher tablets"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable dish soap"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[eco dishwasher tabs]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Kitchen & Home</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste kitchen products]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free kitchen"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"reusable kitchen products"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly kitchen items"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ZERO WASTE KITS CAMPAIGN -->
+        <div class="campaign-section">
+            <h2 class="campaign-title">🎁 Non-Brand: Zero Waste Kits</h2>
+            
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Starter Kits</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste starter kit]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste kit"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly starter kit"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable living starter kit"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[beginner zero waste kit]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Gift Sets</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[eco friendly gift set]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste gift basket"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable gift set"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free gift"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[eco gift box]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Bundle Offers</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste bundle]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly product bundle"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable products bundle"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- GENERAL/CATEGORY CAMPAIGN -->
+        <div class="campaign-section">
+            <h2 class="campaign-title">🌍 Non-Brand: General & Category</h2>
+            
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Zero Waste Shopping</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[zero waste shop]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste store online"</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"zero waste products online"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"buy zero waste products"</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[online zero waste store]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Sustainable Shopping</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[sustainable products online]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"sustainable online store"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"buy sustainable products"</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly online shop"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ad-group-section">
+                <h3 class="ad-group-header">Eco-Friendly Store</h3>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Intent</th>
+                            <th>Match Type</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="keyword-text">[eco friendly store]</td>
+                            <td><span class="badge intent-transactional">Transactional</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"plastic free store"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"eco friendly products online"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">"ewg verified products"</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-phrase">Phrase</span></td>
+                            <td><span class="badge priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td class="keyword-text">[plastic free products]</td>
+                            <td><span class="badge intent-commercial">Commercial</span></td>
+                            <td><span class="badge match-exact">Exact</span></td>
+                            <td><span class="badge priority-medium">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- LEGEND -->
+        <div class="legend">
+            <h3>📊 Legend & Classifications</h3>
+            <div class="legend-grid">
+                <div class="legend-category">
+                    <h4>Search Intent</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="badge intent-transactional">Transactional</span>
+                            <span>Ready to buy now</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="badge intent-commercial">Commercial</span>
+                            <span>Research & compare</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="badge intent-informational">Informational</span>
+                            <span>Learning & discovery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend-category">
+                    <h4>Match Types</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="badge match-exact">Exact</span>
+                            <span>[keyword] - Precise matches</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="badge match-phrase">Phrase</span>
+                            <span>"keyword" - Close variations</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="badge match-broad">Broad</span>
+                            <span>keyword - Wider reach</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legend-category">
+                    <h4>Priority Levels</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="badge priority-high">High</span>
+                            <span>High intent, launch priority</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="badge priority-medium">Medium</span>
+                            <span>Good intent, phase 2</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="badge priority-low">Low</span>
+                            <span>Test & scale if performing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRATEGIC NOTES -->
+        <div class="notes">
+            <h4>📋 Keyword Strategy Notes</h4>
+            <ul>
+                <li><strong>Focus on exact match for high-intent terms</strong> — "zero waste [product]", "plastic free [product]", "eco friendly [product]" all show strong purchase intent</li>
+                <li><strong>EWG Verified is a unique differentiator</strong> — Include in campaigns to attract health-conscious, ingredient-focused shoppers</li>
+                <li><strong>Gift-related keywords spike seasonally</strong> — Increase budgets for "gift set", "gift basket" campaigns during Q4, Mother's Day, Father's Day</li>
+                <li><strong>Starter kits and bundles are gateway products</strong> — These typically have higher AOV and introduce multiple product categories at once</li>
+                <li><strong>Laundry and dishwashing products have high search volume</strong> — These are repeat-purchase categories with strong commercial intent</li>
+                <li><strong>Body bars and shampoo bars are trending</strong> — Growing category with less competition than traditional liquid products</li>
+                <li><strong>Use negative keywords strategically</strong> — Exclude "DIY", "recipe", "how to make" to avoid informational traffic</li>
+                <li><strong>Monitor brand + competitor terms</strong> — Add observation campaigns for competitor brands in the zero waste space</li>
+                <li><strong>Geo-targeting considerations</strong> — Focus on urban areas and regions with high environmental awareness (West Coast, Northeast, college towns)</li>
+                <li><strong>Mobile optimization is critical</strong> — 60%+ of eco-conscious shoppers research on mobile before purchasing</li>
+            </ul>
+        </div>
+
+        <div class="notes" style="background: #e8f5e9; border-left-color: #4caf50;">
+            <h4 style="color: #1b5e20;">✅ Next Steps</h4>
+            <ul style="color: #33691e;">
+                <li>Launch with exact and phrase match in high-priority keywords (weeks 1-2)</li>
+                <li>Monitor search term reports daily and add negative keywords to protect budget</li>
+                <li>Build out Performance Max campaigns with optimized product feed (week 2)</li>
+                <li>Test responsive search ads with 3-5 headline/description variations per ad group</li>
+                <li>Set up conversion tracking for purchases, add-to-cart, and email signups</li>
+                <li>Implement remarketing tags and build audience lists by category/behavior</li>
+                <li>Establish budget allocation: 40% brand, 40% non-brand search, 15% PMax, 5% display</li>
+                <li>A/B test landing pages focused on EWG verification and zero waste USPs</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
