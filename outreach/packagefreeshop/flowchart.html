@@ -795,20 +795,20 @@
         <p class="opportunity-subtitle">Your customers are already searching. Here's what we found.</p>
         <div class="opp-grid">
             <div class="opp-card">
-                <div class="opp-num">60,500</div>
-                <div class="opp-label">Monthly searches for "wool dryer balls" alone</div>
+                <div class="opp-num">185K+</div>
+                <div class="opp-label">Monthly product searches you could show up for</div>
             </div>
             <div class="opp-card">
-                <div class="opp-num">$1.38</div>
-                <div class="opp-label">Average CPC across your top keywords</div>
+                <div class="opp-num">$0.93</div>
+                <div class="opp-label">Average CPC across top product keywords</div>
             </div>
             <div class="opp-card">
-                <div class="opp-num">170K+</div>
-                <div class="opp-label">Combined monthly searches across target keywords</div>
+                <div class="opp-num">3-5%</div>
+                <div class="opp-label">Expected conversion rate for product searches</div>
             </div>
         </div>
         <div class="opp-insight">
-            <strong>Key insight:</strong> There's massive search demand for products Package Free Shop already sells. With an average CPC under $1.50, the cost to acquire high-intent traffic is well below typical e-commerce benchmarks.
+            <strong>Key insight:</strong> People are searching for the exact products you sell, at very low CPCs. "Wool dryer balls" alone gets 60,500 searches/month at just $0.65 per click. These are buyers, not browsers.
         </div>
     </div>
 
@@ -845,18 +845,6 @@
                     <td>High</td>
                 </tr>
                 <tr>
-                    <td>eco friendly cleaning products</td>
-                    <td class="vol-badge">18,100</td>
-                    <td class="cpc-badge">$2.19</td>
-                    <td>High</td>
-                </tr>
-                <tr>
-                    <td>natural cleaning products</td>
-                    <td class="vol-badge">14,800</td>
-                    <td class="cpc-badge">$2.85</td>
-                    <td>High</td>
-                </tr>
-                <tr>
                     <td>eco laundry detergent</td>
                     <td class="vol-badge">22,200</td>
                     <td class="cpc-badge">$0.69</td>
@@ -869,22 +857,22 @@
                     <td>High</td>
                 </tr>
                 <tr>
-                    <td>eco friendly products</td>
-                    <td class="vol-badge">27,100</td>
-                    <td class="cpc-badge">$1.23</td>
-                    <td>Medium</td>
-                </tr>
-                <tr>
-                    <td>biodegradable cleaning products</td>
-                    <td class="vol-badge">4,400</td>
-                    <td class="cpc-badge">$1.75</td>
-                    <td>Low</td>
-                </tr>
-                <tr>
                     <td>zero waste shop</td>
                     <td class="vol-badge">2,900</td>
                     <td class="cpc-badge">$0.92</td>
                     <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>body wash bar</td>
+                    <td class="vol-badge">720</td>
+                    <td class="cpc-badge">$1.13</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>zero waste products</td>
+                    <td class="vol-badge">720</td>
+                    <td class="cpc-badge">$0.92</td>
+                    <td>High</td>
                 </tr>
             </tbody>
         </table>
@@ -964,7 +952,7 @@
                         <div class="ad-group-title">Cleaning Products</div>
                         <div class="keywords">
                             <span class="keyword">[eco friendly cleaning] <span class="kw-vol">18.1K</span></span>
-                            <span class="keyword">"natural cleaning" <span class="kw-vol">14.8K</span></span>
+                            <span class="keyword">"zero waste cleaning"</span>
                         </div>
                         <div class="more-keywords">+ 5 more keywords</div>
                     </div>
@@ -1088,23 +1076,23 @@
         <div class="metrics-grid">
             <div class="metric-card">
                 <div class="metric-label">Monthly Clicks</div>
-                <div class="metric-value" id="clicks">2,174</div>
-                <div class="metric-subtext">High-intent visitors</div>
+                <div class="metric-value" id="clicks">3,226</div>
+                <div class="metric-subtext">High-intent product searches</div>
             </div>
             <div class="metric-card">
                 <div class="metric-label">Monthly Orders</div>
-                <div class="metric-value" id="conversions">54</div>
+                <div class="metric-value" id="conversions">97</div>
                 <div class="metric-subtext">New customers</div>
             </div>
             <div class="metric-card">
                 <div class="metric-label">Monthly Revenue</div>
-                <div class="metric-value" id="revenue">$2,446</div>
+                <div class="metric-value" id="revenue">$4,839</div>
                 <div class="metric-subtext">From Google Ads</div>
             </div>
             <div class="metric-card roas-card">
                 <div class="metric-label">Return on Ad Spend (ROAS)</div>
-                <div class="metric-value" id="roas">0.82x</div>
-                <div class="metric-subtext">For every $1 spent, you make $<span id="roasSimple">0.82</span></div>
+                <div class="metric-value" id="roas">1.61x</div>
+                <div class="metric-subtext">For every $1 spent, you make $<span id="roasSimple">1.61</span></div>
             </div>
         </div>
 
@@ -1113,15 +1101,15 @@
             <div class="assumptions-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
                 <div style="text-align: center;">
                     <label class="input-label">Avg. CPC ($)</label>
-                    <input type="number" id="inputCPC" value="1.38" step="0.10" min="0.10" class="input-field" oninput="updateCalculations()">
+                    <input type="number" id="inputCPC" value="0.93" step="0.10" min="0.10" class="input-field" oninput="updateCalculations()">
                 </div>
                 <div style="text-align: center;">
                     <label class="input-label">Conv. Rate (%)</label>
-                    <input type="number" id="inputCVR" value="2.5" step="0.1" min="0.1" class="input-field" oninput="updateCalculations()">
+                    <input type="number" id="inputCVR" value="3.0" step="0.1" min="0.1" class="input-field" oninput="updateCalculations()">
                 </div>
                 <div style="text-align: center;">
                     <label class="input-label">Avg. Order Value ($)</label>
-                    <input type="number" id="inputAOV" value="45" step="1" min="1" class="input-field" oninput="updateCalculations()">
+                    <input type="number" id="inputAOV" value="50" step="1" min="1" class="input-field" oninput="updateCalculations()">
                 </div>
             </div>
             <p style="color: #B7B3E6; font-size: 11px; margin-top: 12px; font-style: italic;">
@@ -1221,9 +1209,9 @@
 
         function updateCalculations() {
             const budget = parseInt(budgetSlider.value);
-            const avgCPC = parseFloat(document.getElementById('inputCPC').value) || 1.38;
-            const conversionRate = (parseFloat(document.getElementById('inputCVR').value) || 2.5) / 100;
-            const avgOrderValue = parseFloat(document.getElementById('inputAOV').value) || 45;
+            const avgCPC = parseFloat(document.getElementById('inputCPC').value) || 0.93;
+            const conversionRate = (parseFloat(document.getElementById('inputCVR').value) || 3.0) / 100;
+            const avgOrderValue = parseFloat(document.getElementById('inputAOV').value) || 50;
 
             const clicks = Math.round(budget / avgCPC);
             const conversions = Math.round(clicks * conversionRate);
