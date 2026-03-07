@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Free Shop - Google Ads Account Structure | JB Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 50px;
+            position: relative;
+        }
+
+        .branding {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e7d32;
+            letter-spacing: -0.5px;
+        }
+
+        .branding span {
+            color: #66bb6a;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #4caf50;
+        }
+
+        h1 {
+            color: #1b5e20;
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #558b2f;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .account-level {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
+        }
+
+        .account-level h2 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .account-level p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .campaigns-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .campaign {
+            background: #ffffff;
+            border: 3px solid #4caf50;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .campaign:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.2);
+        }
+
+        .campaign-header {
+            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .campaign-header h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .campaign-type {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .ad-groups {
+            display: grid;
+            gap: 15px;
+        }
+
+        .ad-group {
+            background: #f1f8e9;
+            border-left: 4px solid #7cb342;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .ad-group-title {
+            color: #33691e;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ad-group-title::before {
+            content: "▸";
+            margin-right: 8px;
+            color: #7cb342;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .keyword {
+            background: white;
+            color: #2e7d32;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 2px solid #c5e1a5;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .match-type {
+            background: #7cb342;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .match-type.exact {
+            background: #2e7d32;
+        }
+
+        .match-type.phrase {
+            background: #558b2f;
+        }
+
+        .match-type.broad {
+            background: #7cb342;
+        }
+
+        .legend {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 2px solid #a5d6a7;
+        }
+
+        .legend h4 {
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        .special-campaign {
+            border-color: #ff9800;
+        }
+
+        .special-campaign .campaign-header {
+            background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+        }
+
+        .notes {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .notes h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+            color: #bf360c;
+        }
+
+        .notes li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .branding {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .legend-items {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .campaign {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="branding">JB<span>Marketing</span></div>
+        
+        <header>
+            <h1>Package Free Shop</h1>
+            <p class="subtitle">Google Ads Account Structure Recommendation</p>
+        </header>
+
+        <div class="account-level">
+            <h2>🌱 Package Free Shop - Google Ads Account</h2>
+            <p>Comprehensive zero waste & eco-friendly product campaigns</p>
+        </div>
+
+        <div class="campaigns-grid">
+            
+            <!-- Brand Campaign -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Brand Campaign</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Brand Terms</div>
+                        <div class="keywords">
+                            <span class="keyword">"package free shop" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"packagefreeshop" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"package free" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"package free shop reviews" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"packagefreeshop.com" <span class="match-type exact">Exact</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body & Skincare Campaign -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Non-Brand: Body & Skincare</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Zero Waste Body Wash</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste body wash" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"plastic free body wash" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly body wash" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"sustainable body wash" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Shampoo Bars</div>
+                        <div class="keywords">
+                            <span class="keyword">"plastic free shampoo bar" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"zero waste shampoo bar" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly shampoo bar" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"solid shampoo bar" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Body Bars & Soap</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste soap" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"plastic free body bar" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly soap bar" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"natural body bar" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Skincare Products</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste skincare" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"plastic free skincare" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly skincare products" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"ewg verified skincare" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home & Cleaning Campaign -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Non-Brand: Home & Cleaning</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Cleaning Products</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste cleaning products" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"plastic free cleaning supplies" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly cleaning products" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"sustainable cleaning supplies" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Laundry Products</div>
+                        <div class="keywords">
+                            <span class="keyword">"eco friendly laundry detergent" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"zero waste laundry" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"plastic free laundry detergent" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"wool dryer balls" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Dishwashing</div>
+                        <div class="keywords">
+                            <span class="keyword">"plastic free dishwasher tabs" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"zero waste dish soap" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly dishwasher tablets" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"sustainable dish soap" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Kitchen & Home</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste kitchen products" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"plastic free kitchen" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"reusable kitchen products" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly kitchen items" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zero Waste Kits Campaign -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Non-Brand: Zero Waste Kits</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Starter Kits</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste starter kit" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"zero waste kit" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly starter kit" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"sustainable living starter kit" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Gift Sets</div>
+                        <div class="keywords">
+                            <span class="keyword">"eco friendly gift set" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"zero waste gift basket" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"sustainable gift set" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"plastic free gift" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Bundle Offers</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste bundle" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"eco friendly product bundle" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"sustainable products bundle" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General/Category Campaign -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Non-Brand: General & Category</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Zero Waste Shopping</div>
+                        <div class="keywords">
+                            <span class="keyword">"zero waste shop" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"zero waste store online" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"zero waste products online" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"buy zero waste products" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Sustainable Shopping</div>
+                        <div class="keywords">
+                            <span class="keyword">"sustainable products online" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"sustainable online store" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"buy sustainable products" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly online shop" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Eco-Friendly Store</div>
+                        <div class="keywords">
+                            <span class="keyword">"eco friendly store" <span class="match-type exact">Exact</span></span>
+                            <span class="keyword">"plastic free store" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"eco friendly products online" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">"ewg verified products" <span class="match-type phrase">Phrase</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Max Campaign -->
+            <div class="campaign special-campaign">
+                <div class="campaign-header">
+                    <h3>Performance Max - Shopping</h3>
+                    <span class="campaign-type">Performance Max</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">All Products Feed</div>
+                        <div class="keywords">
+                            <span class="keyword">Body & Skincare Products</span>
+                            <span class="keyword">Cleaning Products</span>
+                            <span class="keyword">Kitchen Items</span>
+                            <span class="keyword">Pet Products</span>
+                            <span class="keyword">Baby Products</span>
+                            <span class="keyword">Zero Waste Kits</span>
+                            <span class="keyword">Dryer Balls</span>
+                            <span class="keyword">Body Bars</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="notes">
+                    <h4>Performance Max Strategy</h4>
+                    <ul>
+                        <li>Leverages Google's AI across all channels (Search, Shopping, Display, YouTube, Gmail, Discover)</li>
+                        <li>Product feed includes all inventory with optimized titles, descriptions, and images</li>
+                        <li>Asset groups organized by product category for better performance</li>
+                        <li>Audience signals: eco-conscious consumers, sustainable living enthusiasts, green product shoppers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Remarketing Campaign -->
+            <div class="campaign special-campaign">
+                <div class="campaign-header">
+                    <h3>Remarketing & Display</h3>
+                    <span class="campaign-type">Display</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">All Site Visitors</div>
+                        <div class="keywords">
+                            <span class="keyword">General site visitors (past 30 days)</span>
+                            <span class="keyword">Homepage visitors</span>
+                            <span class="keyword">Product page viewers</span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Cart Abandoners</div>
+                        <div class="keywords">
+                            <span class="keyword">Added to cart but didn't purchase</span>
+                            <span class="keyword">Checkout initiators</span>
+                            <span class="keyword">High-value cart abandoners ($50+)</span>
+                        </div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Category Viewers</div>
+                        <div class="keywords">
+                            <span class="keyword">Body & Skincare viewers</span>
+                            <span class="keyword">Cleaning products viewers</span>
+                            <span class="keyword">Kit browsers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="notes">
+                    <h4>Remarketing Strategy</h4>
+                    <ul>
+                        <li>30-day remarketing window for general visitors</li>
+                        <li>90-day window for cart abandoners with frequency capping</li>
+                        <li>Dynamic remarketing showing exact products viewed</li>
+                        <li>Responsive display ads with eco-friendly imagery and messaging</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="legend">
+            <h4>Match Type Legend</h4>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #2e7d32;"></div>
+                    <span><strong>Exact Match:</strong> Highest intent, exact searches only</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #558b2f;"></div>
+                    <span><strong>Phrase Match:</strong> Medium intent, close variations allowed</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #7cb342;"></div>
+                    <span><strong>Broad Match:</strong> Wider reach, more variations</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes" style="margin-top: 30px;">
+            <h4>🎯 Strategic Recommendations</h4>
+            <ul>
+                <li><strong>Start with exact and phrase match</strong> to control costs and qualify traffic during launch phase</li>
+                <li><strong>Brand campaign should have 90%+ impression share</strong> — protect your brand terms</li>
+                <li><strong>Segment by product category</strong> for better ad copy relevance and landing page matching</li>
+                <li><strong>Performance Max complements Search</strong> — use negative keywords in Search to avoid overlap</li>
+                <li><strong>Remarketing is critical for eco-conscious shoppers</strong> who research before buying</li>
+                <li><strong>Focus on EWG Verified and zero waste USPs</strong> in ad copy — strong differentiators</li>
+                <li><strong>Test responsive search ads</strong> with sustainability messaging vs. product-specific benefits</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
