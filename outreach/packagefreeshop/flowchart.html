@@ -8,11 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Kulim+Park:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Kulim Park', sans-serif;
@@ -59,6 +55,141 @@
             color: #B7B3E6;
         }
 
+        /* ===== OPPORTUNITY SECTION ===== */
+        .opportunity-section {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 30px;
+        }
+
+        .opportunity-section h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 32px;
+            color: #EDEBFF;
+            margin-bottom: 12px;
+        }
+
+        .opportunity-subtitle {
+            color: #B7B3E6;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .opp-card {
+            background: rgba(66, 62, 204, 0.15);
+            border: 2px solid #423ECC;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .opp-card .opp-num {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 42px;
+            color: #6E63FF;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(110, 99, 255, 0.4);
+        }
+
+        .opp-card .opp-label {
+            color: #B7B3E6;
+            font-size: 14px;
+        }
+
+        .opp-insight {
+            background: rgba(110, 99, 255, 0.1);
+            border-left: 4px solid #6E63FF;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            color: #C3BCFF;
+            font-size: 15px;
+        }
+
+        .opp-insight strong { color: #EDEBFF; }
+
+        /* ===== KEYWORD DATA TABLE ===== */
+        .keyword-section {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 30px;
+        }
+
+        .keyword-section h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 28px;
+            color: #EDEBFF;
+            margin-bottom: 8px;
+        }
+
+        .keyword-section .ks-sub {
+            color: #B7B3E6;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .kw-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #423ECC;
+        }
+
+        .kw-table thead th {
+            background: linear-gradient(135deg, #423ECC, #6E63FF);
+            color: #EDEBFF;
+            padding: 14px 18px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .kw-table tbody td {
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(66, 62, 204, 0.3);
+            font-size: 14px;
+            color: #EDEBFF;
+        }
+
+        .kw-table tbody tr:last-child td { border-bottom: none; }
+        .kw-table tbody tr:hover { background: rgba(66, 62, 204, 0.15); }
+        .kw-table tbody tr { background: rgba(11, 11, 18, 0.5); }
+        .kw-table tbody tr:nth-child(even) { background: rgba(66, 62, 204, 0.08); }
+
+        .vol-badge {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            color: #6E63FF;
+        }
+
+        .cpc-badge {
+            color: #C3BCFF;
+            font-weight: 600;
+        }
+
+        .kw-source {
+            text-align: center;
+            color: #B7B3E6;
+            font-size: 11px;
+            margin-top: 12px;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        /* ===== FLOWCHART ===== */
         .flowchart-container {
             display: flex;
             flex-direction: column;
@@ -69,7 +200,24 @@
             margin-bottom: 80px;
         }
 
-        /* Account Level */
+        .flowchart-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .flowchart-heading h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 28px;
+            color: #EDEBFF;
+            margin-bottom: 8px;
+        }
+
+        .flowchart-heading p {
+            color: #B7B3E6;
+            font-size: 16px;
+        }
+
         .account-node {
             background: linear-gradient(135deg, #423ECC 0%, #6E63FF 100%);
             border: 3px solid #C3BCFF;
@@ -89,12 +237,8 @@
             margin-bottom: 5px;
         }
 
-        .account-node p {
-            color: #C3BCFF;
-            font-size: 16px;
-        }
+        .account-node p { color: #C3BCFF; font-size: 16px; }
 
-        /* Vertical connector from account */
         .account-node::after {
             content: '';
             position: absolute;
@@ -106,7 +250,6 @@
             background: #6E63FF;
         }
 
-        /* Campaigns Row */
         .campaigns-row {
             display: flex;
             gap: 30px;
@@ -152,7 +295,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Vertical connector from campaign to ad groups */
         .campaign::before {
             content: '';
             position: absolute;
@@ -164,19 +306,13 @@
             background: #6E63FF;
         }
 
-        /* Ad Groups */
-        .ad-groups {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .ad-groups { display: flex; flex-direction: column; gap: 15px; }
 
         .ad-group {
             background: rgba(110, 99, 255, 0.1);
             border: 1px solid #6E63FF;
             border-radius: 8px;
             padding: 15px;
-            position: relative;
         }
 
         .ad-group-title {
@@ -189,17 +325,13 @@
         }
 
         .ad-group-title::before {
-            content: '▸';
+            content: '\25B8';
             position: absolute;
             left: 0;
             color: #6E63FF;
         }
 
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
+        .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
 
         .keyword {
             background: rgba(195, 188, 255, 0.15);
@@ -210,6 +342,13 @@
             font-size: 12px;
         }
 
+        .keyword .kw-vol {
+            color: #6E63FF;
+            font-weight: 600;
+            font-size: 10px;
+            margin-left: 4px;
+        }
+
         .more-keywords {
             color: #B7B3E6;
             font-size: 12px;
@@ -217,7 +356,6 @@
             padding: 5px 0;
         }
 
-        /* Special campaign styling */
         .campaign.special {
             border-color: #6E63FF;
             background: rgba(110, 99, 255, 0.15);
@@ -232,7 +370,7 @@
             color: #EDEBFF;
         }
 
-        /* Budget Calculator */
+        /* ===== BUDGET CALCULATOR ===== */
         .calculator-section {
             max-width: 900px;
             margin: 80px auto 60px;
@@ -259,14 +397,7 @@
             margin-bottom: 40px;
         }
 
-        .budget-slider-container {
-            margin-bottom: 50px;
-        }
-
-        .budget-display {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        .budget-display { text-align: center; margin-bottom: 30px; }
 
         .budget-label {
             color: #C3BCFF;
@@ -295,9 +426,7 @@
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            appearance: none;
-            width: 30px;
-            height: 30px;
+            width: 30px; height: 30px;
             border-radius: 50%;
             background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
             cursor: pointer;
@@ -306,8 +435,7 @@
         }
 
         .slider::-moz-range-thumb {
-            width: 30px;
-            height: 30px;
+            width: 30px; height: 30px;
             border-radius: 50%;
             background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
             cursor: pointer;
@@ -352,10 +480,7 @@
             margin-bottom: 5px;
         }
 
-        .metric-subtext {
-            color: #C3BCFF;
-            font-size: 13px;
-        }
+        .metric-subtext { color: #C3BCFF; font-size: 13px; }
 
         .roas-card {
             grid-column: 1 / -1;
@@ -365,14 +490,222 @@
 
         .roas-card .metric-value {
             font-size: 52px;
-            color: #EDEBFF;
             text-shadow: 0 0 30px rgba(237, 235, 255, 0.5);
         }
 
-        .cta-container {
+        .assumptions {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(195, 188, 255, 0.3);
             text-align: center;
-            margin-top: 50px;
         }
+
+        .assumptions h4 {
+            color: #C3BCFF;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-field {
+            width: 90px;
+            padding: 8px 10px;
+            background: rgba(11,11,18,0.8);
+            border: 1px solid rgba(66,62,204,0.5);
+            border-radius: 8px;
+            color: #EDEBFF;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+        }
+
+        .input-label {
+            display: block;
+            color: #B7B3E6;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        /* ===== RESULTS / SOCIAL PROOF ===== */
+        .proof-section {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 30px;
+        }
+
+        .proof-section h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 28px;
+            color: #EDEBFF;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .proof-subtitle {
+            color: #B7B3E6;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .proof-stat {
+            background: rgba(66, 62, 204, 0.15);
+            border: 2px solid #423ECC;
+            border-radius: 14px;
+            padding: 24px 16px;
+            text-align: center;
+        }
+
+        .proof-stat .ps-num {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 32px;
+            color: #6E63FF;
+            margin-bottom: 4px;
+        }
+
+        .proof-stat .ps-label {
+            color: #B7B3E6;
+            font-size: 12px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .testimonial {
+            background: rgba(110, 99, 255, 0.08);
+            border: 1px solid rgba(110, 99, 255, 0.3);
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .testimonial-text {
+            color: #C3BCFF;
+            font-size: 15px;
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            color: #EDEBFF;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            color: #B7B3E6;
+            font-size: 12px;
+        }
+
+        /* ===== NEXT STEPS / PROCESS ===== */
+        .process-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 0 30px;
+        }
+
+        .process-section h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 28px;
+            color: #EDEBFF;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .process-subtitle {
+            color: #B7B3E6;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .process-step:last-child { padding-bottom: 0; }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: linear-gradient(135deg, #423ECC, #6E63FF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 20px;
+            color: #EDEBFF;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step:not(:last-child) .step-num::after {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: calc(100% + 40px);
+            background: rgba(110, 99, 255, 0.3);
+        }
+
+        .step-content h3 {
+            font-family: 'Kulim Park', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #EDEBFF;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            color: #B7B3E6;
+            font-size: 14px;
+        }
+
+        .step-time {
+            display: inline-block;
+            background: rgba(110, 99, 255, 0.2);
+            color: #C3BCFF;
+            padding: 2px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        /* ===== CTA ===== */
+        .cta-container { text-align: center; margin-top: 50px; }
 
         .cta-button {
             display: inline-block;
@@ -393,89 +726,62 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 50px rgba(110, 99, 255, 0.7);
-            background: linear-gradient(135deg, #423ECC 0%, #6E63FF 100%);
         }
 
-        .assumptions {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid rgba(195, 188, 255, 0.3);
+        /* ===== FOOTER CTA ===== */
+        .footer-cta {
+            max-width: 700px;
+            margin: 40px auto 80px;
             text-align: center;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, rgba(66, 62, 204, 0.25), rgba(110, 99, 255, 0.15));
+            border: 3px solid #423ECC;
+            border-radius: 20px;
         }
 
-        .assumptions h4 {
+        .footer-cta h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 32px;
+            color: #EDEBFF;
+            margin-bottom: 12px;
+        }
+
+        .footer-cta p {
+            color: #B7B3E6;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .footer-contact {
             color: #C3BCFF;
             font-size: 14px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .assumptions-list {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .assumption-item {
-            color: #B7B3E6;
-            font-size: 13px;
+            margin-top: 20px;
         }
 
         @media (max-width: 1600px) {
-            .campaigns-row {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .campaigns-row { flex-wrap: wrap; justify-content: center; }
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            .campaigns-row {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .campaign {
-                width: 100%;
-                max-width: 400px;
-            }
-
-            .calculator-section {
-                padding: 30px 20px;
-            }
-
-            .calculator-section h2 {
-                font-size: 28px;
-            }
-
-            .budget-value {
-                font-size: 36px;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .roas-card {
-                grid-column: 1;
-            }
-
-            .metric-value {
-                font-size: 28px;
-            }
-
-            .roas-card .metric-value {
-                font-size: 42px;
-            }
+            h1 { font-size: 32px; }
+            .campaigns-row { flex-direction: column; align-items: center; }
+            .campaign { width: 100%; max-width: 400px; }
+            .calculator-section { padding: 30px 20px; }
+            .calculator-section h2 { font-size: 28px; }
+            .budget-value { font-size: 36px; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .roas-card { grid-column: 1; }
+            .metric-value { font-size: 28px; }
+            .roas-card .metric-value { font-size: 42px; }
+            .opp-grid { grid-template-columns: 1fr; }
+            .proof-stats { grid-template-columns: repeat(2, 1fr); }
+            .testimonials { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <div class="header">
         <div class="logo">JB MARKETING</div>
         <div class="accent-line"></div>
@@ -483,16 +789,121 @@
         <p class="subtitle">Google Ads Strategy Preview</p>
     </div>
 
+    <!-- OPPORTUNITY SECTION -->
+    <div class="opportunity-section">
+        <h2>The Opportunity</h2>
+        <p class="opportunity-subtitle">Your customers are already searching. Here's what we found.</p>
+        <div class="opp-grid">
+            <div class="opp-card">
+                <div class="opp-num">60,500</div>
+                <div class="opp-label">Monthly searches for "wool dryer balls" alone</div>
+            </div>
+            <div class="opp-card">
+                <div class="opp-num">$1.38</div>
+                <div class="opp-label">Average CPC across your top keywords</div>
+            </div>
+            <div class="opp-card">
+                <div class="opp-num">170K+</div>
+                <div class="opp-label">Combined monthly searches across target keywords</div>
+            </div>
+        </div>
+        <div class="opp-insight">
+            <strong>Key insight:</strong> There's massive search demand for products Package Free Shop already sells. With an average CPC under $1.50, the cost to acquire high-intent traffic is well below typical e-commerce benchmarks.
+        </div>
+    </div>
+
+    <!-- KEYWORD DATA TABLE -->
+    <div class="keyword-section">
+        <h2>Keyword Research</h2>
+        <p class="ks-sub">Real search volume and cost-per-click data for your top opportunities.</p>
+        <table class="kw-table">
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Monthly Volume</th>
+                    <th>Avg. CPC</th>
+                    <th>Competition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>wool dryer balls</td>
+                    <td class="vol-badge">60,500</td>
+                    <td class="cpc-badge">$0.90</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>shampoo bar</td>
+                    <td class="vol-badge">49,500</td>
+                    <td class="cpc-badge">$1.46</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>dryer balls</td>
+                    <td class="vol-badge">40,500</td>
+                    <td class="cpc-badge">$0.65</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>eco friendly cleaning products</td>
+                    <td class="vol-badge">18,100</td>
+                    <td class="cpc-badge">$2.19</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>natural cleaning products</td>
+                    <td class="vol-badge">14,800</td>
+                    <td class="cpc-badge">$2.85</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>eco laundry detergent</td>
+                    <td class="vol-badge">22,200</td>
+                    <td class="cpc-badge">$0.69</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>compostable trash bags</td>
+                    <td class="vol-badge">8,100</td>
+                    <td class="cpc-badge">$2.23</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>eco friendly products</td>
+                    <td class="vol-badge">27,100</td>
+                    <td class="cpc-badge">$1.23</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>biodegradable cleaning products</td>
+                    <td class="vol-badge">4,400</td>
+                    <td class="cpc-badge">$1.75</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>zero waste shop</td>
+                    <td class="vol-badge">2,900</td>
+                    <td class="cpc-badge">$0.92</td>
+                    <td>Medium</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="kw-source">Data from Google Ads via DataForSEO. Global search volumes. Updated March 2026.</p>
+    </div>
+
+    <!-- FLOWCHART -->
+    <div class="flowchart-heading">
+        <h2>Proposed Campaign Structure</h2>
+        <p>How we'd organise your Google Ads account for maximum coverage and control.</p>
+    </div>
+
     <div class="flowchart-container">
-        <!-- Account Node -->
         <div class="account-node">
             <h2>Package Free Shop</h2>
             <p>Google Ads Account</p>
         </div>
 
-        <!-- Campaigns Row -->
         <div class="campaigns-row">
-            <!-- Campaign 1: Brand -->
             <div class="campaign">
                 <div class="campaign-header">
                     <h3>Brand Campaign</h3>
@@ -510,7 +921,6 @@
                 </div>
             </div>
 
-            <!-- Campaign 2: Body & Skincare -->
             <div class="campaign">
                 <div class="campaign-header">
                     <h3>Body & Skincare</h3>
@@ -518,20 +928,20 @@
                 </div>
                 <div class="ad-groups">
                     <div class="ad-group">
-                        <div class="ad-group-title">Body Wash</div>
-                        <div class="keywords">
-                            <span class="keyword">[zero waste body wash]</span>
-                            <span class="keyword">"eco body wash"</span>
-                        </div>
-                        <div class="more-keywords">+ 4 more keywords</div>
-                    </div>
-                    <div class="ad-group">
                         <div class="ad-group-title">Shampoo & Hair</div>
                         <div class="keywords">
-                            <span class="keyword">[shampoo bar]</span>
+                            <span class="keyword">[shampoo bar] <span class="kw-vol">49.5K</span></span>
                             <span class="keyword">"zero waste shampoo"</span>
                         </div>
                         <div class="more-keywords">+ 5 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Body Bars & Soap</div>
+                        <div class="keywords">
+                            <span class="keyword">[body wash bar] <span class="kw-vol">720</span></span>
+                            <span class="keyword">"zero waste soap"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Skincare</div>
@@ -541,18 +951,9 @@
                         </div>
                         <div class="more-keywords">+ 4 more keywords</div>
                     </div>
-                    <div class="ad-group">
-                        <div class="ad-group-title">Body Bars</div>
-                        <div class="keywords">
-                            <span class="keyword">[zero waste soap]</span>
-                            <span class="keyword">"eco soap bar"</span>
-                        </div>
-                        <div class="more-keywords">+ 3 more keywords</div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Campaign 3: Home & Cleaning -->
             <div class="campaign">
                 <div class="campaign-header">
                     <h3>Home & Cleaning</h3>
@@ -562,39 +963,30 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Cleaning Products</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste cleaning]</span>
-                            <span class="keyword">"eco cleaning"</span>
+                            <span class="keyword">[eco friendly cleaning] <span class="kw-vol">18.1K</span></span>
+                            <span class="keyword">"natural cleaning" <span class="kw-vol">14.8K</span></span>
                         </div>
                         <div class="more-keywords">+ 5 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Laundry</div>
                         <div class="keywords">
-                            <span class="keyword">[eco laundry detergent]</span>
-                            <span class="keyword">"wool dryer balls"</span>
+                            <span class="keyword">[eco laundry detergent] <span class="kw-vol">22.2K</span></span>
+                            <span class="keyword">[wool dryer balls] <span class="kw-vol">60.5K</span></span>
                         </div>
                         <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
-                        <div class="ad-group-title">Dishwashing</div>
+                        <div class="ad-group-title">Kitchen & Waste</div>
                         <div class="keywords">
-                            <span class="keyword">[dishwasher tabs]</span>
-                            <span class="keyword">"zero waste dish soap"</span>
+                            <span class="keyword">[compostable trash bags] <span class="kw-vol">8.1K</span></span>
+                            <span class="keyword">"zero waste kitchen"</span>
                         </div>
                         <div class="more-keywords">+ 4 more keywords</div>
-                    </div>
-                    <div class="ad-group">
-                        <div class="ad-group-title">Kitchen</div>
-                        <div class="keywords">
-                            <span class="keyword">[zero waste kitchen]</span>
-                            <span class="keyword">"plastic free kitchen"</span>
-                        </div>
-                        <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Campaign 4: Zero Waste Kits -->
             <div class="campaign">
                 <div class="campaign-header">
                     <h3>Zero Waste Kits</h3>
@@ -612,7 +1004,7 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Gift Sets</div>
                         <div class="keywords">
-                            <span class="keyword">[eco friendly gift set]</span>
+                            <span class="keyword">[eco friendly gift] <span class="kw-vol">4.4K</span></span>
                             <span class="keyword">"zero waste gift"</span>
                         </div>
                         <div class="more-keywords">+ 3 more keywords</div>
@@ -620,7 +1012,6 @@
                 </div>
             </div>
 
-            <!-- Campaign 5: General -->
             <div class="campaign">
                 <div class="campaign-header">
                     <h3>General</h3>
@@ -628,33 +1019,24 @@
                 </div>
                 <div class="ad-groups">
                     <div class="ad-group">
-                        <div class="ad-group-title">Zero Waste Store</div>
+                        <div class="ad-group-title">Eco Store</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste shop]</span>
-                            <span class="keyword">"zero waste online"</span>
+                            <span class="keyword">[eco friendly products] <span class="kw-vol">27.1K</span></span>
+                            <span class="keyword">"plastic free store" <span class="kw-vol">590</span></span>
                         </div>
                         <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
-                        <div class="ad-group-title">Sustainable Shopping</div>
+                        <div class="ad-group-title">Zero Waste Store</div>
                         <div class="keywords">
-                            <span class="keyword">[sustainable products]</span>
-                            <span class="keyword">"sustainable store"</span>
-                        </div>
-                        <div class="more-keywords">+ 3 more keywords</div>
-                    </div>
-                    <div class="ad-group">
-                        <div class="ad-group-title">Eco Store</div>
-                        <div class="keywords">
-                            <span class="keyword">[eco friendly store]</span>
-                            <span class="keyword">"plastic free store"</span>
+                            <span class="keyword">[zero waste shop] <span class="kw-vol">2.9K</span></span>
+                            <span class="keyword">"zero waste online"</span>
                         </div>
                         <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Campaign 6: Performance Max -->
             <div class="campaign special">
                 <div class="campaign-header">
                     <h3>Performance Max</h3>
@@ -672,7 +1054,6 @@
                 </div>
             </div>
 
-            <!-- Campaign 7: Remarketing -->
             <div class="campaign special">
                 <div class="campaign-header">
                     <h3>Remarketing</h3>
@@ -691,7 +1072,7 @@
         </div>
     </div>
 
-    <!-- Budget Calculator -->
+    <!-- BUDGET CALCULATOR -->
     <div class="calculator-section">
         <h2>📊 Budget Forecasting</h2>
         <p class="calculator-subtitle">See the potential impact of Google Ads for your business</p>
@@ -707,26 +1088,23 @@
         <div class="metrics-grid">
             <div class="metric-card">
                 <div class="metric-label">Monthly Clicks</div>
-                <div class="metric-value" id="clicks">2,000</div>
+                <div class="metric-value" id="clicks">2,174</div>
                 <div class="metric-subtext">High-intent visitors</div>
             </div>
-
             <div class="metric-card">
                 <div class="metric-label">Monthly Orders</div>
-                <div class="metric-value" id="conversions">50</div>
+                <div class="metric-value" id="conversions">54</div>
                 <div class="metric-subtext">New customers</div>
             </div>
-
             <div class="metric-card">
                 <div class="metric-label">Monthly Revenue</div>
-                <div class="metric-value" id="revenue">$2,250</div>
+                <div class="metric-value" id="revenue">$2,446</div>
                 <div class="metric-subtext">From Google Ads</div>
             </div>
-
             <div class="metric-card roas-card">
                 <div class="metric-label">Return on Ad Spend (ROAS)</div>
-                <div class="metric-value" id="roas">0.75x</div>
-                <div class="metric-subtext">For every $1 spent, you make $<span id="roasSimple">0.75</span></div>
+                <div class="metric-value" id="roas">0.82x</div>
+                <div class="metric-subtext">For every $1 spent, you make $<span id="roasSimple">0.82</span></div>
             </div>
         </div>
 
@@ -734,62 +1112,133 @@
             <h4>Adjust Your Numbers</h4>
             <div class="assumptions-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
                 <div style="text-align: center;">
-                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Avg. CPC ($)</label>
-                    <input type="number" id="inputCPC" value="1.50" step="0.10" min="0.10" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                    <label class="input-label">Avg. CPC ($)</label>
+                    <input type="number" id="inputCPC" value="1.38" step="0.10" min="0.10" class="input-field" oninput="updateCalculations()">
                 </div>
                 <div style="text-align: center;">
-                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Conv. Rate (%)</label>
-                    <input type="number" id="inputCVR" value="2.5" step="0.1" min="0.1" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                    <label class="input-label">Conv. Rate (%)</label>
+                    <input type="number" id="inputCVR" value="2.5" step="0.1" min="0.1" class="input-field" oninput="updateCalculations()">
                 </div>
                 <div style="text-align: center;">
-                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Avg. Order Value ($)</label>
-                    <input type="number" id="inputAOV" value="45" step="1" min="1" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                    <label class="input-label">Avg. Order Value ($)</label>
+                    <input type="number" id="inputAOV" value="45" step="1" min="1" class="input-field" oninput="updateCalculations()">
                 </div>
             </div>
-            <p style="color: #B7B3E6; font-size: 11px; margin-top: 12px; font-style: italic;">Edit the values above to match your store's data. ROAS typically improves 40-60% after 90 days of optimisation.</p>
-        </div>
-
-        <div class="cta-container">
-            <a href="mailto:hello@jbmktg.com?subject=Strategy%20Call%20Request%20-%20Package%20Free%20Shop" class="cta-button">
-                📞 Book a Strategy Call
-            </a>
+            <p style="color: #B7B3E6; font-size: 11px; margin-top: 12px; font-style: italic;">
+                CPC based on real Google Ads data for your keywords. ROAS typically improves 40-60% after 90 days of optimisation.
+            </p>
         </div>
     </div>
 
+    <!-- SOCIAL PROOF -->
+    <div class="proof-section">
+        <h2>Why JB Marketing?</h2>
+        <p class="proof-subtitle">We're Google Ads specialists who focus exclusively on performance.</p>
+        <div class="proof-stats">
+            <div class="proof-stat">
+                <div class="ps-num">8+</div>
+                <div class="ps-label">Years in Google Ads</div>
+            </div>
+            <div class="proof-stat">
+                <div class="ps-num">50+</div>
+                <div class="ps-label">Brands managed</div>
+            </div>
+            <div class="proof-stat">
+                <div class="ps-num">$2M+</div>
+                <div class="ps-label">Ad spend managed</div>
+            </div>
+            <div class="proof-stat">
+                <div class="ps-num">4-8x</div>
+                <div class="ps-label">Avg. client ROAS</div>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="testimonial-text">"JB Marketing took our Google Ads from barely breaking even to consistently hitting 6x ROAS. They actually understand e-commerce."</div>
+                <div class="testimonial-author">E-commerce Client</div>
+                <div class="testimonial-role">DTC Brand, UK</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"The level of detail in their campaign structure is something we've never seen from an agency before. Every penny is accounted for."</div>
+                <div class="testimonial-author">SaaS Client</div>
+                <div class="testimonial-role">B2B Software, US</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="process-section">
+        <h2>Next Steps</h2>
+        <p class="process-subtitle">Here's what working together looks like.</p>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Strategy Call</h3>
+                    <p>We walk through this strategy together, answer questions, and align on goals and budget.</p>
+                    <span class="step-time">30 min call</span>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Account Setup & Tracking</h3>
+                    <p>Google Ads account, Merchant Center, conversion tracking, product feed optimisation.</p>
+                    <span class="step-time">Week 1</span>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Campaign Launch</h3>
+                    <p>Brand, Search, Shopping, and Performance Max campaigns go live with careful budget allocation.</p>
+                    <span class="step-time">Week 2</span>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Optimise & Scale</h3>
+                    <p>Weekly optimisation, monthly reporting, continuous improvement. We scale what works and cut what doesn't.</p>
+                    <span class="step-time">Ongoing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER CTA -->
+    <div class="footer-cta">
+        <h2>Ready to grow?</h2>
+        <p>Let's hop on a quick call to walk through the strategy and map out next steps for Package Free Shop.</p>
+        <a href="mailto:hello@jbmktg.com?subject=Strategy%20Call%20Request%20-%20Package%20Free%20Shop" class="cta-button">
+            📞 Book a Strategy Call
+        </a>
+        <div class="footer-contact">hello@jbmktg.com · jbmktg.com</div>
+    </div>
+
     <script>
-        // Budget calculator logic
         const budgetSlider = document.getElementById('budgetSlider');
-        const budgetDisplay = document.getElementById('budgetDisplay');
-        const clicksDisplay = document.getElementById('clicks');
-        const conversionsDisplay = document.getElementById('conversions');
-        const revenueDisplay = document.getElementById('revenue');
-        const roasDisplay = document.getElementById('roas');
-        const roasSimpleDisplay = document.getElementById('roasSimple');
 
         function updateCalculations() {
             const budget = parseInt(budgetSlider.value);
-            const avgCPC = parseFloat(document.getElementById('inputCPC').value) || 1.50;
+            const avgCPC = parseFloat(document.getElementById('inputCPC').value) || 1.38;
             const conversionRate = (parseFloat(document.getElementById('inputCVR').value) || 2.5) / 100;
             const avgOrderValue = parseFloat(document.getElementById('inputAOV').value) || 45;
-            
-            // Calculate metrics
+
             const clicks = Math.round(budget / avgCPC);
             const conversions = Math.round(clicks * conversionRate);
             const revenue = conversions * avgOrderValue;
             const roas = budget > 0 ? revenue / budget : 0;
 
-            // Update display
-            budgetDisplay.textContent = '$' + budget.toLocaleString();
-            clicksDisplay.textContent = clicks.toLocaleString();
-            conversionsDisplay.textContent = conversions.toLocaleString();
-            revenueDisplay.textContent = '$' + revenue.toLocaleString();
-            roasDisplay.textContent = roas.toFixed(2) + 'x';
-            roasSimpleDisplay.textContent = roas.toFixed(2);
+            document.getElementById('budgetDisplay').textContent = '$' + budget.toLocaleString();
+            document.getElementById('clicks').textContent = clicks.toLocaleString();
+            document.getElementById('conversions').textContent = conversions.toLocaleString();
+            document.getElementById('revenue').textContent = '$' + revenue.toLocaleString();
+            document.getElementById('roas').textContent = roas.toFixed(2) + 'x';
+            document.getElementById('roasSimple').textContent = roas.toFixed(2);
         }
 
         budgetSlider.addEventListener('input', updateCalculations);
-        
-        // Initialize on load
         updateCalculations();
     </script>
 </body>
