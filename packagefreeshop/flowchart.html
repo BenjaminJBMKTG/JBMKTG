@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Package Free Shop - Google Ads Strategy Flowchart | JB Marketing</title>
+    <title>Package Free Shop - Google Ads Strategy Preview | JB Marketing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Kulim+Park:wght@400;600&display=swap" rel="stylesheet">
@@ -66,6 +66,7 @@
             min-width: fit-content;
             padding: 0 40px;
             position: relative;
+            margin-bottom: 80px;
         }
 
         /* Account Level */
@@ -207,27 +208,13 @@
             padding: 5px 10px;
             border-radius: 12px;
             font-size: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
         }
 
-        .match-type {
-            background: #423ECC;
-            color: #EDEBFF;
-            padding: 2px 6px;
-            border-radius: 8px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .match-type.exact {
-            background: #6E63FF;
-        }
-
-        .match-type.phrase {
-            background: #423ECC;
+        .more-keywords {
+            color: #B7B3E6;
+            font-size: 12px;
+            font-style: italic;
+            padding: 5px 0;
         }
 
         /* Special campaign styling */
@@ -245,72 +232,195 @@
             color: #EDEBFF;
         }
 
-        /* Notes */
-        .notes {
-            background: rgba(195, 188, 255, 0.1);
-            border-left: 4px solid #C3BCFF;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
+        /* Budget Calculator */
+        .calculator-section {
+            max-width: 900px;
+            margin: 80px auto 60px;
+            background: linear-gradient(135deg, rgba(66, 62, 204, 0.2) 0%, rgba(110, 99, 255, 0.15) 100%);
+            border: 3px solid #423ECC;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(66, 62, 204, 0.4);
         }
 
-        .notes h4 {
-            color: #C3BCFF;
-            font-size: 14px;
-            margin-bottom: 8px;
-            font-weight: 600;
+        .calculator-section h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 36px;
+            color: #EDEBFF;
+            text-align: center;
+            margin-bottom: 15px;
         }
 
-        .notes ul {
-            margin-left: 20px;
+        .calculator-subtitle {
+            text-align: center;
             color: #B7B3E6;
-            font-size: 13px;
+            font-size: 18px;
+            margin-bottom: 40px;
         }
 
-        .notes li {
+        .budget-slider-container {
+            margin-bottom: 50px;
+        }
+
+        .budget-display {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .budget-label {
+            color: #C3BCFF;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .budget-value {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 48px;
+            color: #6E63FF;
+            text-shadow: 0 0 20px rgba(110, 99, 255, 0.5);
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(195, 188, 255, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(110, 99, 255, 0.6);
+            border: 3px solid #C3BCFF;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(110, 99, 255, 0.6);
+            border: 3px solid #C3BCFF;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: rgba(66, 62, 204, 0.3);
+            border: 2px solid #6E63FF;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(110, 99, 255, 0.4);
+        }
+
+        .metric-label {
+            color: #B7B3E6;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 36px;
+            color: #EDEBFF;
             margin-bottom: 5px;
         }
 
-        /* Legend */
-        .legend {
-            background: rgba(66, 62, 204, 0.2);
-            border: 2px solid #423ECC;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 60px auto 0;
-            max-width: 1400px;
+        .metric-subtext {
+            color: #C3BCFF;
+            font-size: 13px;
         }
 
-        .legend h3 {
+        .roas-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            border: 3px solid #C3BCFF;
+        }
+
+        .roas-card .metric-value {
+            font-size: 52px;
+            color: #EDEBFF;
+            text-shadow: 0 0 30px rgba(237, 235, 255, 0.5);
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
             font-family: 'Unbounded', cursive;
             font-weight: 800;
+            font-size: 20px;
             color: #EDEBFF;
-            font-size: 22px;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 3px solid #C3BCFF;
+            box-shadow: 0 10px 40px rgba(110, 99, 255, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .legend-items {
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(110, 99, 255, 0.7);
+            background: linear-gradient(135deg, #423ECC 0%, #6E63FF 100%);
+        }
+
+        .assumptions {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(195, 188, 255, 0.3);
+            text-align: center;
+        }
+
+        .assumptions h4 {
+            color: #C3BCFF;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .assumptions-list {
             display: flex;
-            gap: 40px;
+            justify-content: center;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .legend-color {
-            width: 30px;
-            height: 30px;
-            border-radius: 6px;
-            border: 2px solid #C3BCFF;
-        }
-
-        .legend-item span {
+        .assumption-item {
             color: #B7B3E6;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         @media (max-width: 1600px) {
@@ -335,9 +445,32 @@
                 max-width: 400px;
             }
 
-            .legend-items {
-                flex-direction: column;
-                gap: 15px;
+            .calculator-section {
+                padding: 30px 20px;
+            }
+
+            .calculator-section h2 {
+                font-size: 28px;
+            }
+
+            .budget-value {
+                font-size: 36px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roas-card {
+                grid-column: 1;
+            }
+
+            .metric-value {
+                font-size: 28px;
+            }
+
+            .roas-card .metric-value {
+                font-size: 42px;
             }
         }
     </style>
@@ -347,7 +480,7 @@
         <div class="logo">JB MARKETING</div>
         <div class="accent-line"></div>
         <h1>Package Free Shop</h1>
-        <p class="subtitle">Prepared for Package Free Shop</p>
+        <p class="subtitle">Google Ads Strategy Preview</p>
     </div>
 
     <div class="flowchart-container">
@@ -369,10 +502,10 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Brand Terms</div>
                         <div class="keywords">
-                            <span class="keyword">[package free shop] <span class="match-type exact">Exact</span></span>
-                            <span class="keyword">[packagefreeshop] <span class="match-type exact">Exact</span></span>
-                            <span class="keyword">"package free" <span class="match-type phrase">Phrase</span></span>
+                            <span class="keyword">[package free shop]</span>
+                            <span class="keyword">"package free"</span>
                         </div>
+                        <div class="more-keywords">+ 3 more brand keywords</div>
                     </div>
                 </div>
             </div>
@@ -387,34 +520,34 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Body Wash</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste body wash] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"plastic free body wash" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"eco friendly body wash" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste body wash]</span>
+                            <span class="keyword">"eco body wash"</span>
                         </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Shampoo & Hair</div>
                         <div class="keywords">
-                            <span class="keyword">[plastic free shampoo bar] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"zero waste shampoo bar" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"solid shampoo bar" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[shampoo bar]</span>
+                            <span class="keyword">"zero waste shampoo"</span>
                         </div>
+                        <div class="more-keywords">+ 5 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Skincare</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste skincare] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"plastic free skincare" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"ewg verified skincare" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste skincare]</span>
+                            <span class="keyword">"ewg verified"</span>
                         </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Body Bars</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste soap] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"plastic free body bar" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"eco friendly soap bar" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste soap]</span>
+                            <span class="keyword">"eco soap bar"</span>
                         </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                 </div>
             </div>
@@ -429,34 +562,34 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Cleaning Products</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste cleaning] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"plastic free cleaning" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"eco friendly cleaning" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste cleaning]</span>
+                            <span class="keyword">"eco cleaning"</span>
                         </div>
+                        <div class="more-keywords">+ 5 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Laundry</div>
                         <div class="keywords">
-                            <span class="keyword">[eco laundry detergent] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"zero waste laundry" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"wool dryer balls" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[eco laundry detergent]</span>
+                            <span class="keyword">"wool dryer balls"</span>
                         </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Dishwashing</div>
                         <div class="keywords">
-                            <span class="keyword">[plastic free dishwasher tabs] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"zero waste dish soap" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"eco dishwasher tablets" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[dishwasher tabs]</span>
+                            <span class="keyword">"zero waste dish soap"</span>
                         </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Kitchen</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste kitchen] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"plastic free kitchen" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"reusable kitchen" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste kitchen]</span>
+                            <span class="keyword">"plastic free kitchen"</span>
                         </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                 </div>
             </div>
@@ -471,20 +604,18 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Starter Kits</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste starter kit] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"zero waste kit" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"eco starter kit" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"sustainable living kit" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste starter kit]</span>
+                            <span class="keyword">"eco starter kit"</span>
                         </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Gift Sets</div>
                         <div class="keywords">
-                            <span class="keyword">[eco friendly gift set] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"zero waste gift basket" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"sustainable gift set" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"plastic free gift" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[eco friendly gift set]</span>
+                            <span class="keyword">"zero waste gift"</span>
                         </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                 </div>
             </div>
@@ -499,26 +630,26 @@
                     <div class="ad-group">
                         <div class="ad-group-title">Zero Waste Store</div>
                         <div class="keywords">
-                            <span class="keyword">[zero waste shop] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"zero waste store online" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"buy zero waste products" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[zero waste shop]</span>
+                            <span class="keyword">"zero waste online"</span>
                         </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
                     </div>
                     <div class="ad-group">
                         <div class="ad-group-title">Sustainable Shopping</div>
                         <div class="keywords">
-                            <span class="keyword">[sustainable products online] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"sustainable online store" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"buy sustainable products" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[sustainable products]</span>
+                            <span class="keyword">"sustainable store"</span>
                         </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                     <div class="ad-group">
-                        <div class="ad-group-title">Eco-Friendly Store</div>
+                        <div class="ad-group-title">Eco Store</div>
                         <div class="keywords">
-                            <span class="keyword">[eco friendly store] <span class="match-type exact">E</span></span>
-                            <span class="keyword">"plastic free store" <span class="match-type phrase">P</span></span>
-                            <span class="keyword">"ewg verified products" <span class="match-type phrase">P</span></span>
+                            <span class="keyword">[eco friendly store]</span>
+                            <span class="keyword">"plastic free store"</span>
                         </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
                     </div>
                 </div>
             </div>
@@ -533,21 +664,11 @@
                     <div class="ad-group">
                         <div class="ad-group-title">All Products Feed</div>
                         <div class="keywords">
-                            <span class="keyword">Body & Skincare</span>
-                            <span class="keyword">Cleaning Products</span>
-                            <span class="keyword">Kitchen Items</span>
-                            <span class="keyword">Zero Waste Kits</span>
-                            <span class="keyword">All Categories</span>
+                            <span class="keyword">Full product catalog</span>
+                            <span class="keyword">AI-optimized</span>
                         </div>
+                        <div class="more-keywords">Google Shopping + Display + YouTube</div>
                     </div>
-                </div>
-                <div class="notes">
-                    <h4>Strategy</h4>
-                    <ul>
-                        <li>AI-powered across all Google channels</li>
-                        <li>Product feed: all inventory</li>
-                        <li>Audience: eco-conscious shoppers</li>
-                    </ul>
                 </div>
             </div>
 
@@ -561,113 +682,115 @@
                     <div class="ad-group">
                         <div class="ad-group-title">All Visitors</div>
                         <div class="keywords">
-                            <span class="keyword">Site visitors (30 days)</span>
-                            <span class="keyword">Product viewers</span>
+                            <span class="keyword">Site visitors (30d)</span>
                         </div>
-                    </div>
-                    <div class="ad-group">
-                        <div class="ad-group-title">Cart Abandoners</div>
-                        <div class="keywords">
-                            <span class="keyword">Added to cart</span>
-                            <span class="keyword">Checkout initiators</span>
-                        </div>
-                    </div>
-                    <div class="ad-group">
-                        <div class="ad-group-title">Category Viewers</div>
-                        <div class="keywords">
-                            <span class="keyword">Body & Skincare</span>
-                            <span class="keyword">Cleaning</span>
-                            <span class="keyword">Kits</span>
-                        </div>
+                        <div class="more-keywords">+ cart abandoners + category viewers</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Budget Forecasting Calculator -->
-        <div style="margin-top: 60px; padding: 50px 40px; background: linear-gradient(135deg, rgba(66,62,204,0.15), rgba(110,99,255,0.08)); border: 2px solid #423ECC; border-radius: 20px; text-align: center;">
-            <h2 style="font-family: 'Unbounded', sans-serif; font-size: 28px; color: #EDEBFF; margin-bottom: 8px;">📊 Revenue Forecasting Calculator</h2>
-            <p style="color: #B7B3E6; font-size: 16px; margin-bottom: 40px;">See the potential returns from Google Ads for your store</p>
-            
-            <div style="max-width: 600px; margin: 0 auto 40px;">
-                <label style="display: block; color: #C3BCFF; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Monthly Ad Spend</label>
-                <div id="budgetDisplay" style="font-family: 'Unbounded', sans-serif; font-size: 48px; color: #6E63FF; margin-bottom: 16px;">$2,500</div>
-                <input type="range" id="budgetSlider" min="500" max="10000" step="250" value="2500" style="width: 100%; height: 8px; -webkit-appearance: none; appearance: none; background: linear-gradient(to right, #423ECC, #6E63FF); border-radius: 4px; outline: none; cursor: pointer;" oninput="updateForecast(this.value)">
-                <div style="display: flex; justify-content: space-between; color: #B7B3E6; font-size: 13px; margin-top: 8px;">
-                    <span>$500/mo</span>
-                    <span>$10,000/mo</span>
-                </div>
+    <!-- Budget Calculator -->
+    <div class="calculator-section">
+        <h2>📊 Budget Forecasting</h2>
+        <p class="calculator-subtitle">See the potential impact of Google Ads for your business</p>
+
+        <div class="budget-slider-container">
+            <div class="budget-display">
+                <div class="budget-label">Monthly Ad Budget</div>
+                <div class="budget-value" id="budgetDisplay">$3,000</div>
+            </div>
+            <input type="range" min="500" max="10000" value="3000" step="100" class="slider" id="budgetSlider">
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Monthly Clicks</div>
+                <div class="metric-value" id="clicks">2,000</div>
+                <div class="metric-subtext">High-intent visitors</div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; margin: 0 auto 40px;">
-                <div style="background: rgba(11,11,18,0.6); border: 1px solid rgba(66,62,204,0.4); border-radius: 16px; padding: 28px 20px;">
-                    <div style="color: #B7B3E6; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Monthly Clicks</div>
-                    <div id="estClicks" style="font-family: 'Unbounded', sans-serif; font-size: 32px; color: #EDEBFF;">1,667</div>
-                </div>
-                <div style="background: rgba(11,11,18,0.6); border: 1px solid rgba(66,62,204,0.4); border-radius: 16px; padding: 28px 20px;">
-                    <div style="color: #B7B3E6; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Monthly Orders</div>
-                    <div id="estOrders" style="font-family: 'Unbounded', sans-serif; font-size: 32px; color: #EDEBFF;">42</div>
-                </div>
-                <div style="background: rgba(11,11,18,0.6); border: 1px solid rgba(66,62,204,0.4); border-radius: 16px; padding: 28px 20px;">
-                    <div style="color: #B7B3E6; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Est. Revenue</div>
-                    <div id="estRevenue" style="font-family: 'Unbounded', sans-serif; font-size: 32px; color: #6E63FF;">$1,875</div>
-                </div>
-                <div style="background: rgba(11,11,18,0.6); border: 1px solid rgba(66,62,204,0.4); border-radius: 16px; padding: 28px 20px;">
-                    <div style="color: #B7B3E6; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Est. ROAS</div>
-                    <div id="estROAS" style="font-family: 'Unbounded', sans-serif; font-size: 32px; color: #6E63FF;">0.75x</div>
-                    <div id="roasNote" style="color: #B7B3E6; font-size: 11px; margin-top: 4px;">Month 1 estimate</div>
-                </div>
+            <div class="metric-card">
+                <div class="metric-label">Monthly Orders</div>
+                <div class="metric-value" id="conversions">50</div>
+                <div class="metric-subtext">New customers</div>
             </div>
 
-            <div style="background: rgba(66,62,204,0.1); border: 1px solid rgba(66,62,204,0.3); border-radius: 12px; padding: 20px; max-width: 700px; margin: 0 auto 30px; text-align: left;">
-                <p style="color: #C3BCFF; font-size: 14px; margin: 0 0 8px;"><strong>Assumptions:</strong></p>
-                <p style="color: #B7B3E6; font-size: 13px; margin: 0; line-height: 1.8;">
-                    Avg. CPC: $1.50 &nbsp;·&nbsp; Conversion Rate: 2.5% &nbsp;·&nbsp; Avg. Order Value: $45<br>
-                    <em>These are conservative estimates for the eco/sustainable ecommerce niche. Actual results will vary based on landing page quality, offer strength, and campaign optimisation over time. ROAS typically improves 40-60% after the first 90 days of optimisation.</em>
-                </p>
+            <div class="metric-card">
+                <div class="metric-label">Monthly Revenue</div>
+                <div class="metric-value" id="revenue">$2,250</div>
+                <div class="metric-subtext">From Google Ads</div>
             </div>
 
-            <a href="https://jbmktg.com/" target="_blank" style="display: inline-block; padding: 16px 48px; background: #423ECC; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-decoration: none; border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;">Book a Strategy Call →</a>
-            <p style="color: #B7B3E6; font-size: 13px; margin-top: 12px;">Let's build this for your store. No commitment, just a conversation.</p>
+            <div class="metric-card roas-card">
+                <div class="metric-label">Return on Ad Spend (ROAS)</div>
+                <div class="metric-value" id="roas">0.75x</div>
+                <div class="metric-subtext">For every $1 spent, you make $<span id="roasSimple">0.75</span></div>
+            </div>
+        </div>
+
+        <div class="assumptions">
+            <h4>Adjust Your Numbers</h4>
+            <div class="assumptions-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                <div style="text-align: center;">
+                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Avg. CPC ($)</label>
+                    <input type="number" id="inputCPC" value="1.50" step="0.10" min="0.10" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                </div>
+                <div style="text-align: center;">
+                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Conv. Rate (%)</label>
+                    <input type="number" id="inputCVR" value="2.5" step="0.1" min="0.1" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                </div>
+                <div style="text-align: center;">
+                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Avg. Order Value ($)</label>
+                    <input type="number" id="inputAOV" value="45" step="1" min="1" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                </div>
+            </div>
+            <p style="color: #B7B3E6; font-size: 11px; margin-top: 12px; font-style: italic;">Edit the values above to match your store's data. ROAS typically improves 40-60% after 90 days of optimisation.</p>
+        </div>
+
+        <div class="cta-container">
+            <a href="mailto:hello@jbmktg.com?subject=Strategy%20Call%20Request%20-%20Package%20Free%20Shop" class="cta-button">
+                📞 Book a Strategy Call
+            </a>
         </div>
     </div>
 
     <script>
-    function updateForecast(budget) {
-        budget = parseInt(budget);
-        const cpc = 1.50;
-        const cvr = 0.025;
-        const aov = 45;
-        
-        const clicks = Math.round(budget / cpc);
-        const orders = Math.round(clicks * cvr);
-        const revenue = orders * aov;
-        const roas = budget > 0 ? (revenue / budget) : 0;
-        
-        document.getElementById('budgetDisplay').textContent = '$' + budget.toLocaleString();
-        document.getElementById('estClicks').textContent = clicks.toLocaleString();
-        document.getElementById('estOrders').textContent = orders.toLocaleString();
-        document.getElementById('estRevenue').textContent = '$' + revenue.toLocaleString();
-        document.getElementById('estROAS').textContent = roas.toFixed(2) + 'x';
-        
-        // Update ROAS note based on value
-        const note = document.getElementById('roasNote');
-        if (roas < 1) {
-            note.textContent = 'Month 1 estimate (improves with optimisation)';
-            note.style.color = '#B7B3E6';
-        } else if (roas < 2) {
-            note.textContent = 'Solid starting point';
-            note.style.color = '#C3BCFF';
-        } else {
-            note.textContent = 'Strong return potential';
-            note.style.color = '#6E63FF';
+        // Budget calculator logic
+        const budgetSlider = document.getElementById('budgetSlider');
+        const budgetDisplay = document.getElementById('budgetDisplay');
+        const clicksDisplay = document.getElementById('clicks');
+        const conversionsDisplay = document.getElementById('conversions');
+        const revenueDisplay = document.getElementById('revenue');
+        const roasDisplay = document.getElementById('roas');
+        const roasSimpleDisplay = document.getElementById('roasSimple');
+
+        function updateCalculations() {
+            const budget = parseInt(budgetSlider.value);
+            const avgCPC = parseFloat(document.getElementById('inputCPC').value) || 1.50;
+            const conversionRate = (parseFloat(document.getElementById('inputCVR').value) || 2.5) / 100;
+            const avgOrderValue = parseFloat(document.getElementById('inputAOV').value) || 45;
+            
+            // Calculate metrics
+            const clicks = Math.round(budget / avgCPC);
+            const conversions = Math.round(clicks * conversionRate);
+            const revenue = conversions * avgOrderValue;
+            const roas = budget > 0 ? revenue / budget : 0;
+
+            // Update display
+            budgetDisplay.textContent = '$' + budget.toLocaleString();
+            clicksDisplay.textContent = clicks.toLocaleString();
+            conversionsDisplay.textContent = conversions.toLocaleString();
+            revenueDisplay.textContent = '$' + revenue.toLocaleString();
+            roasDisplay.textContent = roas.toFixed(2) + 'x';
+            roasSimpleDisplay.textContent = roas.toFixed(2);
         }
-    }
-    
-    // Style the range slider thumb
-    const style = document.createElement('style');
-    style.textContent = 'input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: #6E63FF; border-radius: 50%; cursor: pointer; border: 3px solid #EDEBFF; box-shadow: 0 0 10px rgba(110,99,255,0.5); } input[type=range]::-moz-range-thumb { width: 24px; height: 24px; background: #6E63FF; border-radius: 50%; cursor: pointer; border: 3px solid #EDEBFF; box-shadow: 0 0 10px rgba(110,99,255,0.5); } a:hover { background: #6E63FF !important; border-color: #C3BCFF !important; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(110,99,255,0.4); }';
-    document.head.appendChild(style);
+
+        budgetSlider.addEventListener('input', updateCalculations);
+        
+        // Initialize on load
+        updateCalculations();
     </script>
 </body>
 </html>
