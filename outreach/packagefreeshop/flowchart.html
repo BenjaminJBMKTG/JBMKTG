@@ -1,711 +1,796 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Package Free Shop — Google Ads Growth Strategy | JB Marketing</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Free Shop - Google Ads Strategy Preview | JB Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Kulim+Park:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  :root {
-    --green: #2D6A4F;
-    --green-light: #40916C;
-    --green-pale: #D8F3DC;
-    --cream: #FEFAE0;
-    --brown: #606C38;
-    --dark: #1B1B1B;
-    --gray: #6B7280;
-    --white: #FFFFFF;
-    --shadow: 0 4px 24px rgba(0,0,0,0.08);
-  }
+        body {
+            font-family: 'Kulim Park', sans-serif;
+            background: #0B0B12;
+            color: #EDEBFF;
+            padding: 40px 20px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+        .header {
+            text-align: left;
+            margin-bottom: 50px;
+            padding: 30px;
+            max-width: 100%;
+        }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #F7FAF5;
-    color: var(--dark);
-    line-height: 1.6;
-  }
+        .logo {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 24px;
+            color: #EDEBFF;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
 
-  /* SLIDES */
-  .slide {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 40px;
-    position: relative;
-  }
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: #423ECC;
+            margin-bottom: 30px;
+        }
 
-  .slide-inner {
-    max-width: 1100px;
-    width: 100%;
-  }
+        h1 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 42px;
+            color: #EDEBFF;
+            margin-bottom: 10px;
+        }
 
-  /* SLIDE 1: HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-    color: white;
-    text-align: center;
-  }
+        .subtitle {
+            font-size: 20px;
+            color: #B7B3E6;
+        }
 
-  .hero h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
-  }
+        .flowchart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: fit-content;
+            padding: 0 40px;
+            position: relative;
+            margin-bottom: 80px;
+        }
 
-  .hero .subtitle {
-    font-size: 1.4rem;
-    font-weight: 300;
-    opacity: 0.9;
-    margin-bottom: 40px;
-  }
+        /* Account Level */
+        .account-node {
+            background: linear-gradient(135deg, #423ECC 0%, #6E63FF 100%);
+            border: 3px solid #C3BCFF;
+            border-radius: 15px;
+            padding: 30px 60px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(66, 62, 204, 0.5);
+            position: relative;
+        }
 
-  .hero .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 40px;
-    padding: 10px 28px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
+        .account-node h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 28px;
+            color: #EDEBFF;
+            margin-bottom: 5px;
+        }
 
-  .hero .logo-text {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 48px;
-    opacity: 0.7;
-  }
+        .account-node p {
+            color: #C3BCFF;
+            font-size: 16px;
+        }
 
-  /* SLIDE 2: THE OPPORTUNITY */
-  .slide-2 { background: var(--white); }
+        /* Vertical connector from account */
+        .account-node::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 60px;
+            background: #6E63FF;
+        }
 
-  .section-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--green);
-    margin-bottom: 12px;
-  }
+        /* Campaigns Row */
+        .campaigns-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 80px;
+            position: relative;
+        }
 
-  h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 32px;
-    letter-spacing: -0.5px;
-  }
+        .campaign {
+            background: rgba(66, 62, 204, 0.1);
+            border: 2px solid #423ECC;
+            border-radius: 12px;
+            padding: 20px;
+            min-width: 280px;
+            max-width: 300px;
+            position: relative;
+        }
 
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
-  }
+        .campaign-header {
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-  .stat-card {
-    background: var(--green-pale);
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
-  }
+        .campaign-header h3 {
+            font-family: 'Kulim Park', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #EDEBFF;
+            margin-bottom: 8px;
+        }
 
-  .stat-card .number {
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: var(--green);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
+        .campaign-type {
+            display: inline-block;
+            background: rgba(195, 188, 255, 0.3);
+            color: #C3BCFF;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-  .stat-card .label {
-    font-size: 0.9rem;
-    color: var(--gray);
-    font-weight: 500;
-  }
+        /* Vertical connector from campaign to ad groups */
+        .campaign::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 80px;
+            background: #6E63FF;
+        }
 
-  .insight-box {
-    background: var(--cream);
-    border-left: 4px solid var(--brown);
-    border-radius: 0 12px 12px 0;
-    padding: 24px 28px;
-    font-size: 1.05rem;
-  }
+        /* Ad Groups */
+        .ad-groups {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-  /* SLIDE 3: FLOWCHART */
-  .slide-3 { background: #F7FAF5; }
+        .ad-group {
+            background: rgba(110, 99, 255, 0.1);
+            border: 1px solid #6E63FF;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+        }
 
-  .flowchart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-  }
+        .ad-group-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #C3BCFF;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
 
-  .flow-node {
-    background: white;
-    border-radius: 16px;
-    padding: 28px 36px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    position: relative;
-    max-width: 520px;
-    width: 100%;
-  }
+        .ad-group-title::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #6E63FF;
+        }
 
-  .flow-node.primary {
-    background: var(--green);
-    color: white;
-  }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
 
-  .flow-node.primary .flow-label { color: rgba(255,255,255,0.7); }
+        .keyword {
+            background: rgba(195, 188, 255, 0.15);
+            border: 1px solid #C3BCFF;
+            color: #EDEBFF;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
 
-  .flow-node .flow-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--green);
-    margin-bottom: 6px;
-  }
+        .more-keywords {
+            color: #B7B3E6;
+            font-size: 12px;
+            font-style: italic;
+            padding: 5px 0;
+        }
 
-  .flow-node .flow-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
+        /* Special campaign styling */
+        .campaign.special {
+            border-color: #6E63FF;
+            background: rgba(110, 99, 255, 0.15);
+        }
 
-  .flow-node .flow-desc {
-    font-size: 0.9rem;
-    opacity: 0.75;
-    margin-top: 4px;
-  }
+        .campaign.special .campaign-header {
+            background: linear-gradient(135deg, #C3BCFF 0%, #6E63FF 100%);
+        }
 
-  .flow-arrow {
-    width: 2px;
-    height: 40px;
-    background: var(--green-light);
-    position: relative;
-  }
+        .campaign.special .campaign-type {
+            background: rgba(66, 62, 204, 0.5);
+            color: #EDEBFF;
+        }
 
-  .flow-arrow::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 10px solid var(--green-light);
-  }
+        /* Budget Calculator */
+        .calculator-section {
+            max-width: 900px;
+            margin: 80px auto 60px;
+            background: linear-gradient(135deg, rgba(66, 62, 204, 0.2) 0%, rgba(110, 99, 255, 0.15) 100%);
+            border: 3px solid #423ECC;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(66, 62, 204, 0.4);
+        }
 
-  .flow-branch {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    width: 100%;
-    max-width: 900px;
-  }
+        .calculator-section h2 {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 36px;
+            color: #EDEBFF;
+            text-align: center;
+            margin-bottom: 15px;
+        }
 
-  .flow-branch .flow-node {
-    max-width: none;
-  }
+        .calculator-subtitle {
+            text-align: center;
+            color: #B7B3E6;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
 
-  .flow-branch-line {
-    width: 60%;
-    height: 2px;
-    background: var(--green-light);
-    position: relative;
-  }
+        .budget-slider-container {
+            margin-bottom: 50px;
+        }
 
-  /* SLIDE 4: KEYWORDS */
-  .slide-4 { background: var(--white); }
+        .budget-display {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-  .kw-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
+        .budget-label {
+            color: #C3BCFF;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-  .kw-table thead th {
-    background: var(--green);
-    color: white;
-    padding: 16px 20px;
-    text-align: left;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+        .budget-value {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 48px;
+            color: #6E63FF;
+            text-shadow: 0 0 20px rgba(110, 99, 255, 0.5);
+        }
 
-  .kw-table tbody td {
-    padding: 14px 20px;
-    border-bottom: 1px solid #F0F0F0;
-    font-size: 0.95rem;
-  }
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(195, 188, 255, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+        }
 
-  .kw-table tbody tr:last-child td { border-bottom: none; }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(110, 99, 255, 0.6);
+            border: 3px solid #C3BCFF;
+        }
 
-  .kw-table tbody tr:hover { background: var(--green-pale); }
+        .slider::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(110, 99, 255, 0.6);
+            border: 3px solid #C3BCFF;
+        }
 
-  .intent-badge {
-    display: inline-block;
-    padding: 3px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
 
-  .intent-badge.high { background: #D1FAE5; color: #065F46; }
-  .intent-badge.mid { background: #FEF3C7; color: #92400E; }
-  .intent-badge.info { background: #DBEAFE; color: #1E40AF; }
+        .metric-card {
+            background: rgba(66, 62, 204, 0.3);
+            border: 2px solid #6E63FF;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
 
-  /* SLIDE 5: CAMPAIGN STRUCTURE */
-  .slide-5 { background: #F7FAF5; }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(110, 99, 255, 0.4);
+        }
 
-  .campaign-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
+        .metric-label {
+            color: #B7B3E6;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
 
-  .campaign-card {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: var(--shadow);
-  }
+        .metric-value {
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 36px;
+            color: #EDEBFF;
+            margin-bottom: 5px;
+        }
 
-  .campaign-card .camp-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-  }
+        .metric-subtext {
+            color: #C3BCFF;
+            font-size: 13px;
+        }
 
-  .campaign-card h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
+        .roas-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            border: 3px solid #C3BCFF;
+        }
 
-  .campaign-card p {
-    font-size: 0.9rem;
-    color: var(--gray);
-    margin-bottom: 16px;
-  }
+        .roas-card .metric-value {
+            font-size: 52px;
+            color: #EDEBFF;
+            text-shadow: 0 0 30px rgba(237, 235, 255, 0.5);
+        }
 
-  .campaign-card ul {
-    list-style: none;
-    padding: 0;
-  }
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
 
-  .campaign-card ul li {
-    font-size: 0.85rem;
-    padding: 4px 0;
-    color: var(--dark);
-  }
+        .cta-button {
+            display: inline-block;
+            font-family: 'Unbounded', cursive;
+            font-weight: 800;
+            font-size: 20px;
+            color: #EDEBFF;
+            background: linear-gradient(135deg, #6E63FF 0%, #423ECC 100%);
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 3px solid #C3BCFF;
+            box-shadow: 0 10px 40px rgba(110, 99, 255, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-  .campaign-card ul li::before {
-    content: '✓ ';
-    color: var(--green);
-    font-weight: 700;
-  }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(110, 99, 255, 0.7);
+            background: linear-gradient(135deg, #423ECC 0%, #6E63FF 100%);
+        }
 
-  .camp-search .camp-icon { background: #DBEAFE; }
-  .camp-shopping .camp-icon { background: #D1FAE5; }
-  .camp-pmax .camp-icon { background: #FEF3C7; }
-  .camp-remarket .camp-icon { background: #FCE7F3; }
+        .assumptions {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(195, 188, 255, 0.3);
+            text-align: center;
+        }
 
-  /* SLIDE 6: PROJECTIONS */
-  .slide-6 { background: var(--white); }
+        .assumptions h4 {
+            color: #C3BCFF;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-  .proj-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 40px;
-  }
+        .assumptions-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
-  .proj-card {
-    background: var(--green-pale);
-    border-radius: 16px;
-    padding: 28px 20px;
-    text-align: center;
-  }
+        .assumption-item {
+            color: #B7B3E6;
+            font-size: 13px;
+        }
 
-  .proj-card .proj-num {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--green);
-    margin-bottom: 4px;
-  }
+        @media (max-width: 1600px) {
+            .campaigns-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
 
-  .proj-card .proj-label {
-    font-size: 0.8rem;
-    color: var(--gray);
-    font-weight: 500;
-  }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
 
-  .disclaimer {
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--gray);
-    font-style: italic;
-  }
+            .campaigns-row {
+                flex-direction: column;
+                align-items: center;
+            }
 
-  /* SLIDE 7: CTA */
-  .slide-7 {
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-    color: white;
-    text-align: center;
-  }
+            .campaign {
+                width: 100%;
+                max-width: 400px;
+            }
 
-  .slide-7 h2 {
-    font-size: 2.6rem;
-    margin-bottom: 16px;
-  }
+            .calculator-section {
+                padding: 30px 20px;
+            }
 
-  .slide-7 p {
-    font-size: 1.2rem;
-    opacity: 0.85;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+            .calculator-section h2 {
+                font-size: 28px;
+            }
 
-  .cta-btn {
-    display: inline-block;
-    background: white;
-    color: var(--green);
-    padding: 16px 48px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.2s;
-  }
+            .budget-value {
+                font-size: 36px;
+            }
 
-  .cta-btn:hover { transform: scale(1.05); }
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
 
-  .contact-info {
-    margin-top: 32px;
-    font-size: 0.95rem;
-    opacity: 0.7;
-  }
+            .roas-card {
+                grid-column: 1;
+            }
 
-  /* PAGE NUMBERS */
-  .page-num {
-    position: absolute;
-    bottom: 24px;
-    right: 40px;
-    font-size: 0.8rem;
-    color: var(--gray);
-    opacity: 0.5;
-  }
+            .metric-value {
+                font-size: 28px;
+            }
 
-  .hero .page-num, .slide-7 .page-num { color: rgba(255,255,255,0.4); }
-</style>
+            .roas-card .metric-value {
+                font-size: 42px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- SLIDE 1: HERO -->
-<section class="slide hero">
-  <div class="slide-inner">
-    <div class="badge">🌿 Tailored Google Ads Strategy</div>
-    <h1 style="margin-top: 24px;">Package Free Shop</h1>
-    <p class="subtitle">A performance marketing roadmap to scale eco-friendly essentials through Google Ads</p>
-    <div class="logo-text">Prepared by JB Marketing</div>
-  </div>
-  <span class="page-num">01</span>
-</section>
-
-<!-- SLIDE 2: THE OPPORTUNITY -->
-<section class="slide slide-2">
-  <div class="slide-inner">
-    <div class="section-label">The Opportunity</div>
-    <h2>The eco-friendly market is booming, and your customers are already searching.</h2>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="number">$28B+</div>
-        <div class="label">Global green cleaning market by 2027</div>
-      </div>
-      <div class="stat-card">
-        <div class="number">73%</div>
-        <div class="label">Of consumers willing to change habits for sustainability</div>
-      </div>
-      <div class="stat-card">
-        <div class="number">6x</div>
-        <div class="label">Growth in "zero waste" search volume since 2018</div>
-      </div>
+    <div class="header">
+        <div class="logo">JB MARKETING</div>
+        <div class="accent-line"></div>
+        <h1>Package Free Shop</h1>
+        <p class="subtitle">Google Ads Strategy Preview</p>
     </div>
-    <div class="insight-box">
-      <strong>Key insight:</strong> Shoppers searching for terms like "eco friendly cleaning products" and "zero waste starter kit" have high purchase intent. Package Free Shop is perfectly positioned to capture this demand.
-    </div>
-  </div>
-  <span class="page-num">02</span>
-</section>
 
-<!-- SLIDE 3: FLOWCHART -->
-<section class="slide slide-3">
-  <div class="slide-inner">
-    <div class="section-label">The Strategy</div>
-    <h2>How we drive profitable traffic to Package Free Shop</h2>
-    <div class="flowchart">
-
-      <div class="flow-node primary">
-        <div class="flow-label">Step 1</div>
-        <div class="flow-title">Google Ads Account Setup & Audit</div>
-        <div class="flow-desc">Conversion tracking, Google Merchant Center, product feed optimisation</div>
-      </div>
-
-      <div class="flow-arrow"></div>
-
-      <div class="flow-node">
-        <div class="flow-label">Step 2</div>
-        <div class="flow-title">Keyword Research & Campaign Architecture</div>
-        <div class="flow-desc">Category-level ad groups, negative keywords, competitor analysis</div>
-      </div>
-
-      <div class="flow-arrow"></div>
-
-      <div class="flow-node">
-        <div class="flow-label">Step 3</div>
-        <div class="flow-title">Launch Campaigns</div>
-      </div>
-
-      <div class="flow-arrow"></div>
-
-      <div class="flow-branch-line"></div>
-
-      <div class="flow-branch">
-        <div class="flow-node">
-          <div class="flow-label">Search</div>
-          <div class="flow-title">Brand + Category Keywords</div>
-          <div class="flow-desc">High-intent searches like "buy eco cleaning products"</div>
+    <div class="flowchart-container">
+        <!-- Account Node -->
+        <div class="account-node">
+            <h2>Package Free Shop</h2>
+            <p>Google Ads Account</p>
         </div>
-        <div class="flow-node">
-          <div class="flow-label">Shopping</div>
-          <div class="flow-title">Product Feed Ads</div>
-          <div class="flow-desc">Visual product listings across Google Shopping</div>
+
+        <!-- Campaigns Row -->
+        <div class="campaigns-row">
+            <!-- Campaign 1: Brand -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Brand Campaign</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Brand Terms</div>
+                        <div class="keywords">
+                            <span class="keyword">[package free shop]</span>
+                            <span class="keyword">"package free"</span>
+                        </div>
+                        <div class="more-keywords">+ 3 more brand keywords</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 2: Body & Skincare -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Body & Skincare</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Body Wash</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste body wash]</span>
+                            <span class="keyword">"eco body wash"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Shampoo & Hair</div>
+                        <div class="keywords">
+                            <span class="keyword">[shampoo bar]</span>
+                            <span class="keyword">"zero waste shampoo"</span>
+                        </div>
+                        <div class="more-keywords">+ 5 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Skincare</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste skincare]</span>
+                            <span class="keyword">"ewg verified"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Body Bars</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste soap]</span>
+                            <span class="keyword">"eco soap bar"</span>
+                        </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 3: Home & Cleaning -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Home & Cleaning</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Cleaning Products</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste cleaning]</span>
+                            <span class="keyword">"eco cleaning"</span>
+                        </div>
+                        <div class="more-keywords">+ 5 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Laundry</div>
+                        <div class="keywords">
+                            <span class="keyword">[eco laundry detergent]</span>
+                            <span class="keyword">"wool dryer balls"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Dishwashing</div>
+                        <div class="keywords">
+                            <span class="keyword">[dishwasher tabs]</span>
+                            <span class="keyword">"zero waste dish soap"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Kitchen</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste kitchen]</span>
+                            <span class="keyword">"plastic free kitchen"</span>
+                        </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 4: Zero Waste Kits -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>Zero Waste Kits</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Starter Kits</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste starter kit]</span>
+                            <span class="keyword">"eco starter kit"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Gift Sets</div>
+                        <div class="keywords">
+                            <span class="keyword">[eco friendly gift set]</span>
+                            <span class="keyword">"zero waste gift"</span>
+                        </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 5: General -->
+            <div class="campaign">
+                <div class="campaign-header">
+                    <h3>General</h3>
+                    <span class="campaign-type">Search</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">Zero Waste Store</div>
+                        <div class="keywords">
+                            <span class="keyword">[zero waste shop]</span>
+                            <span class="keyword">"zero waste online"</span>
+                        </div>
+                        <div class="more-keywords">+ 4 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Sustainable Shopping</div>
+                        <div class="keywords">
+                            <span class="keyword">[sustainable products]</span>
+                            <span class="keyword">"sustainable store"</span>
+                        </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
+                    </div>
+                    <div class="ad-group">
+                        <div class="ad-group-title">Eco Store</div>
+                        <div class="keywords">
+                            <span class="keyword">[eco friendly store]</span>
+                            <span class="keyword">"plastic free store"</span>
+                        </div>
+                        <div class="more-keywords">+ 3 more keywords</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 6: Performance Max -->
+            <div class="campaign special">
+                <div class="campaign-header">
+                    <h3>Performance Max</h3>
+                    <span class="campaign-type">Shopping</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">All Products Feed</div>
+                        <div class="keywords">
+                            <span class="keyword">Full product catalog</span>
+                            <span class="keyword">AI-optimized</span>
+                        </div>
+                        <div class="more-keywords">Google Shopping + Display + YouTube</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign 7: Remarketing -->
+            <div class="campaign special">
+                <div class="campaign-header">
+                    <h3>Remarketing</h3>
+                    <span class="campaign-type">Display</span>
+                </div>
+                <div class="ad-groups">
+                    <div class="ad-group">
+                        <div class="ad-group-title">All Visitors</div>
+                        <div class="keywords">
+                            <span class="keyword">Site visitors (30d)</span>
+                        </div>
+                        <div class="more-keywords">+ cart abandoners + category viewers</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flow-node">
-          <div class="flow-label">Performance Max</div>
-          <div class="flow-title">Full-funnel AI</div>
-          <div class="flow-desc">YouTube, Display, Discover, Gmail, Maps</div>
+    </div>
+
+    <!-- Budget Calculator -->
+    <div class="calculator-section">
+        <h2>📊 Budget Forecasting</h2>
+        <p class="calculator-subtitle">See the potential impact of Google Ads for your business</p>
+
+        <div class="budget-slider-container">
+            <div class="budget-display">
+                <div class="budget-label">Monthly Ad Budget</div>
+                <div class="budget-value" id="budgetDisplay">$3,000</div>
+            </div>
+            <input type="range" min="500" max="10000" value="3000" step="100" class="slider" id="budgetSlider">
         </div>
-      </div>
 
-      <div class="flow-arrow" style="margin-top: 20px;"></div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Monthly Clicks</div>
+                <div class="metric-value" id="clicks">2,000</div>
+                <div class="metric-subtext">High-intent visitors</div>
+            </div>
 
-      <div class="flow-node primary">
-        <div class="flow-label">Step 4</div>
-        <div class="flow-title">Optimise, Scale, Report</div>
-        <div class="flow-desc">Weekly optimisation. Monthly reporting. Continuous growth.</div>
-      </div>
+            <div class="metric-card">
+                <div class="metric-label">Monthly Orders</div>
+                <div class="metric-value" id="conversions">50</div>
+                <div class="metric-subtext">New customers</div>
+            </div>
 
+            <div class="metric-card">
+                <div class="metric-label">Monthly Revenue</div>
+                <div class="metric-value" id="revenue">$2,250</div>
+                <div class="metric-subtext">From Google Ads</div>
+            </div>
+
+            <div class="metric-card roas-card">
+                <div class="metric-label">Return on Ad Spend (ROAS)</div>
+                <div class="metric-value" id="roas">0.75x</div>
+                <div class="metric-subtext">For every $1 spent, you make $<span id="roasSimple">0.75</span></div>
+            </div>
+        </div>
+
+        <div class="assumptions">
+            <h4>Adjust Your Numbers</h4>
+            <div class="assumptions-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                <div style="text-align: center;">
+                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Avg. CPC ($)</label>
+                    <input type="number" id="inputCPC" value="1.50" step="0.10" min="0.10" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                </div>
+                <div style="text-align: center;">
+                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Conv. Rate (%)</label>
+                    <input type="number" id="inputCVR" value="2.5" step="0.1" min="0.1" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                </div>
+                <div style="text-align: center;">
+                    <label style="display: block; color: #B7B3E6; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Avg. Order Value ($)</label>
+                    <input type="number" id="inputAOV" value="45" step="1" min="1" style="width: 90px; padding: 8px 10px; background: rgba(11,11,18,0.8); border: 1px solid rgba(66,62,204,0.5); border-radius: 8px; color: #EDEBFF; font-family: 'Unbounded', sans-serif; font-size: 16px; text-align: center; outline: none;" oninput="updateCalculations()">
+                </div>
+            </div>
+            <p style="color: #B7B3E6; font-size: 11px; margin-top: 12px; font-style: italic;">Edit the values above to match your store's data. ROAS typically improves 40-60% after 90 days of optimisation.</p>
+        </div>
+
+        <div class="cta-container">
+            <a href="mailto:hello@jbmktg.com?subject=Strategy%20Call%20Request%20-%20Package%20Free%20Shop" class="cta-button">
+                📞 Book a Strategy Call
+            </a>
+        </div>
     </div>
-  </div>
-  <span class="page-num">03</span>
-</section>
 
-<!-- SLIDE 4: KEYWORDS -->
-<section class="slide slide-4">
-  <div class="slide-inner">
-    <div class="section-label">Keyword Opportunities</div>
-    <h2>High-intent keywords your customers are searching</h2>
-    <table class="kw-table">
-      <thead>
-        <tr>
-          <th>Keyword</th>
-          <th>Est. Monthly Volume (US)</th>
-          <th>Intent</th>
-          <th>Suggested Campaign</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>zero waste products</strong></td>
-          <td>12,100</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Search + Shopping</td>
-        </tr>
-        <tr>
-          <td><strong>eco friendly cleaning products</strong></td>
-          <td>8,100</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Search + Shopping</td>
-        </tr>
-        <tr>
-          <td><strong>package free shop</strong></td>
-          <td>4,400</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Brand Search</td>
-        </tr>
-        <tr>
-          <td><strong>zero waste starter kit</strong></td>
-          <td>3,600</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Search + Shopping</td>
-        </tr>
-        <tr>
-          <td><strong>sustainable household products</strong></td>
-          <td>2,900</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Search</td>
-        </tr>
-        <tr>
-          <td><strong>wool dryer balls</strong></td>
-          <td>22,200</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Shopping + PMax</td>
-        </tr>
-        <tr>
-          <td><strong>natural body bar soap</strong></td>
-          <td>6,600</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Shopping</td>
-        </tr>
-        <tr>
-          <td><strong>biodegradable cleaning supplies</strong></td>
-          <td>1,900</td>
-          <td><span class="intent-badge mid">Medium</span></td>
-          <td>Search</td>
-        </tr>
-        <tr>
-          <td><strong>compostable trash bags</strong></td>
-          <td>5,400</td>
-          <td><span class="intent-badge high">High</span></td>
-          <td>Shopping</td>
-        </tr>
-        <tr>
-          <td><strong>zero waste gifts</strong></td>
-          <td>2,400</td>
-          <td><span class="intent-badge mid">Medium</span></td>
-          <td>Search + PMax</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="margin-top: 16px; font-size: 0.85rem; color: var(--gray); text-align: center;">
-      Volume estimates from Google Keyword Planner. Actual volumes may vary. Full keyword list provided on engagement.
-    </p>
-  </div>
-  <span class="page-num">04</span>
-</section>
+    <script>
+        // Budget calculator logic
+        const budgetSlider = document.getElementById('budgetSlider');
+        const budgetDisplay = document.getElementById('budgetDisplay');
+        const clicksDisplay = document.getElementById('clicks');
+        const conversionsDisplay = document.getElementById('conversions');
+        const revenueDisplay = document.getElementById('revenue');
+        const roasDisplay = document.getElementById('roas');
+        const roasSimpleDisplay = document.getElementById('roasSimple');
 
-<!-- SLIDE 5: CAMPAIGN STRUCTURE -->
-<section class="slide slide-5">
-  <div class="slide-inner">
-    <div class="section-label">Campaign Structure</div>
-    <h2>Four campaigns working together for maximum ROAS</h2>
-    <div class="campaign-grid">
-      <div class="campaign-card camp-search">
-        <div class="camp-icon">🔍</div>
-        <h3>Brand Search</h3>
-        <p>Protect your brand name and capture high-intent branded searches.</p>
-        <ul>
-          <li>"package free shop"</li>
-          <li>"package free coupon"</li>
-          <li>"packagefreeshop.com"</li>
-        </ul>
-      </div>
-      <div class="campaign-card camp-shopping">
-        <div class="camp-icon">🛒</div>
-        <h3>Google Shopping</h3>
-        <p>Visual product listings for your best sellers, organised by category.</p>
-        <ul>
-          <li>Dryer Balls, Body Bars, Cleaning</li>
-          <li>Segmented by margin and AOV</li>
-          <li>Feed optimised titles and descriptions</li>
-        </ul>
-      </div>
-      <div class="campaign-card camp-pmax">
-        <div class="camp-icon">⚡</div>
-        <h3>Performance Max</h3>
-        <p>AI-driven full-funnel coverage across all Google surfaces.</p>
-        <ul>
-          <li>YouTube, Display, Discover, Gmail</li>
-          <li>Asset groups by product category</li>
-          <li>Audience signals from site visitors</li>
-        </ul>
-      </div>
-      <div class="campaign-card camp-remarket">
-        <div class="camp-icon">🔄</div>
-        <h3>Remarketing</h3>
-        <p>Re-engage visitors who browsed but didn't buy.</p>
-        <ul>
-          <li>Dynamic product remarketing</li>
-          <li>Cart abandoners (7, 14, 30 day)</li>
-          <li>Cross-sell to existing customers</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <span class="page-num">05</span>
-</section>
+        function updateCalculations() {
+            const budget = parseInt(budgetSlider.value);
+            const avgCPC = parseFloat(document.getElementById('inputCPC').value) || 1.50;
+            const conversionRate = (parseFloat(document.getElementById('inputCVR').value) || 2.5) / 100;
+            const avgOrderValue = parseFloat(document.getElementById('inputAOV').value) || 45;
+            
+            // Calculate metrics
+            const clicks = Math.round(budget / avgCPC);
+            const conversions = Math.round(clicks * conversionRate);
+            const revenue = conversions * avgOrderValue;
+            const roas = budget > 0 ? revenue / budget : 0;
 
-<!-- SLIDE 6: PROJECTIONS -->
-<section class="slide slide-6">
-  <div class="slide-inner">
-    <div class="section-label">Projected Results</div>
-    <h2>What to expect in the first 90 days</h2>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <div class="proj-num">4-8x</div>
-        <div class="proj-label">Target ROAS</div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-num">$2-4</div>
-        <div class="proj-label">Target CPC</div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-num">3-5%</div>
-        <div class="proj-label">Expected CVR</div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-num">30 days</div>
-        <div class="proj-label">To first optimisation cycle</div>
-      </div>
-    </div>
-    <div class="insight-box">
-      <strong>Month 1:</strong> Account setup, tracking, initial campaigns live. Learning phase.<br>
-      <strong>Month 2:</strong> Data-driven optimisation. Cut waste, scale winners. Shopping feed improvements.<br>
-      <strong>Month 3:</strong> Full scaling mode. Expanded keywords, refined audiences, PMax rollout.
-    </div>
-    <p class="disclaimer" style="margin-top: 24px;">
-      Projections based on industry benchmarks for eco-friendly e-commerce. Actual results depend on budget, market conditions, and website conversion rate.
-    </p>
-  </div>
-  <span class="page-num">06</span>
-</section>
+            // Update display
+            budgetDisplay.textContent = '$' + budget.toLocaleString();
+            clicksDisplay.textContent = clicks.toLocaleString();
+            conversionsDisplay.textContent = conversions.toLocaleString();
+            revenueDisplay.textContent = '$' + revenue.toLocaleString();
+            roasDisplay.textContent = roas.toFixed(2) + 'x';
+            roasSimpleDisplay.textContent = roas.toFixed(2);
+        }
 
-<!-- SLIDE 7: CTA -->
-<section class="slide slide-7">
-  <div class="slide-inner">
-    <h2>Ready to grow Package Free Shop?</h2>
-    <p>Let's hop on a quick call to walk through the strategy, answer questions, and map out next steps.</p>
-    <a href="mailto:ben@jbmktg.com" class="cta-btn">Book a Call →</a>
-    <div class="contact-info">
-      ben@jbmktg.com · jbmktg.com
-    </div>
-  </div>
-  <span class="page-num">07</span>
-</section>
-
+        budgetSlider.addEventListener('input', updateCalculations);
+        
+        // Initialize on load
+        updateCalculations();
+    </script>
 </body>
 </html>
