@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free CRO Checklist | JB Marketing</title>
+    <link rel="stylesheet" href="https://jbmktg.com/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Kulim+Park:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body), 'Kulim Park', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .hero {
+            background: radial-gradient(ellipse at top, rgba(110, 99, 255, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at bottom right, rgba(66, 62, 204, 0.1) 0%, transparent 50%),
+                        var(--bg);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+        .badge {
+            background: rgba(66, 62, 204, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--p2);
+        }
+
+        h1 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subheading {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--p2);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--p);
+            color: white;
+            padding: 18px 48px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(66, 62, 204, 0.4);
+        }
+
+        .cta-button:hover {
+            background: var(--p2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(110, 99, 255, 0.5);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        /* What's Inside */
+        .whats-inside {
+            padding: 80px 20px;
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .checklist-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius2);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--p);
+            box-shadow: 0 10px 30px rgba(66, 62, 204, 0.3);
+        }
+
+        .checklist-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .checklist-card h3 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .checklist-card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 20px;
+            background: var(--bg);
+        }
+
+        .proof-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .proof-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius2);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--p);
+        }
+
+        .proof-quote {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .proof-author {
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .proof-role {
+            color: var(--muted2);
+            font-size: 13px;
+        }
+
+        .proof-stars {
+            color: #f5a623;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        /* Preview Section */
+        .preview-section {
+            padding: 80px 20px;
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        .preview-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius2);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .preview-header {
+            background: rgba(66, 62, 204, 0.15);
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .preview-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--muted2);
+        }
+
+        .preview-dot.green { background: #34d399; }
+        .preview-dot.yellow { background: #fbbf24; }
+        .preview-dot.red { background: #f87171; }
+
+        .preview-body {
+            padding: 30px;
+        }
+
+        .preview-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .preview-row:last-child { border-bottom: none; }
+
+        .preview-check {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid var(--p);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-check.done {
+            background: var(--p);
+        }
+
+        .preview-check.done::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .preview-blur {
+            filter: blur(4px);
+            user-select: none;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 20px;
+            background: var(--bg);
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 50px;
+            border-radius: var(--radius2);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--border);
+            background: var(--card2);
+            color: var(--text);
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--p);
+            box-shadow: 0 0 0 3px rgba(66, 62, 204, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--p);
+            color: white;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--p2);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--muted2);
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        .form-message {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+
+        .form-message h3 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .form-message p { color: var(--muted); line-height: 1.8; }
+
+        .form-message a {
+            display: inline-block;
+            margin-top: 20px;
+            background: var(--p);
+            color: white;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-message a:hover {
+            background: var(--p2);
+            transform: translateY(-2px);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 20px;
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-container { max-width: 800px; margin: 0 auto; }
+
+        .faq-item {
+            background: var(--card);
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover { border-color: var(--p); }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 25px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover { background: rgba(66, 62, 204, 0.05); }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 28px;
+            color: var(--p);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+
+        .faq-answer-content {
+            padding: 0 25px 25px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: radial-gradient(ellipse at top, rgba(110, 99, 255, 0.15) 0%, transparent 60%),
+                        var(--bg);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 42px;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            color: var(--muted);
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 48px 16px 56px; }
+            h1 { font-size: 26px; }
+            .badge { font-size: 11px; padding: 8px 16px; }
+            .subheading { font-size: 15px; }
+            .section-title { font-size: 26px; }
+            .form-container { padding: 24px 16px; }
+            .hero-stats { gap: 24px; }
+            .hero-stat-number { font-size: 28px; }
+            .cta-button, .btn-submit { width: 100%; text-align: center; }
+            .preview-row { font-size: 13px; }
+            .faq-question { font-size: 16px; }
+            .final-cta h2 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Free Google Sheet Resource</div>
+            <h1>This CRO checklist has made our clients thousands</h1>
+            <p class="subheading">The exact conversion rate optimisation checklist we use before launching any Google Ads campaign. 47 checks across landing pages, product pages, checkout, and trust signals.</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">47</div>
+                    <div class="hero-stat-label">CRO checks</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">6</div>
+                    <div class="hero-stat-label">Categories</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">2x</div>
+                    <div class="hero-stat-label">Avg. CVR lift</div>
+                </div>
+            </div>
+
+            <a href="#get-checklist" class="cta-button">Get the Free Checklist</a>
+        </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section class="whats-inside">
+        <div class="container">
+            <h2 class="section-title">What's inside</h2>
+            <p class="section-subtitle">Six categories covering every part of your store that impacts conversion rate.</p>
+            <div class="checklist-grid">
+                <div class="checklist-card">
+                    <div class="checklist-icon">🏠</div>
+                    <h3>Landing Pages</h3>
+                    <p>Above-the-fold messaging, hero images, value propositions, and CTA placement that turns browsers into buyers.</p>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">🛍️</div>
+                    <h3>Product Pages</h3>
+                    <p>Image quality, descriptions, pricing display, variant selectors, and the details that make someone click "Add to Cart".</p>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">💳</div>
+                    <h3>Checkout Flow</h3>
+                    <p>Cart abandonment killers, payment options, shipping transparency, and friction points that cost you sales every day.</p>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">⭐</div>
+                    <h3>Trust Signals</h3>
+                    <p>Reviews, social proof, guarantees, security badges, and the credibility markers that remove buying hesitation.</p>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">📱</div>
+                    <h3>Mobile Experience</h3>
+                    <p>Speed, tap targets, mobile navigation, sticky CTAs, and responsive design checks for where most of your traffic comes from.</p>
+                </div>
+                <div class="checklist-card">
+                    <div class="checklist-icon">📊</div>
+                    <h3>Tracking Setup</h3>
+                    <p>Conversion tracking, GA4 events, Google Ads tags, and the measurement foundation you need before spending a penny on ads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="preview-section">
+        <div class="container">
+            <h2 class="section-title">Sneak peek</h2>
+            <p class="section-subtitle">Here's a taste of what you'll get. The full sheet has 47 actionable checks.</p>
+            <div class="preview-box">
+                <div class="preview-header">
+                    <div class="preview-dot red"></div>
+                    <div class="preview-dot yellow"></div>
+                    <div class="preview-dot green"></div>
+                    <span style="color: var(--muted); font-size: 14px; margin-left: 8px;">CRO Checklist - JB Marketing</span>
+                </div>
+                <div class="preview-body">
+                    <div class="preview-row">
+                        <div class="preview-check done"></div>
+                        <span>Hero section has a clear, benefit-driven headline</span>
+                    </div>
+                    <div class="preview-row">
+                        <div class="preview-check done"></div>
+                        <span>Primary CTA is above the fold on all devices</span>
+                    </div>
+                    <div class="preview-row">
+                        <div class="preview-check"></div>
+                        <span>Product images show the product in use (not just on white)</span>
+                    </div>
+                    <div class="preview-row">
+                        <div class="preview-check done"></div>
+                        <span>Shipping costs are visible before checkout</span>
+                    </div>
+                    <div class="preview-row">
+                        <div class="preview-check"></div>
+                        <span>Reviews are displayed on product pages (not just a separate tab)</span>
+                    </div>
+                    <div class="preview-row preview-blur">
+                        <div class="preview-check"></div>
+                        <span>Mobile page speed scores above 70 on Core Web Vitals</span>
+                    </div>
+                    <div class="preview-row preview-blur">
+                        <div class="preview-check done"></div>
+                        <span>Cart abandonment email sequence is active and tested</span>
+                    </div>
+                    <div class="preview-row preview-blur">
+                        <div class="preview-check"></div>
+                        <span>Google Ads conversion tracking fires on purchase confirmation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="section-title">What people are saying</h2>
+            <p class="section-subtitle">Ecommerce founders who've used this checklist to improve their stores.</p>
+            <div class="proof-cards">
+                <div class="proof-card">
+                    <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="proof-quote">"We went through this checklist before our Black Friday push and found 12 things we'd missed. Our conversion rate went from 1.8% to 3.2% in two weeks."</p>
+                    <div class="proof-author">DTC Brand Founder</div>
+                    <div class="proof-role">Fashion, Shopify</div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="proof-quote">"Simple but incredibly effective. The checkout flow section alone saved us from leaking hundreds of sales a month."</p>
+                    <div class="proof-author">Ecommerce Manager</div>
+                    <div class="proof-role">Home Goods, WooCommerce</div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="proof-quote">"I've paid consultants thousands for less useful advice. This is the first thing I share with anyone running an online store."</p>
+                    <div class="proof-author">Store Owner</div>
+                    <div class="proof-role">Pet Products, Shopify</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <section class="form-section" id="get-checklist">
+        <div class="container">
+            <h2 class="section-title">Get the checklist</h2>
+            <p class="section-subtitle">Drop your details and we'll send it straight to your inbox.</p>
+            <div class="form-container">
+                <form id="checklist-form">
+                    <div class="form-group">
+                        <label for="name">First Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Ben" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="ben@yourstore.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Store URL (optional)</label>
+                        <input type="url" id="website" name="website" placeholder="https://yourstore.com">
+                    </div>
+                    <button type="submit" class="btn-submit">Send Me the Checklist</button>
+                    <p class="form-note">No spam. Just the checklist and occasionally useful stuff. Unsubscribe anytime.</p>
+                </form>
+                <div class="form-message" id="form-success">
+                    <h3>Check your inbox! 📬</h3>
+                    <p>We've sent the CRO checklist to your email. Make a copy of the Google Sheet and start ticking things off.</p>
+                    <p style="margin-top: 16px;">While you're at it, want us to audit your store's Google Ads readiness?</p>
+                    <a href="https://benjaminjbmktg.github.io/JBMKTG/funnel/funnel.html">Get a Free Audit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">Is this really free?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Yes, completely free. No hidden upsell on the other side. We created this checklist for our own clients and decided to share it because it's genuinely useful. If you want help implementing the changes, we're here, but there's zero obligation.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Who is this for?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Any ecommerce store owner or marketer who wants to improve their conversion rate. It's especially useful if you're running (or about to run) Google Ads, because every percentage point in conversion rate directly impacts your ROAS.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What format is it in?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">It's a Google Sheet. Make a copy to your own Drive and you'll have an interactive checklist you can tick off as you go. Each item has a priority level and notes on how to implement it.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How long does it take to go through?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Most people spend 1-2 hours going through the full checklist. Some items are quick fixes (5 minutes), others might take longer to implement. We recommend doing the high-priority items first.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Will this work for my platform?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Yes. While we work primarily with Shopify stores, the CRO principles in this checklist apply to any ecommerce platform: WooCommerce, BigCommerce, Magento, custom builds. Good conversion fundamentals are universal.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Stop leaving money on the table</h2>
+            <p>Every day without these fixes is revenue you're losing. The checklist takes 5 minutes to download and could change everything.</p>
+            <a href="#get-checklist" class="cta-button">Get the Free Checklist</a>
+        </div>
+    </section>
+
+    <script>
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Form
+        const N8N_WEBHOOK_URL = 'https://jbmktg.app.n8n.cloud/webhook/jbmktg-cro-checklist';
+
+        document.getElementById('checklist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const website = document.getElementById('website').value.trim();
+
+            if (!name || !email) return;
+
+            // Submit to n8n
+            fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    funnel: 'cro-checklist',
+                    name: name,
+                    email: email,
+                    website: website
+                })
+            }).catch(err => console.log('Submission error:', err));
+
+            // Show success
+            this.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
