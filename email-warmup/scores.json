@@ -1,0 +1,35 @@
+[
+  {
+    "date": "2026-03-10",
+    "timestamp": "2026-03-10T13:31:46.249872",
+    "score": 70,
+    "breakdown": {
+      "authentication": 0,
+      "inbox_placement": 35,
+      "bounce_rate": 15,
+      "engagement": 20
+    },
+    "details": {
+      "authentication": {
+        "checked": 5,
+        "spf_pass_rate": 0.0,
+        "dkim_pass_rate": 0.0,
+        "dmarc_pass_rate": 0.0
+      },
+      "inbox_placement": {
+        "inbox": 24,
+        "spam": 0,
+        "inbox_rate": 100.0
+      },
+      "bounce_rate": {
+        "bounces": 1,
+        "status": "1 bounce(s) detected"
+      },
+      "engagement": {
+        "sent": 26,
+        "received": 24,
+        "engagement_rate": 92.3
+      }
+    }
+  }
+]
