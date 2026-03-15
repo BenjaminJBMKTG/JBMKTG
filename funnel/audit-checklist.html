@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Audit Checklist - £47 | JB Marketing</title>
+    <link rel="stylesheet" href="https://jbmktg.com/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Kulim+Park:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body), 'Kulim Park', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: radial-gradient(ellipse at top, rgba(110, 99, 255, 0.15) 0%, transparent 60%), 
+                        radial-gradient(circle at bottom right, rgba(66, 62, 204, 0.1) 0%, transparent 50%), 
+                        var(--bg);
+            color: var(--text);
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .subtitle {
+            font-size: 22px;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: var(--p);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 20px;
+            border: 1px solid var(--p2);
+        }
+
+        .price-badge .old-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-right: 10px;
+        }
+
+        .what-you-get {
+            background: var(--bg2);
+            padding: 60px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 50px;
+        }
+
+        .checklist-items {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius2);
+            padding: 40px;
+            backdrop-filter: blur(12px);
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--p);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .checklist-item-content h3 {
+            color: var(--text);
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .checklist-item-content p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .payment-section {
+            background: var(--bg);
+            padding: 60px 20px;
+        }
+
+        .payment-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 2px solid var(--p);
+            border-radius: var(--radius2);
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(66, 62, 204, 0.3);
+        }
+
+        .payment-box h2 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 32px;
+            color: var(--text);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .payment-box .price {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 56px;
+            color: var(--p2);
+            margin: 20px 0;
+            font-weight: 800;
+        }
+
+        .payment-box .price span {
+            font-size: 28px;
+            vertical-align: super;
+        }
+
+        .payment-box ul {
+            text-align: left;
+            margin: 30px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .payment-box ul li {
+            color: var(--muted);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .payment-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .payment-box ul li::before {
+            content: '✓';
+            color: var(--p);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: var(--p);
+            color: white;
+            padding: 20px 60px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(66, 62, 204, 0.5);
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .buy-button:hover {
+            background: var(--p2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 99, 255, 0.6);
+        }
+
+        .guarantee {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--card2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .guarantee h4 {
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .guarantee p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .faq-section {
+            background: var(--bg2);
+            padding: 60px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .faq-item p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .checklist-items,
+            .payment-box {
+                padding: 25px;
+            }
+
+            .payment-box .price {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>The 83-Point Google Ads Audit Checklist</h1>
+            <p class="subtitle">The exact framework we use to audit £50k+/month ecommerce accounts (and find thousands in wasted spend)</p>
+            <div class="price-badge">
+                <span class="old-price">£97</span>
+                <span>£47 Today Only</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="what-you-get">
+        <div class="container">
+            <h2 class="section-title">What's Included</h2>
+            <div class="checklist-items">
+                <div class="checklist-item">
+                    <div class="check-icon">✓</div>
+                    <div class="checklist-item-content">
+                        <h3>83-Point Audit Checklist (PDF)</h3>
+                        <p>Campaign structure, keyword strategy, shopping feeds, conversion tracking, bidding strategies, and more. Everything we check when auditing a new account.</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-icon">✓</div>
+                    <div class="checklist-item-content">
+                        <h3>Ecommerce Campaign Templates</h3>
+                        <p>Pre-built campaign structures for different ecommerce business models (single product, multi-category, seasonal, etc.)</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-icon">✓</div>
+                    <div class="checklist-item-content">
+                        <h3>Search Term Negative Keyword Guide</h3>
+                        <p>The exact process for identifying wasteful search terms and building negative keyword lists that actually save money.</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-icon">✓</div>
+                    <div class="checklist-item-content">
+                        <h3>Shopping Feed Optimization Checklist</h3>
+                        <p>40+ optimization points for your product feed (titles, descriptions, custom labels, product types, etc.)</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-icon">✓</div>
+                    <div class="checklist-item-content">
+                        <h3>Budget Allocation Calculator</h3>
+                        <p>Google Sheet template for calculating optimal budget allocation across campaigns based on ROAS targets.</p>
+                    </div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-icon">✓</div>
+                    <div class="checklist-item-content">
+                        <h3>Lifetime Access + Future Updates</h3>
+                        <p>One-time payment. Lifetime access. All future updates included (we add new frameworks as Google releases features).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-box">
+                <h2>Get Instant Access</h2>
+                <div class="price"><span>£</span>47</div>
+                <ul>
+                    <li>83-point audit checklist (PDF)</li>
+                    <li>Campaign structure templates</li>
+                    <li>Negative keyword guide</li>
+                    <li>Shopping feed checklist</li>
+                    <li>Budget calculator (Google Sheet)</li>
+                    <li>Lifetime access + updates</li>
+                </ul>
+                
+                <!-- PAYMENT INTEGRATION PLACEHOLDER -->
+                <!-- Option 1: Stripe Checkout Button -->
+                <button class="buy-button" onclick="alert('Stripe/PayPal integration goes here. Set up via Stripe Checkout or PayPal Buy Button.')">
+                    Get Instant Access - £47
+                </button>
+                
+                <!-- Option 2: Link to payment processor -->
+                <!-- <a href="https://buy.stripe.com/your-payment-link" class="buy-button">Get Instant Access - £47</a> -->
+                
+                <div class="guarantee">
+                    <h4>🛡️ 30-Day Money-Back Guarantee</h4>
+                    <p>Not happy? Email ben@jbmktg.com within 30 days for a full refund, no questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Is this the same checklist you use for clients?</h3>
+                    <p>Yes. This is the exact 83-point framework we use when onboarding new clients (normally part of our £2k/month service). We've productized it so you can run the same audit yourself.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I've never run Google Ads before?</h3>
+                    <p>The checklist includes explanations for each point, so you'll understand what to look for even if you're new to Google Ads. That said, it's most valuable for people with existing accounts (£2k+/month spend).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I access the files?</h3>
+                    <p>Instant download link sent to your email after payment. PDF checklist + Google Sheet templates ready to use immediately.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I need help implementing the audit?</h3>
+                    <p>The checklist tells you what to look for and how to fix it. If you want us to do it for you, book a strategy call (link in your confirmation email).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer refunds?</h3>
+                    <p>Yes. 30-day money-back guarantee, no questions asked. Just email ben@jbmktg.com.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="payment-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="payment-box" style="border-color: var(--p2);">
+                <h2>Ready to Audit Your Account?</h2>
+                <p style="color: var(--muted); margin: 20px 0;">One-time payment. Instant access. Lifetime updates.</p>
+                <button class="buy-button" onclick="alert('Stripe/PayPal integration goes here')">
+                    Get Instant Access - £47
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
