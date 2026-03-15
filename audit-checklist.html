@@ -364,22 +364,23 @@
       height: 10px;
       border-right: 2px solid rgba(195,188,255,.7);
       border-bottom: 2px solid rgba(195,188,255,.7);
-      transform: rotate(45deg);
+      transform: rotate(225deg);
       transition: transform .2s ease;
     }
 
-    .section.open .sectionChevron {
-      transform: rotate(225deg);
+    .section.collapsed .sectionChevron {
+      transform: rotate(45deg);
     }
 
     .sectionBody {
-      max-height: 0;
-      overflow: hidden;
+      max-height: 5000px;
+      overflow: visible;
       transition: max-height .3s ease;
     }
 
-    .section.open .sectionBody {
-      max-height: 5000px;
+    .section.collapsed .sectionBody {
+      max-height: 0;
+      overflow: hidden;
     }
 
     .checklistItems {
@@ -739,7 +740,7 @@
 
       auditData.forEach((section, sectionIndex) => {
         const sectionEl = document.createElement('div');
-        sectionEl.className = 'section open';
+        sectionEl.className = 'section';
         sectionEl.dataset.sectionIndex = sectionIndex;
 
         const headerEl = document.createElement('div');
@@ -782,7 +783,7 @@
         sectionEl.appendChild(bodyEl);
 
         headerEl.addEventListener('click', () => {
-          sectionEl.classList.toggle('open');
+          sectionEl.classList.toggle('collapsed');
         });
 
         container.appendChild(sectionEl);
