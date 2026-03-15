@@ -514,6 +514,12 @@
         <div class="headerLogo"></div>
         <h1 class="headerTitle">83-Point Google Ads Audit Checklist</h1>
         <p class="headerLead">Work through each section to conduct a comprehensive audit of your Google Ads account. Your progress is saved automatically.</p>
+        <div class="headerActions">
+          <button class="btn btn--ghost" id="resetBtn">
+            <span>🔄</span>
+            Reset Progress
+          </button>
+        </div>
       </div>
 
       <!-- Progress -->
@@ -717,6 +723,14 @@
     function initApp() {
       renderChecklist();
       updateProgress();
+
+      // Reset button
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+          localStorage.removeItem('auditProgress');
+          location.reload();
+        }
+      });
     }
 
     function renderChecklist() {
