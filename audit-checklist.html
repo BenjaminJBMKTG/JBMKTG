@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Ads Audit Checklist — JB Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:wght@400;600;700&family=Unbounded:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0B12;
+      --bg2: #101023;
+      --card: #12122B;
+      --card2: #0F0F1E;
+      --text: #EDEBFF;
+      --muted: #B7B3E6;
+      --muted2: #8D89C7;
+      --border: rgba(195,188,255,.14);
+      --font-body: "Kulim Park", system-ui, -apple-system, sans-serif;
+      --font-heading: "Unbounded", system-ui, sans-serif;
+      --p: #423ECC;
+      --p2: #6E63FF;
+      --p3: #C3BCFF;
+      --shadow: 0 14px 50px rgba(0,0,0,.55);
+      --radius: 6px;
+      --radius2: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background: #07070D;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      background-color: #07070D;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(110,99,255,.25), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(66,62,204,.22), transparent 50%);
+      animation: bgDrift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgDrift {
+      0% { background-position: 0% 0%, 100% 0%; opacity: .7; }
+      50% { opacity: 1; }
+      100% { background-position: 10% 5%, 85% -5%; opacity: .7; }
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Password Gate */
+    #passwordGate {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 40px 20px;
+    }
+
+    .gateCard {
+      max-width: 480px;
+      width: 100%;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(195,188,255,.18);
+      background: linear-gradient(180deg, rgba(18,18,43,.75), rgba(15,15,30,.62));
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .gateLogo {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: radial-gradient(circle at 30% 30%, rgba(195,188,255,.8), rgba(110,99,255,.7) 40%, rgba(66,62,204,.9));
+      box-shadow: 0 12px 30px rgba(110,99,255,.25);
+      margin: 0 auto 20px;
+    }
+
+    .gateTitle {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .gateLead {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .gateForm {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .gateInput {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(18,18,43,.6);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: border-color .2s ease;
+    }
+
+    .gateInput:focus {
+      border-color: var(--p3);
+    }
+
+    .gateBtn {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(195,188,255,.18);
+      background: var(--p);
+      color: white;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all .2s ease;
+      box-shadow: 0 16px 50px rgba(110,99,255,.18);
+    }
+
+    .gateBtn:hover {
+      box-shadow: 0 18px 70px rgba(110,99,255,.25);
+    }
+
+    .gateBtn:active {
+      transform: translateY(1px);
+    }
+
+    .gateError {
+      color: #ff6b6b;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    .gateError.show {
+      display: block;
+    }
+
+    /* App Container */
+    #app {
+      display: none;
+    }
+
+    #app.show {
+      display: block;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-top: 20px;
+    }
+
+    .headerLogo {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      background: radial-gradient(circle at 30% 30%, rgba(195,188,255,.8), rgba(110,99,255,.7) 40%, rgba(66,62,204,.9));
+      box-shadow: 0 12px 30px rgba(110,99,255,.25);
+      margin: 0 auto 20px;
+    }
+
+    .headerTitle {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 12px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .headerLead {
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    .headerActions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all .2s ease;
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background: var(--p);
+      border-color: rgba(195,188,255,.18);
+      box-shadow: 0 16px 50px rgba(110,99,255,.18);
+      color: white;
+    }
+
+    .btn--primary:hover {
+      box-shadow: 0 18px 70px rgba(110,99,255,.25);
+    }
+
+    .btn--ghost {
+      background: rgba(18,18,43,.35);
+      border-color: rgba(195,188,255,.16);
+      color: var(--p3);
+    }
+
+    .btn--ghost:hover {
+      border-color: rgba(195,188,255,.26);
+      background: rgba(18,18,43,.55);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Progress */
+    .progress {
+      margin-bottom: 32px;
+    }
+
+    .progressCard {
+      border-radius: var(--radius2);
+      border: 1px solid rgba(195,188,255,.16);
+      background: linear-gradient(180deg, rgba(18,18,43,.7), rgba(15,15,30,.55));
+      padding: 20px;
+      box-shadow: 0 16px 70px rgba(110,99,255,.12), 0 14px 44px rgba(0,0,0,.45);
+    }
+
+    .progressTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .progressLabel {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .progressCount {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      color: var(--p3);
+      font-size: 18px;
+    }
+
+    .progressBar {
+      height: 12px;
+      border-radius: 6px;
+      background: rgba(18,18,43,.6);
+      border: 1px solid rgba(195,188,255,.12);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progressFill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--p), var(--p2));
+      border-radius: 6px;
+      transition: width .3s ease;
+      box-shadow: 0 0 16px rgba(110,99,255,.35);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .sectionHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(195,188,255,.14);
+      background: rgba(18,18,43,.55);
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .sectionHeader:hover {
+      border-color: rgba(195,188,255,.22);
+      background: rgba(18,18,43,.65);
+    }
+
+    .sectionLeft {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .sectionIcon {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background: rgba(195,188,255,.12);
+      border: 1px solid rgba(195,188,255,.20);
+      display: grid;
+      place-items: center;
+      color: var(--p3);
+      font-size: 20px;
+    }
+
+    .sectionTitle {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .sectionCount {
+      font-size: 13px;
+      color: var(--muted2);
+      margin-top: 4px;
+    }
+
+    .sectionChevron {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid rgba(195,188,255,.7);
+      border-bottom: 2px solid rgba(195,188,255,.7);
+      transform: rotate(45deg);
+      transition: transform .2s ease;
+    }
+
+    .section.open .sectionChevron {
+      transform: rotate(225deg);
+    }
+
+    .sectionBody {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+
+    .section.open .sectionBody {
+      max-height: 5000px;
+    }
+
+    .checklistItems {
+      padding: 16px 20px 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    /* Checklist Item */
+    .checkItem {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(195,188,255,.10);
+      background: rgba(18,18,43,.26);
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .checkItem:hover {
+      border-color: rgba(195,188,255,.18);
+      background: rgba(18,18,43,.35);
+    }
+
+    .checkItem.checked {
+      border-color: rgba(110,99,255,.25);
+      background: rgba(110,99,255,.08);
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 2px solid rgba(195,188,255,.25);
+      background: rgba(18,18,43,.4);
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: all .2s ease;
+    }
+
+    .checkItem.checked .checkbox {
+      border-color: var(--p2);
+      background: var(--p);
+      box-shadow: 0 0 12px rgba(110,99,255,.35);
+    }
+
+    .checkbox::after {
+      content: "✓";
+      color: white;
+      font-weight: 900;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .checkItem.checked .checkbox::after {
+      opacity: 1;
+    }
+
+    .checkLabel {
+      flex: 1;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .checkItem.checked .checkLabel {
+      color: var(--text);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 60px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(195,188,255,.10);
+      text-align: center;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    /* Mobile */
+    @media (max-width: 720px) {
+      body {
+        padding: 12px;
+      }
+
+      .gateCard {
+        padding: 24px;
+      }
+
+      .headerActions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div id="passwordGate">
+    <div class="gateCard">
+      <div class="gateLogo"></div>
+      <h1 class="gateTitle">Google Ads Audit Checklist</h1>
+      <p class="gateLead">Enter your password to access your premium audit checklist.</p>
+      <form class="gateForm" id="passwordForm">
+        <input 
+          type="password" 
+          class="gateInput" 
+          id="passwordInput" 
+          placeholder="Enter password"
+          autocomplete="off"
+        />
+        <button type="submit" class="gateBtn">Unlock Checklist</button>
+        <p class="gateError" id="gateError">Incorrect password. Please try again.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app">
+    <div class="container">
+      
+      <!-- Header -->
+      <div class="header">
+        <div class="headerLogo"></div>
+        <h1 class="headerTitle">83-Point Google Ads Audit Checklist</h1>
+        <p class="headerLead">Work through each section to conduct a comprehensive audit of your Google Ads account. Your progress is saved automatically.</p>
+        <div class="headerActions">
+          <button class="btn btn--primary" id="exportBtn">
+            <span>📄</span>
+            Export to PDF
+          </button>
+          <button class="btn btn--ghost" id="resetBtn">
+            <span>🔄</span>
+            Reset Progress
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress">
+        <div class="progressCard">
+          <div class="progressTop">
+            <span class="progressLabel">Audit Progress</span>
+            <span class="progressCount"><span id="progressCount">0</span> / 83</span>
+          </div>
+          <div class="progressBar">
+            <div class="progressFill" id="progressFill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist Sections -->
+      <div id="checklist"></div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>&copy; 2026 JB Marketing. All rights reserved.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Password protection
+    const PASSWORD = 'JBMKTG47'; // Change this to your desired password
+    const passwordForm = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('passwordInput');
+    const gateError = document.getElementById('gateError');
+    const passwordGate = document.getElementById('passwordGate');
+    const app = document.getElementById('app');
+
+    // Check if already authenticated
+    if (localStorage.getItem('auditAuth') === 'true') {
+      passwordGate.style.display = 'none';
+      app.classList.add('show');
+      initApp();
+    }
+
+    passwordForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (passwordInput.value === PASSWORD) {
+        localStorage.setItem('auditAuth', 'true');
+        passwordGate.style.display = 'none';
+        app.classList.add('show');
+        initApp();
+      } else {
+        gateError.classList.add('show');
+        passwordInput.value = '';
+      }
+    });
+
+    // Audit checklist data
+    const auditData = [
+      {
+        title: "Campaign Strategy & Structure",
+        icon: "🎯",
+        items: [
+          "Each campaign targets a single, well-defined goal (sales, leads, brand awareness)",
+          "Campaign naming convention is clear and consistent",
+          "Campaigns are organized by product/service category or customer intent",
+          "Shopping and Search campaigns are separated (not mixed)",
+          "Brand and non-brand campaigns are separated",
+          "High-volume keywords are in dedicated campaigns for budget control",
+          "Geo-targeting is set appropriately for business coverage area",
+          "Ad schedule matches business hours or peak conversion times",
+          "Budget allocation reflects priority and performance across campaigns",
+          "Campaign experiments or drafts are being used to test new strategies"
+        ]
+      },
+      {
+        title: "Ad Group Organization",
+        icon: "📁",
+        items: [
+          "Each ad group contains tightly themed keywords (SKAG or similar)",
+          "Ad groups have 10-20 keywords maximum",
+          "Keywords within an ad group share the same search intent",
+          "Single Keyword Ad Groups (SKAGs) are used for top-performing terms",
+          "Dynamic Search Ads (DSA) are in separate ad groups",
+          "Ad group naming clearly identifies the theme or keyword focus",
+          "Negative keywords are applied at ad group level where needed",
+          "Ad groups are not overly broad or generic"
+        ]
+      },
+      {
+        title: "Keyword Strategy",
+        icon: "🔑",
+        items: [
+          "Keywords are relevant to the ad group theme and landing page",
+          "Broad match keywords have corresponding negative lists",
+          "Phrase and exact match keywords are used for high-intent terms",
+          "Keyword match types are diversified (not all broad or all exact)",
+          "Long-tail keywords are included to capture specific intent",
+          "Keyword bids are set based on performance data, not gut feel",
+          "Top-performing keywords are isolated in dedicated ad groups",
+          "Seasonal or promotional keywords are paused when not relevant",
+          "Duplicate keywords across campaigns/ad groups are minimized",
+          "Keyword quality scores are monitored and improved"
+        ]
+      },
+      {
+        title: "Ad Copy & Extensions",
+        icon: "✍️",
+        items: [
+          "Every ad group has at least 3 Responsive Search Ads (RSAs)",
+          "Headlines include the primary keyword from the ad group",
+          "At least one headline highlights a unique selling proposition (USP)",
+          "Descriptions mention benefits, not just features",
+          "Call-to-action (CTA) is clear and compelling",
+          "Ad copy aligns with the landing page content",
+          "Sitelink extensions are enabled at account and campaign level",
+          "Callout extensions highlight key benefits or offers",
+          "Structured snippets show product/service categories",
+          "Call extensions are enabled (with call tracking if possible)",
+          "Location extensions are enabled for local businesses",
+          "Price extensions are used for ecommerce or service pricing",
+          "Promotion extensions are used during sales periods",
+          "Image extensions are enabled to improve ad visibility"
+        ]
+      },
+      {
+        title: "Bidding & Budget",
+        icon: "💰",
+        items: [
+          "Bidding strategy aligns with campaign goal (CPA, ROAS, Maximize Conversions)",
+          "Manual CPC is only used where justified (testing, low volume)",
+          "Target CPA or Target ROAS is set based on historical data",
+          "Budget is not being exhausted before end of day (unless intentional)",
+          "Shared budgets are used strategically, not as a crutch",
+          "Campaign budgets reflect business priorities and profit margins",
+          "Bid adjustments are applied for device, location, and time of day",
+          "Automated bidding has sufficient conversion data (30+ conversions/month)",
+          "Bid strategies are not switched frequently (allow 2-week learning period)",
+          "Portfolio bid strategies group similar campaigns for better learning"
+        ]
+      },
+      {
+        title: "Conversion Tracking & Measurement",
+        icon: "📊",
+        items: [
+          "Google Ads conversion tracking is installed and firing correctly",
+          "All key actions (purchases, leads, calls, form fills) are tracked",
+          "Conversion values are assigned (for ecommerce or lead scoring)",
+          "Google Analytics 4 is linked to Google Ads",
+          "Assisted conversions and view-through conversions are reviewed",
+          "Attribution model is appropriate for the business (last-click, data-driven, etc.)",
+          "Enhanced conversions or conversion import is set up",
+          "Conversion lag is understood and accounted for in optimization",
+          "Offline conversions are imported if applicable (CRM, phone calls)",
+          "Conversion tracking is tested regularly to ensure accuracy"
+        ]
+      },
+      {
+        title: "Search Terms & Negatives",
+        icon: "🚫",
+        items: [
+          "Search term reports are reviewed at least weekly",
+          "Irrelevant search terms are added as negatives promptly",
+          "Negative keyword lists are applied at account and campaign level",
+          "Competitor brand names are added as negatives (unless intentional)",
+          "Informational queries (how to, what is, etc.) are negated for conversion campaigns",
+          "Broad match keywords have robust negative lists to prevent waste",
+          "Negative keywords are reviewed and refined regularly",
+          "Shared negative lists are used to scale negative management"
+        ]
+      },
+      {
+        title: "Landing Pages & User Experience",
+        icon: "🌐",
+        items: [
+          "Each ad group has a dedicated, relevant landing page",
+          "Landing pages load in under 3 seconds (mobile and desktop)",
+          "Landing page headline matches or closely mirrors ad copy",
+          "CTA is above the fold and clearly visible",
+          "Landing pages are mobile-optimized and responsive",
+          "Forms are simple and ask only essential information",
+          "Trust signals (reviews, badges, guarantees) are present",
+          "Landing page quality score factors are monitored and improved",
+          "A/B testing is being conducted on landing pages"
+        ]
+      },
+      {
+        title: "Account Hygiene & Optimization",
+        icon: "🧹",
+        items: [
+          "Paused campaigns/ad groups are reviewed and archived if no longer needed",
+          "Low-performing keywords are paused or removed",
+          "Ad copy is refreshed every 60-90 days",
+          "Account structure is documented and easy to navigate",
+          "Labels and custom columns are used for reporting clarity",
+          "Alerts are set up for budget exhaustion, disapproved ads, and tracking issues",
+          "Google Ads recommendations are reviewed (but not blindly applied)",
+          "Account is audited quarterly for structure, performance, and opportunities"
+        ]
+      }
+    ];
+
+    function initApp() {
+      renderChecklist();
+      updateProgress();
+
+      // Export button
+      document.getElementById('exportBtn').addEventListener('click', exportToPDF);
+
+      // Reset button
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+          localStorage.removeItem('auditProgress');
+          location.reload();
+        }
+      });
+    }
+
+    function renderChecklist() {
+      const container = document.getElementById('checklist');
+      const savedProgress = JSON.parse(localStorage.getItem('auditProgress') || '{}');
+
+      auditData.forEach((section, sectionIndex) => {
+        const sectionEl = document.createElement('div');
+        sectionEl.className = 'section';
+        sectionEl.dataset.sectionIndex = sectionIndex;
+
+        const headerEl = document.createElement('div');
+        headerEl.className = 'sectionHeader';
+        headerEl.innerHTML = `
+          <div class="sectionLeft">
+            <div class="sectionIcon">${section.icon}</div>
+            <div>
+              <div class="sectionTitle">${section.title}</div>
+              <div class="sectionCount"><span class="sectionChecked">0</span> / ${section.items.length} completed</div>
+            </div>
+          </div>
+          <div class="sectionChevron"></div>
+        `;
+
+        const bodyEl = document.createElement('div');
+        bodyEl.className = 'sectionBody';
+
+        const itemsEl = document.createElement('div');
+        itemsEl.className = 'checklistItems';
+
+        section.items.forEach((item, itemIndex) => {
+          const itemId = `${sectionIndex}-${itemIndex}`;
+          const isChecked = savedProgress[itemId] || false;
+
+          const itemEl = document.createElement('div');
+          itemEl.className = `checkItem ${isChecked ? 'checked' : ''}`;
+          itemEl.dataset.itemId = itemId;
+          itemEl.innerHTML = `
+            <div class="checkbox"></div>
+            <div class="checkLabel">${item}</div>
+          `;
+
+          itemEl.addEventListener('click', () => toggleItem(itemId, itemEl));
+          itemsEl.appendChild(itemEl);
+        });
+
+        bodyEl.appendChild(itemsEl);
+        sectionEl.appendChild(headerEl);
+        sectionEl.appendChild(bodyEl);
+
+        headerEl.addEventListener('click', () => {
+          sectionEl.classList.toggle('open');
+        });
+
+        container.appendChild(sectionEl);
+
+        // Update section count
+        updateSectionCount(sectionIndex);
+      });
+    }
+
+    function toggleItem(itemId, itemEl) {
+      const savedProgress = JSON.parse(localStorage.getItem('auditProgress') || '{}');
+      savedProgress[itemId] = !savedProgress[itemId];
+      localStorage.setItem('auditProgress', JSON.stringify(savedProgress));
+
+      itemEl.classList.toggle('checked');
+      
+      const [sectionIndex] = itemId.split('-').map(Number);
+      updateSectionCount(sectionIndex);
+      updateProgress();
+    }
+
+    function updateSectionCount(sectionIndex) {
+      const savedProgress = JSON.parse(localStorage.getItem('auditProgress') || '{}');
+      const section = auditData[sectionIndex];
+      let checked = 0;
+
+      section.items.forEach((_, itemIndex) => {
+        const itemId = `${sectionIndex}-${itemIndex}`;
+        if (savedProgress[itemId]) checked++;
+      });
+
+      const sectionEl = document.querySelector(`.section[data-section-index="${sectionIndex}"]`);
+      const checkedEl = sectionEl.querySelector('.sectionChecked');
+      if (checkedEl) checkedEl.textContent = checked;
+    }
+
+    function updateProgress() {
+      const savedProgress = JSON.parse(localStorage.getItem('auditProgress') || '{}');
+      const totalItems = auditData.reduce((sum, section) => sum + section.items.length, 0);
+      const checkedItems = Object.values(savedProgress).filter(Boolean).length;
+      const percentage = Math.round((checkedItems / totalItems) * 100);
+
+      document.getElementById('progressCount').textContent = checkedItems;
+      document.getElementById('progressFill').style.width = `${percentage}%`;
+    }
+
+    function exportToPDF() {
+      window.print();
+    }
+
+    // Print styles
+    const style = document.createElement('style');
+    style.textContent = `
+      @media print {
+        body { background: white; color: black; }
+        body::before { display: none; }
+        #app { display: block !important; }
+        .header { page-break-after: avoid; }
+        .section { page-break-inside: avoid; margin-bottom: 20px; }
+        .sectionBody { max-height: none !important; }
+        .btn, .progress { display: none; }
+        .checkItem.checked { background: #e8f5e9; }
+        .checkbox { border-color: #4CAF50; }
+        .checkItem.checked .checkbox { background: #4CAF50; }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>
