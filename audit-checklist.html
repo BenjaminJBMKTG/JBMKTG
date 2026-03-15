@@ -514,16 +514,6 @@
         <div class="headerLogo"></div>
         <h1 class="headerTitle">83-Point Google Ads Audit Checklist</h1>
         <p class="headerLead">Work through each section to conduct a comprehensive audit of your Google Ads account. Your progress is saved automatically.</p>
-        <div class="headerActions">
-          <button class="btn btn--primary" id="exportBtn">
-            <span>📄</span>
-            Export to PDF
-          </button>
-          <button class="btn btn--ghost" id="resetBtn">
-            <span>🔄</span>
-            Reset Progress
-          </button>
-        </div>
       </div>
 
       <!-- Progress -->
@@ -727,17 +717,6 @@
     function initApp() {
       renderChecklist();
       updateProgress();
-
-      // Export button
-      document.getElementById('exportBtn').addEventListener('click', exportToPDF);
-
-      // Reset button
-      document.getElementById('resetBtn').addEventListener('click', () => {
-        if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
-          localStorage.removeItem('auditProgress');
-          location.reload();
-        }
-      });
     }
 
     function renderChecklist() {
@@ -835,28 +814,6 @@
       document.getElementById('progressCount').textContent = checkedItems;
       document.getElementById('progressFill').style.width = `${percentage}%`;
     }
-
-    function exportToPDF() {
-      window.print();
-    }
-
-    // Print styles
-    const style = document.createElement('style');
-    style.textContent = `
-      @media print {
-        body { background: white; color: black; }
-        body::before { display: none; }
-        #app { display: block !important; }
-        .header { page-break-after: avoid; }
-        .section { page-break-inside: avoid; margin-bottom: 20px; }
-        .sectionBody { max-height: none !important; }
-        .btn, .progress { display: none; }
-        .checkItem.checked { background: #e8f5e9; }
-        .checkbox { border-color: #4CAF50; }
-        .checkItem.checked .checkbox { background: #4CAF50; }
-      }
-    `;
-    document.head.appendChild(style);
   </script>
 
 </body>
