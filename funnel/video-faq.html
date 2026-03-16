@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Application Is Submitted — JB Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://jbmktg.com/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body), 'Kulim Park', sans-serif;
+            background: #0a0e27;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .brand-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .brand-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading), 'Unbounded', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .faq-video {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #1e293b 100%);
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-video:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .faq-video::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            opacity: 0.6;
+        }
+
+        .faq-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #fff;
+            text-align: left;
+            z-index: 2;
+            position: relative;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(99, 102, 241, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent #fff;
+            margin-left: 4px;
+        }
+
+        .faq-video:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(99, 102, 241, 1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #a5b4fc;
+        }
+
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-button::after {
+                border-width: 10px 0 10px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-header">
+        <div class="brand-name">JB Marketing</div>
+    </div>
+
+    <div class="hero">
+        <h1>Your Application Is Submitted</h1>
+        <p>Watch the videos below to get your questions answered before the call.</p>
+    </div>
+
+    <div class="faq-grid">
+        <div class="faq-video" data-video-id="placeholder-1">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">What happens next?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-2">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">What should I expect on the call?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-3">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">What if Google Ads doesn't work for my brand?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-4">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">Who will I be working with?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-5">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">What makes JB Marketing different?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-6">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">I'm only doing £30k/month. Is this right for me?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-7">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">I've tried agencies before and got burned. Why should I trust you?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-8">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">Can't I just hire someone in-house?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-9">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">What's your refund policy?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-10">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">How quickly will I see results?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-11">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">Do you work with my industry?</div>
+            </div>
+        </div>
+
+        <div class="faq-video" data-video-id="placeholder-12">
+            <div class="play-button"></div>
+            <div class="faq-overlay">
+                <div class="faq-question">What if I'm already running Google Ads?</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>© 2026 JB Marketing. All rights reserved.</div>
+        <div style="margin-top: 10px;">
+            <a href="https://jbmktg.com/privacy">Privacy Policy</a>
+            <a href="https://jbmktg.com/terms">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <script>
+        // Video click handler (placeholder - replace with actual video player integration)
+        document.querySelectorAll('.faq-video').forEach(video => {
+            video.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                alert(`Video player would open here for: ${this.querySelector('.faq-question').textContent}\n\nVideo ID: ${videoId}\n\nReplace this with your video embed code (YouTube, Vimeo, Wistia, etc.)`);
+            });
+        });
+    </script>
+</body>
+</html>
