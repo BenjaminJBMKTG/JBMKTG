@@ -556,26 +556,6 @@
     const passwordGate = document.getElementById('passwordGate');
     const app = document.getElementById('app');
 
-    // Check if already authenticated
-    if (localStorage.getItem('auditAuth') === 'true') {
-      passwordGate.style.display = 'none';
-      app.classList.add('show');
-      initApp();
-    }
-
-    passwordForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (passwordInput.value === PASSWORD) {
-        localStorage.setItem('auditAuth', 'true');
-        passwordGate.style.display = 'none';
-        app.classList.add('show');
-        initApp();
-      } else {
-        gateError.classList.add('show');
-        passwordInput.value = '';
-      }
-    });
-
     // Audit checklist data
     const auditData = [
       {
@@ -842,6 +822,26 @@
       document.getElementById('progressCount').textContent = checkedItems;
       document.getElementById('progressFill').style.width = `${percentage}%`;
     }
+
+    // Check if already authenticated (moved to end so auditData and functions are defined)
+    if (localStorage.getItem('auditAuth') === 'true') {
+      passwordGate.style.display = 'none';
+      app.classList.add('show');
+      initApp();
+    }
+
+    passwordForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (passwordInput.value === PASSWORD) {
+        localStorage.setItem('auditAuth', 'true');
+        passwordGate.style.display = 'none';
+        app.classList.add('show');
+        initApp();
+      } else {
+        gateError.classList.add('show');
+        passwordInput.value = '';
+      }
+    });
   </script>
 
 </body>
