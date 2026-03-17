@@ -192,6 +192,7 @@
             height: 80px;
             background: linear-gradient(180deg, rgba(99, 102, 241, 0.6) 0%, rgba(99, 102, 241, 0.3) 100%);
             position: relative;
+            margin: 0 auto;
         }
 
         .v-connector::after {
@@ -236,6 +237,7 @@
             width: 4px;
             height: 80px;
             background: rgba(99, 102, 241, 0.3);
+            transform: translateX(-2px);
         }
 
         .split-line-v.left { left: 11%; }
@@ -287,6 +289,7 @@
             height: 60px;
             background: rgba(99, 102, 241, 0.3);
             position: relative;
+            margin: 0 auto;
         }
 
         .stage-v-connector::after {
@@ -340,6 +343,7 @@
             width: 3px;
             height: 60px;
             background: rgba(99, 102, 241, 0.25);
+            transform: translateX(-1.5px);
         }
 
         .campaign-card {
@@ -954,12 +958,12 @@
         }
 
         function zoomIn() {
-            scale = Math.min(scale + 0.05, 3);
+            scale = Math.min(scale + 0.03, 3);
             updateTransform(true);
         }
 
         function zoomOut() {
-            scale = Math.max(scale - 0.05, 0.3);
+            scale = Math.max(scale - 0.03, 0.3);
             updateTransform(true);
         }
 
@@ -1002,7 +1006,7 @@
 
         container.addEventListener('wheel', (e) => {
             e.preventDefault();
-            const delta = e.deltaY > 0 ? -0.03 : 0.03;
+            const delta = e.deltaY > 0 ? -0.02 : 0.02;
             const oldScale = scale;
             scale = Math.max(0.3, Math.min(3, scale + delta));
             
